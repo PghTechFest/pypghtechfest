@@ -1,3 +1,8 @@
+__pycache__
+app.db
+search.db
+flask
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]

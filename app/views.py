@@ -9,3 +9,7 @@ def index():
 @app.route('/venue')
 def venue():
   return render_template("venue.html")
+
+@app.route('/codeofconduct')
+def codeofconduct():
+  return render_template("codeofconduct.html")

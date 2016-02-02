@@ -13,3 +13,7 @@ def venue():
 @app.route('/codeofconduct')
 def codeofconduct():
   return render_template("codeofconduct.html")
+
+@app.route('/callforspeakers')
+def talks():
+  return render_template("callforspeakers.html")

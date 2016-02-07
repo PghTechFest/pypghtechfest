@@ -15,14 +15,23 @@
               <p>
                   Name:<br>
                   {{ form.name(size=80, style="width:100%") }}<br>
+                  {% for error in form.name.errors %}
+                    <span style="color: red;">[{{ error }}]</span>
+                  {% endfor %}<br>
               </p>
               <p>
                   Title:<br>
                   {{ form.title(size=80, style="width:100%") }}<br>
+                  {% for error in form.title.errors %}
+                    <span style="color: red;">[{{ error }}]</span>
+                  {% endfor %}<br>
               </p>
               <p>
                   Abstract:<br>
                   {{ form.abstract(size=1000, style="width:100%") }}<br>
+                  {% for error in form.abstract.errors %}
+                    <span style="color: red;">[{{ error }}]</span>
+                  {% endfor %}<br>
               </p>
               <p><input type="submit" value="Submit Talk"></p>
             </form>

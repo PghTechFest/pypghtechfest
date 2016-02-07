@@ -113,8 +113,6 @@
     </header>
     <!-- *** HEADER END *** -->
 
-
-    {% block content %}{% endblock %}
     {% with messages = get_flashed_messages() %}
       {% if messages %}
         <ul>
@@ -124,6 +122,8 @@
         </ul>
       {% endif %}
     {% endwith %}
+
+    {% block content %}{% endblock %}
 
     <!-- *** FOOTER START *** -->
     <div id="footer">

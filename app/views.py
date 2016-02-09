@@ -15,11 +15,9 @@ def venue():
 def codeofconduct():
   return render_template("codeofconduct.html")
 
-'''
-@app.route('/callforspeakers')
-def talks():
-  return render_template("callforspeakers.html")
-'''
+@app.route('/sponsors')
+def sponsors():
+  return render_template("sponsors.html")
 
 @app.route('/callforspeakers', methods=['GET', 'POST'])
 def talks():

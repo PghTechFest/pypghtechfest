@@ -13,13 +13,6 @@
             <form action="" method="post" name="speakerform">
               {{ form.hidden_tag() }}
               <p>
-                  Name:<br>
-                  {{ form.name(size=80, style="width:100%") }}<br>
-                  {% for error in form.name.errors %}
-                    <span style="color: red;">[{{ error }}]</span>
-                  {% endfor %}<br>
-              </p>
-              <p>
                   Title:<br>
                   {{ form.title(size=80, style="width:100%") }}<br>
                   {% for error in form.title.errors %}
@@ -30,6 +23,55 @@
                   Abstract:<br>
                   {{ form.abstract(size=1000, style="width:100%") }}<br>
                   {% for error in form.abstract.errors %}
+                    <span style="color: red;">[{{ error }}]</span>
+                  {% endfor %}<br>
+              </p>
+              <p>
+                  Time:<br>
+                  {{ form.time(size=80, style="width:100%") }}<br>
+                  {% for error in form.time.errors %}
+                    <span style="color: red;">[{{ error }}]</span>
+                  {% endfor %}<br>
+              </p>
+              <p>
+                  Tracks:<br>
+                  {{ form.tracks(size=80, style="width:100%") }}<br>
+                  {% for error in form.tracks.errors %}
+                    <span style="color: red;">[{{ error }}]</span>
+                  {% endfor %}<br>
+              </p>
+              <p>
+                  Speaker:<br>
+                  {{ form.name(size=80, style="width:100%") }}<br>
+                  {% for error in form.name.errors %}
+                    <span style="color: red;">[{{ error }}]</span>
+                  {% endfor %}<br>
+              </p>
+              <p>
+                  EMail:<br>
+                  {{ form.email(size=80, style="width:100%") }}<br>
+                  {% for error in form.email.errors %}
+                    <span style="color: red;">[{{ error }}]</span>
+                  {% endfor %}<br>
+              </p>
+              <p>
+                  Twitter:<br>
+                  {{ form.twitter(size=80, style="width:100%") }}<br>
+                  {% for error in form.twitter.errors %}
+                    <span style="color: red;">[{{ error }}]</span>
+                  {% endfor %}<br>
+              </p>
+              <p>
+                  Bio:<br>
+                  {{ form.bio(size=80, style="width:100%") }}<br>
+                  {% for error in form.bio.errors %}
+                    <span style="color: red;">[{{ error }}]</span>
+                  {% endfor %}<br>
+              </p>
+              <p>
+                  Comments:<br>
+                  {{ form.comments(size=80, style="width:100%") }}<br>
+                  {% for error in form.comments.errors %}
                     <span style="color: red;">[{{ error }}]</span>
                   {% endfor %}<br>
               </p>

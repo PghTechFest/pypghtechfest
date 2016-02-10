@@ -1,5 +1,6 @@
 from flask.ext.wtf import Form
 from wtforms import StringField, TextAreaField, RadioField
+from wtforms.fields.html5 import EmailField
 from wtforms.validators import DataRequired
 
 class SpeakerForm(Form):
@@ -17,7 +18,7 @@ class SpeakerForm(Form):
   time = RadioField('time', choices=[('60','60 Minutes'),('30','30 Minutes')])
   tracks = StringField('tracks')
   name = StringField('name', validators=[DataRequired()])
-  email = StringField('email', validators=[DataRequired()])
+  email = EmailField('email', validators=[DataRequired()])
   twitter = StringField('twitter')
   bio = TextAreaField('bio', validators=[DataRequired()])
   comments = TextAreaField('comments')

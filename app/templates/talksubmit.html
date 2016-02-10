@@ -42,8 +42,12 @@
               </p>
               <p>
                   Speaker:<br>
-                  {{ form.name(size=80, style="width:100%") }}<br>
-                  {% for error in form.name.errors %}
+                  {{ form.firstName(size=30, style="width:100%") }}
+                  {{ form.lastName(size=30, style="width:100%") }}<br>
+                  {% for error in form.firstName.errors %}
+                    <span style="color: red;">[{{ error }}]</span>
+                  {% endfor %}
+                  {% for error in form.lastName.errors %}
                     <span style="color: red;">[{{ error }}]</span>
                   {% endfor %}<br>
               </p>

@@ -23,8 +23,8 @@ def sponsors():
 def talks():
     form = SpeakerForm()
     if form.validate_on_submit():
-        flash('Talk submitted from "%s", called "%s", described as "%s"' %
-              (form.name.data, form.title.data, form.abstract.data))
+        flash('Talk submitted from "%s" "%s", called "%s", described as "%s", in tracks "%s"' %
+              (form.firstName.data, form.lastName.data, form.title.data, form.abstract.data, form.tracks.data))
         return redirect('/index')
     return render_template('talksubmit.html', 
                            title='Submit Talk',

@@ -2,6 +2,7 @@ __pycache__
 app.db
 search.db
 flask
+db_repository
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

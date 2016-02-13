@@ -19,7 +19,7 @@ class SpeakerForm(Form):
 
   title = StringField('title', validators=[DataRequired()])
   abstract = TextAreaField('abstract', validators=[DataRequired()])
-  time = RadioField('time', choices=[(60,'60 Minutes'),(30,'30 Minutes')])
+  time = RadioField('time', choices=[('60','60 Minutes'),('30','30 Minutes')])
   tracks = MultiCheckboxField('tracks', choices=availableTracks)
   firstName = StringField('name', validators=[DataRequired()])
   lastName = StringField('name', validators=[DataRequired()])

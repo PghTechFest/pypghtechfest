@@ -1,10 +1,10 @@
 from app import db
 
-class User(db.Model):
+class Submission(db.Model):
   id = db.Column(db.Integer, primary_key=True)
   title = db.Column(db.String(80))
   abstract = db.Column(db.Text)
-  time = db.Column(db.Integer)
+  time = db.Column(db.String(5))
   tracks = db.Column(db.String(80))
   firstName = db.Column(db.String(30))
   lastName = db.Column(db.String(30))

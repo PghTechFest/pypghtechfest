@@ -25,24 +25,22 @@ def sponsors():
 def talks():
     form = SpeakerForm()
     if form.validate_on_submit():
-        flash('Talk submitted from "%s" "%s", called "%s", described as "%s", in tracks "%s"' %
-              (form.firstName.data, form.lastName.data, form.title.data, form.abstract.data, form.tracks.data))
-        submission = Submission(
-          title = form.title.data,
-          abstract = form.abstract.data,
-          time = form.time.data,
-          tracks = ','.join(form.tracks.data),
-          firstName = form.firstName.data,
-          lastName = form.lastName.data,
-          email = form.email.data,
-          twitter = form.twitter.data,
-          bio = form.bio.data,
-          comments = form.comments.data,
-          timestamp = datetime.datetime.utcnow())
+      submission = Submission(
+        title = form.title.data,
+        abstract = form.abstract.data,
+        time = form.time.data,
+        tracks = ','.join(form.tracks.data),
+        firstName = form.firstName.data,
+        lastName = form.lastName.data,
+        email = form.email.data,
+        twitter = form.twitter.data,
+        bio = form.bio.data,
+        comments = form.comments.data,
+        timestamp = datetime.datetime.utcnow())
 
-        db.session.add(submission)
-        db.session.commit()
-        return redirect('/index')
+      db.session.add(submission)
+      db.session.commit()
+      return render_template('thanksforsubmitting.html')
 
     return render_template('talksubmit.html', 
                            title='Submit Talk',

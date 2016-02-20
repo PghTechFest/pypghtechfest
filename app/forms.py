@@ -1,5 +1,5 @@
 from flask.ext.wtf import Form
-from wtforms import widgets, StringField, TextAreaField, RadioField, SelectMultipleField
+from wtforms import widgets, StringField, TextAreaField, RadioField, SelectMultipleField, BooleanField
 from wtforms.fields.html5 import EmailField
 from wtforms.validators import DataRequired
 
@@ -27,3 +27,4 @@ class SpeakerForm(Form):
   twitter = StringField('twitter')
   bio = TextAreaField('bio', validators=[DataRequired()])
   comments = TextAreaField('comments')
+  agree = BooleanField('agree', validators=[DataRequired(message='You must agree to our code of conduct in order to submit a talk.')])

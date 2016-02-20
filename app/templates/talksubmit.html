@@ -79,6 +79,13 @@
                     <span style="color: red;">[{{ error }}]</span>
                   {% endfor %}<br>
               </p>
+              <p>
+                  I agree to the Pittsburgh TechFest <a href="codeofconduct" class="external">Code of Conduct</a>
+                  {{ form.agree() }}<br>
+                  {% for error in form.agree.errors %}
+                    <span style="color: red;">[{{ error }}]</span>
+                  {% endfor %}<br>
+              </p>
               <p><input type="submit" value="Submit Talk"></p>
             </form>
         </div>

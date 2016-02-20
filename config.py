@@ -6,8 +6,13 @@ if os.environ.get('DATABASE_URL') is None:
                              '?check_same_thread=False')
 else:
   SQLALCHEMY_DATABASE_URI = os.environ['DATABASE_URL']
+
 SQLALCHEMY_MIGRATE_REPO = os.path.join(basedir, 'db_repository')
-SQLALCHEMY_RECORD_QUERIES = TrueSQLALCHEMY_TRACK_MODIFICATIONS = False
+SQLALCHEMY_RECORD_QUERIES = True
+SQLALCHEMY_TRACK_MODIFICATIONS = False
 
 WTF_CSRF_ENABLED = True
-SECRET_KEY = 'you-will-never-guess'
+if os.environ.get('XSS_TOKEN') is None:
+  SECRET_KEY = 'you-will-never-guess'
+else:
+  SECRET_KEY = os.environ['XSS_TOKEN']

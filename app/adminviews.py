@@ -11,4 +11,7 @@ def admin():
 
 @app.route('/admin/submissions')
 def adminsubmissions():
-  return render_template("adminsubmissions.html", settings = appConfiguration)
+  queryResult = Submission.query.all()
+  return render_template("adminsubmissions.html",
+    settings = appConfiguration,
+    submissions = queryResult)

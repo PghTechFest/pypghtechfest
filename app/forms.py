@@ -1,11 +1,16 @@
 from flask.ext.wtf import Form
-from wtforms import widgets, StringField, TextAreaField, RadioField, SelectMultipleField, BooleanField
+from wtforms import widgets, StringField, TextAreaField, RadioField, SelectMultipleField, BooleanField, PasswordField
 from wtforms.fields.html5 import EmailField
 from wtforms.validators import DataRequired
 
 class MultiCheckboxField(SelectMultipleField):
-    widget = widgets.ListWidget(prefix_label=False)
-    option_widget = widgets.CheckboxInput()
+  widget = widgets.ListWidget(prefix_label=False)
+  option_widget = widgets.CheckboxInput()
+
+class LoginForm(Form):
+  email = EmailField('email', validators=[DataRequired()])
+  password = PasswordField('password', validators=[DataRequired()])
+  remember_me = BooleanField('remember_me', default=False)
 
 class SpeakerForm(Form):
   availableTracks = [
@@ -14,6 +19,7 @@ class SpeakerForm(Form):
     ('DevOps', 'DevOps'),
     ('Data', 'Data Science'),
     ('Agile', 'Agile'),
+    ('Quality', 'Quality'),
     ('Soft', 'Soft Skills')
   ]
 

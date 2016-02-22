@@ -13,6 +13,7 @@ class Submission(db.Model):
   bio = db.Column(db.Text)
   comments = db.Column(db.Text)
   timestamp = db.Column(db.DateTime)
+  votes = db.relationship('Vote', backref='ballot', lazy='dynamic')
 
   def __repr__(self):
     return '<User %r %r>' % (self.firstName, self.lastName)
@@ -29,6 +30,7 @@ class User(db.Model):
   email = db.Column(db.String, primary_key=True)
   password = db.Column(db.String)
   authenticated = db.Column(db.Boolean, default=False)
+  votes = db.relationship('Vote', backref='voter', lazy='dynamic')
 
   def is_active(self):
     """True, as all users are active."""
@@ -45,3 +47,11 @@ class User(db.Model):
   def is_anonymous(self):
     """False, as anonymous users aren't supported."""
     return False
+
+class Vote(db.Model):
+  id = db.Column(db.Integer, primary_key=True)
+  talkId = db.Column(db.Integer, db.ForeignKey('submission.id'))
+  email = db.Column(db.String, db.ForeignKey('user.email'))
+  fitsTechfest = db.Column(db.Integer)
+  fitsTrack = db.Column(db.Integer)
+  expectedAttendance = db.Column(db.Integer)

@@ -3,10 +3,22 @@
 {% block content %}
 
 <h1>Talks Submitted</h1>
-<ul>
-{% for submission in submissions %}
-  <li>{{ submission.title }}</li>
-{% endfor %}
-</ul>
+
+  <table>
+  {% for submission in submissions %}
+    <tr>
+      <td>
+        <div><b>{{ submission.title }}</b></div>
+        <div>{{ submission.abstract }}</div>
+        <div>{{ submission.tracks }}</div>
+      </td>
+      <td>
+        <div>TechFest Fit []</div>
+        <div>Track Fit []</div>
+        <div>Attendance []</div>
+      </td>
+    </tr>
+  {% endfor %}
+  </table>
 
 {% endblock %}

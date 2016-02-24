@@ -1,3 +1,7 @@
+{% extends "adminbase.html" %}
+
+{% block content %}
+
 <form action="" method="post" name="speakerform">
   {{ form.hidden_tag() }}
   <p>
@@ -21,5 +25,7 @@
         <span style="color: red;">[{{ error }}]</span>
       {% endfor %}<br>
   </p>
-  <p><input type="submit" value="Submit Talk"></p>
+  <p><input type="submit" value="Change"></p>
 </form>
+
+{% endblock %}

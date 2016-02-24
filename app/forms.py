@@ -12,6 +12,11 @@ class LoginForm(Form):
   password = PasswordField('password', validators=[DataRequired()])
   remember_me = BooleanField('remember_me', default=False)
 
+class ChangePwdForm(Form):
+  currentpassword = PasswordField('currentpassword', validators=[DataRequired()])
+  newpassword1 = PasswordField('newpassword1', validators=[DataRequired()])
+  newpassword2 = PasswordField('newpassword2', validators=[DataRequired()])
+
 class SpeakerForm(Form):
   availableTracks = [
     ('Front', 'Front End'),

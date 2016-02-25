@@ -28,14 +28,17 @@ def changepwd():
     if user:
       if bcrypt.check_password_hash(user.password, form.currentpassword.data):
         if form.newpassword1.data == form.newpassword2.data:
-          user.password = bcrypt.generate_password_hash(newpassword1)
-          db.session.add(submission)
+          user.password = bcrypt.generate_password_hash(form.newpassword1.data)
+          db.session.add(user)
           db.session.commit()
           return render_template('adminindex.html', settings = appConfiguration)
         else:
-          flash('Passwords do not match')
+          statusmessage = 'Passwords do not match'
       else:
-        flash('Invalid password')
+        statusmessage = 'Invalid password'
+    else:
+      statusmessage = 'No user'
+    flash(statusmessage)
 
   return render_template('changepwd.html',
                          settings = appConfiguration,
@@ -55,7 +58,7 @@ def login():
         return redirect("admin")
   return render_template("login.html", form=form)
 
-@app.route("/logout", methods=["GET"])
+@app.route("/admin/logout", methods=["GET"])
 @login_required
 def logout():
   user = current_user
@@ -63,7 +66,7 @@ def logout():
   db.session.add(user)
   db.session.commit()
   logout_user()
-  return render_template("logout.html")
+  return redirect("admin")
 
 @lm.user_loader
 def user_loader(user_id):

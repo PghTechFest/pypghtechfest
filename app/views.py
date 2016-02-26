@@ -24,7 +24,7 @@ def sponsors():
 
 @app.route('/callforspeakers', methods=['GET', 'POST'])
 def talks():
-  if appConfiguration['openSpeakers'] == False:
+  if not appConfiguration['openSpeakers']:
     return render_template('callforspeakers.html',
       settings = appConfiguration)
   else:

@@ -64,7 +64,7 @@ def login():
         return redirect("admin")
   return render_template("login.html", form=form)
 
-@app.route("/admin/logout", methods=["GET"])
+@app.route("/logout", methods=["GET"])
 @login_required
 def logout():
   user = current_user
@@ -72,7 +72,7 @@ def logout():
   db.session.add(user)
   db.session.commit()
   logout_user()
-  return redirect("admin")
+  return redirect("/")
 
 @lm.user_loader
 def user_loader(user_id):

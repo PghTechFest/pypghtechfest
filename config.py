@@ -20,7 +20,7 @@ else:
 if os.environ.get('CALL_FOR_SPEAKERS_OPEN') is None:
   CALL_FOR_SPEAKERS_OPEN = False
 else:
-  CALL_FOR_SPEAKERS_OPEN = os.environ['CALL_FOR_SPEAKERS_OPEN']
+  CALL_FOR_SPEAKERS_OPEN = bool(os.environ['CALL_FOR_SPEAKERS_OPEN'])
 
 
 appConfiguration = { "openSpeakers":CALL_FOR_SPEAKERS_OPEN,

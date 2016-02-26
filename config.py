@@ -17,11 +17,10 @@ if os.environ.get('XSS_TOKEN') is None:
 else:
   SECRET_KEY = os.environ['XSS_TOKEN']
 
-if os.environ.get('CALL_FOR_SPEAKERS_OPEN') is None:
-  CALL_FOR_SPEAKERS_OPEN = False
+if os.environ.get('CALL_FOR_SPEAKERS_OPEN') is not None and str.lower(str(os.environ['CALL_FOR_SPEAKERS_OPEN'])):
+  CALL_FOR_SPEAKERS_OPEN = True
 else:
-  CALL_FOR_SPEAKERS_OPEN = bool(os.environ['CALL_FOR_SPEAKERS_OPEN'])
-
+  CALL_FOR_SPEAKERS_OPEN = False
 
 appConfiguration = { "openSpeakers":CALL_FOR_SPEAKERS_OPEN,
   "openVolunteers":False,

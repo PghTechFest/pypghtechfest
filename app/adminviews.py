@@ -9,7 +9,8 @@ from config import appConfiguration
 @app.route('/admin')
 @login_required
 def admin():
-  return render_template("adminindex.html", settings = appConfiguration)
+  return render_template("adminindex.html",
+    settings = appConfiguration)
 
 @app.route('/admin/submissions')
 @login_required

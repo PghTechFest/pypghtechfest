@@ -19,6 +19,12 @@ def adminsubmissions():
     settings = appConfiguration,
     submissions = queryResult)
 
+@app.route('/admin/config')
+@login_required
+def adminconfig():
+  return render_template("adminconfig.html",
+    settings = appConfiguration)
+
 @app.route('/admin/changepwd', methods=["GET", "POST"])
 @login_required
 def changepwd():

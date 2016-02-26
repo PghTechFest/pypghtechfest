@@ -66,13 +66,19 @@
                             {% endif %}
                             <li><a href="https://groups.google.com/forum/#!forum/pghtechfest" class="external">Mailing List</a></li>
                             <li><a href="sponsors" class="external">Sponsors</a></li>
+                            {% if settings['showSessions'] %}
                             <li><a href="talks" class="external">Sessions</a></li>
+                            {% endif %}
                             <li><a href="venue" class="external">Venue</a></li>
                             <li><a href="codeofconduct" class="external">Code of Conduct</a></li>
                             {% if settings['openVolunteers'] %}
                                 <li><a href="https://docs.google.com/forms/d/1u5V_lrETsq30IoouBW8O2bXi4JF14h4lnZ1YQUO3muc/viewform" class="external" target="_blank">Volunteers <span class="label label-danger">Open</span></a></li>
                             {% endif %}
-                            <li><a href="callforspeakers" class="external">Call For Speakers{% if settings['openSpeakers'] %} <span class="label label-danger">Open</span>{% endif %}</a></li>
+                            <li><a href="callforspeakers" class="external">Call For Speakers
+                            {% if settings['openSpeakers'] %}
+                            <span class="label label-danger">Open</span>
+                            {% endif %}
+                            </a></li>
                         </ul>
                     </nav>
                     <!-- *** MAIN NAVIGATION END *** -->
@@ -91,13 +97,19 @@
                     <li><a href="http://blog.pghtechfest.com/" class="external">Blog</a></li>
                     <li><a href="https://groups.google.com/forum/#!forum/pghtechfest" class="external">Mailing List</a></li>
                     <li><a href="sponsors" class="external">Sponsors</a></li>
+                    {% if settings['showSessions'] %}
                     <li><a href="talks" class="external">Sessions</a></li>
+                    {% endif %}
                     <li><a href="venue" class="external">Venue</a></li>
                     <li><a href="codeofconduct" class="external">Code of Conduct</a></li>
                     {% if settings['openVolunteers'] %}
                         <li><a href="https://docs.google.com/forms/d/1u5V_lrETsq30IoouBW8O2bXi4JF14h4lnZ1YQUO3muc/viewform" class="external" target="_blank">Volunteers <span class="label label-danger">Open</span></a></li>
                     {% endif %}
-                        <li><a href="callforspeakers" class="external">Call For Speakers{% if settings['openSpeakers'] %} <span class="label label-danger">Open</span>{% endif %}</a></li>
+                        <li><a href="callforspeakers" class="external">Call For Speakers
+                        {% if settings['openSpeakers'] %}
+                        <span class="label label-danger">Open</span>
+                        {% endif %}
+                        </a></li>
                 </ul>
             </div>
             <!--mobileAreaMenu-->

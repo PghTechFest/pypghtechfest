@@ -1,5 +1,5 @@
-import Hello from './Hello';
+import Submission from './Submission';
 import React from 'react';
 
-React.render(<Hello/>, document.getElementById('reactEntry'));
+React.render(<Submission/>, document.getElementById('reactEntry'));
 

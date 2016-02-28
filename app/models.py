@@ -1,5 +1,11 @@
 from app import db
 
+def dump_datetime(value):
+  """Deserialize datetime object into string form for JSON processing."""
+  if value is None:
+    return None
+  return [value.strftime("%Y-%m-%d"), value.strftime("%H:%M:%S")]
+
 class Submission(db.Model):
   id = db.Column(db.Integer, primary_key=True)
   title = db.Column(db.String(80))
@@ -17,6 +23,23 @@ class Submission(db.Model):
 
   def __repr__(self):
     return '<User %r %r>' % (self.firstName, self.lastName)
+
+  @property
+  def serialize(self):
+    return {
+      'id' : self.id,
+      'title' : self.title,
+      'abstract' : self.abstract,
+      'time' : self.time,
+      'tracks' : self.tracks,
+      'firstName' : self.firstName,
+      'lastName' : self.lastName,
+      'email' : self.email,
+      'twitter' : self.twitter,
+      'bio' : self.bio,
+      'comments' : self.comments,
+      'timestamp' : dump_datetime(self.timestamp)
+     }
 
 class User(db.Model):
   """An admin user capable of viewing reports.

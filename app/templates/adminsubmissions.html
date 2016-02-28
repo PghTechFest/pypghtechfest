@@ -4,21 +4,9 @@
 
 <h1>Talks Submitted</h1>
 
-  <table>
-  {% for submission in submissions %}
-    <tr>
-      <td>
-        <div><b>{{ submission.title }}</b></div>
-        <div>{{ submission.abstract }}</div>
-        <div>{{ submission.tracks }}</div>
-      </td>
-      <td>
-        <div>TechFest Fit []</div>
-        <div>Track Fit []</div>
-        <div>Attendance []</div>
-      </td>
-    </tr>
-  {% endfor %}
-  </table>
+<div id="reactEntry"></div>
+
+<!-- Attach React components -->
+<script type="text/javascript" src="{{ url_for('static', filename='bundle.js') }}"></script>
 
 {% endblock %}

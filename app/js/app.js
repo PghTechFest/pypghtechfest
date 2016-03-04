@@ -1,13 +1,14 @@
 import Submission from './Submission';
 import SubmissionList from './SubmissionList';
 import React from 'react';
+import ReactDOM from 'react-dom';
 
 var data = [
-        {title: "Title 1", abstract: "Abstract 1", tracks: "Front"},
-        {title: "Title 2", abstract: "Abstract 2", tracks: "Back"}
+        {id: 1, title: "Title 1", abstract: "Abstract 1", tracks: "Front"},
+        {id: 2, title: "Title 2", abstract: "Abstract 2", tracks: "Back"}
       ];
 
-React.render(
+ReactDOM.render(
   <SubmissionList data={data}/>,
   document.getElementById('reactEntry')
 );

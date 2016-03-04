@@ -2,8 +2,7 @@ import React from 'react';
 
 var Submission = React.createClass({
   render: function() {
-    return <table>
-    <tr>
+    return <tr>
       <td>
         <div><b>{this.props.title}</b></div>
         <div>{this.props.abstract}</div>
@@ -14,8 +13,7 @@ var Submission = React.createClass({
         <div>Track Fit []</div>
         <div>Attendance []</div>
       </td>
-    </tr>
-  </table>;
+    </tr>;
   }
 });
 

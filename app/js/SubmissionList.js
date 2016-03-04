@@ -5,18 +5,20 @@ var SubmissionList = React.createClass({
   render: function() {
     var submissionNodes = this.props.data.map(function(submission) {
       return (
-        <Submission title={submission.title}
+        <Submission key={submission.id}
+          title={submission.title}
           abstract={submission.abstract}
           tracks={submission.tracks}>
         </Submission>
       );
     });
     return (
-      <div>
-        <div>HI!</div>
-        <div className="submissionList">
-          {submissionNodes}
-        </div>
+      <div className="submissionList">
+        <table>
+          <tbody>
+            {submissionNodes}
+          </tbody>
+        </table>
       </div>
     );
   }

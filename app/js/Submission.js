@@ -8,14 +8,16 @@ var Submission = React.createClass({
         <div>{this.props.abstract}</div>
         <div>{this.props.tracks}</div>
       </td>
-      <td>
-        <div>TechFest Fit []</div>
-        <div>Track Fit []</div>
-        <div>Attendance []</div>
-      </td>
     </tr>;
   }
 });
 
 export default Submission;
 
+/*
+      <td>
+        <div>TechFest Fit []</div>
+        <div>Track Fit []</div>
+        <div>Attendance []</div>
+      </td>
+*/

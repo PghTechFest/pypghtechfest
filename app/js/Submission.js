@@ -1,13 +1,13 @@
 import React from 'react';
 
 var Submission = React.createClass({
-  render() {
+  render: function() {
     return <table>
     <tr>
       <td>
-        <div><b>title</b></div>
-        <div>abstract</div>
-        <div>tracks</div>
+        <div><b>{this.props.title}</b></div>
+        <div>{this.props.abstract}</div>
+        <div>{this.props.tracks}</div>
       </td>
       <td>
         <div>TechFest Fit []</div>

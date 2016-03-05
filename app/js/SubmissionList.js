@@ -5,6 +5,7 @@ import $ from "jquery";
 
 var SubmissionList = React.createClass({
   render: function() {
+    var email = this.props.user.email
     var submissionNodes = this.props.data.map(function(submission) {
       return (
         <tr key={submission.id}>
@@ -16,13 +17,14 @@ var SubmissionList = React.createClass({
             </Submission>
           </td>
           <td>
-            <VoteForm key={submission.id}/>
+            <VoteForm key={submission.id} email={email}/>
           </td>
         </tr>
       );
     });
     return (
       <div className="submissionList">
+        <div>Hello {this.props.user.email}!</div>
         <table>
           <tbody>
             {submissionNodes}

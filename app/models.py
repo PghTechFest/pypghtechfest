@@ -68,6 +68,12 @@ class User(db.Model):
     """False, as anonymous users aren't supported."""
     return False
 
+  @property
+  def serialize(self):
+    return {
+      'email' : self.email
+     }
+
 class Vote(db.Model):
   id = db.Column(db.Integer, primary_key=True)
   talkId = db.Column(db.Integer, db.ForeignKey('submission.id'))

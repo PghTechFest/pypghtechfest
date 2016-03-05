@@ -77,7 +77,7 @@
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
-	_reactDom2['default'].render(_react2['default'].createElement(_SubmissionBox2['default'], { url: '/api/submissions', pollInterval: 200000 }), document.getElementById('reactEntry'));
+	_reactDom2['default'].render(_react2['default'].createElement(_SubmissionBox2['default'], { submissionsUrl: '/api/submissions', userUrl: '/api/currentuser', pollInterval: 200000 }), document.getElementById('reactEntry'));
 
 /***/ },
 /* 2 */
@@ -19734,13 +19734,14 @@
 	  displayName: 'SubmissionList',
 
 	  render: function render() {
+	    var email = this.props.user.email;
 	    var submissionNodes = this.props.data.map(function (submission) {
 	      return _react2['default'].createElement('tr', { key: submission.id }, _react2['default'].createElement('td', null, _react2['default'].createElement(_Submission2['default'], { key: submission.id,
 	        title: submission.title,
 	        abstract: submission.abstract,
-	        tracks: submission.tracks })), _react2['default'].createElement('td', null, _react2['default'].createElement(_VoteForm2['default'], { key: submission.id })));
+	        tracks: submission.tracks })), _react2['default'].createElement('td', null, _react2['default'].createElement(_VoteForm2['default'], { key: submission.id, email: email })));
 	    });
-	    return _react2['default'].createElement('div', { className: 'submissionList' }, _react2['default'].createElement('table', null, _react2['default'].createElement('tbody', null, submissionNodes)));
+	    return _react2['default'].createElement('div', { className: 'submissionList' }, _react2['default'].createElement('div', null, 'Hello ', this.props.user.email, '!'), _react2['default'].createElement('table', null, _react2['default'].createElement('tbody', null, submissionNodes)));
 	  }
 	});
 
@@ -19769,7 +19770,7 @@
 	  displayName: 'VoteForm',
 
 	  render: function render() {
-	    return _react2['default'].createElement('div', null, _react2['default'].createElement('div', null, 'TechFest Fit []'), _react2['default'].createElement('div', null, 'Track Fit []'), _react2['default'].createElement('div', null, 'Attendance []'));
+	    return _react2['default'].createElement('div', null, _react2['default'].createElement('div', null, this.props.email), _react2['default'].createElement('div', null, 'TechFest Fit []'), _react2['default'].createElement('div', null, 'Track Fit []'), _react2['default'].createElement('div', null, 'Attendance []'));
 	  }
 	});
 
@@ -29642,9 +29643,22 @@
 	var SubmissionBox = _react2['default'].createClass({
 	  displayName: 'SubmissionBox',
 
+	  loadUserFromServer: function loadUserFromServer() {
+	    _jquery2['default'].ajax({
+	      url: this.props.userUrl,
+	      dataType: 'json',
+	      cache: false,
+	      success: (function (data) {
+	        this.setState({ user: data });
+	      }).bind(this),
+	      error: (function (xhr, status, err) {
+	        console.error(this.props.url, status, err.toString());
+	      }).bind(this)
+	    });
+	  },
 	  loadSubmissionsFromServer: function loadSubmissionsFromServer() {
 	    _jquery2['default'].ajax({
-	      url: this.props.url,
+	      url: this.props.submissionsUrl,
 	      dataType: 'json',
 	      cache: false,
 	      success: (function (data) {
@@ -29670,14 +29684,15 @@
 	    });
 	  },
 	  getInitialState: function getInitialState() {
-	    return { data: [] };
+	    return { data: [], user: { email: "" } };
 	  },
 	  componentDidMount: function componentDidMount() {
+	    this.loadUserFromServer();
 	    this.loadSubmissionsFromServer();
 	    //setInterval(this.loadSubmissionsFromServer, this.props.pollInterval);
 	  },
 	  render: function render() {
-	    return _react2['default'].createElement(_SubmissionList2['default'], { data: this.state.data });
+	    return _react2['default'].createElement(_SubmissionList2['default'], { data: this.state.data, user: this.state.user });
 	  }
 	});
 

@@ -2,22 +2,12 @@ import React from 'react';
 
 var Submission = React.createClass({
   render: function() {
-    return <tr>
-      <td>
+    return <div>
         <div><b>{this.props.title}</b></div>
         <div>{this.props.abstract}</div>
         <div>{this.props.tracks}</div>
-      </td>
-    </tr>;
+      </div>;
   }
 });
 
 export default Submission;
-
-/*
-      <td>
-        <div>TechFest Fit []</div>
-        <div>Track Fit []</div>
-        <div>Attendance []</div>
-      </td>
-*/

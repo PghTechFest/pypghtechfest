@@ -21,9 +21,6 @@ class Submission(db.Model):
   timestamp = db.Column(db.DateTime)
   votes = db.relationship('Vote', backref='ballot', lazy='dynamic')
 
-  def __repr__(self):
-    return '<User %r %r>' % (self.firstName, self.lastName)
-
   @property
   def serialize(self):
     return {

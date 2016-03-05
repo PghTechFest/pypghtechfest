@@ -81,3 +81,14 @@ class Vote(db.Model):
   fitsTechfest = db.Column(db.Integer)
   fitsTrack = db.Column(db.Integer)
   expectedAttendance = db.Column(db.Integer)
+
+  @property
+  def serialize(self):
+    return {
+      'id' : self.id,
+      'talkId' : self.talkId,
+      'email' : self.email,
+      'fitsTechfest' : self.fitsTechfest,
+      'fitsTrack' : self.fitsTrack,
+      'expectedAttendance' : self.expectedAttendance
+     }

@@ -2,7 +2,7 @@ import datetime
 from flask import redirect, jsonify, Response, json
 from flask.ext.login import login_required, current_user
 from app import app, db
-from .models import Submission
+from .models import Submission, Vote
 from config import appConfiguration
 
 @app.route('/api/submissions', methods=['GET'])
@@ -11,8 +11,36 @@ def get_submissions():
   items = Submission.query.all()
   return Response(json.dumps([item.serialize for item in items]), mimetype='application/json')
 
-@app.route('/api/currentuser', methods=['GET'])
+@app.route('/api/votes', methods=['GET'])
 @login_required
-def get_currentuser():
+def get_votes():
   user = current_user
-  return Response(json.dumps(user.serialize), mimetype='application/json')
+  items = Vote.query.filter(Vote.email==user.email).all()
+  return Response(json.dumps([item.serialize for item in items]), mimetype='application/json')
+
+@app.route('/api/votes/<int:talkId>', methods=['GET'])
+@login_required
+def get_vote(talkId):
+  user = current_user
+  vote = Vote.query.filter(Vote.talkId==talkId).filter(Vote.email==user.email).one_or_none()
+  return Response(json.dumps(vote.serialize), mimetype='application/json')
+
+@app.route('/api/votes', methods=['POST'])
+@login_required
+def post_vote():
+  user = current_user
+  if not request.json or not 'talkId' in request.json:
+    abort(400)
+
+  talkId = request.json['talkId']
+  vote = Vote.query.filter(Vote.talkId==talkId).filter(Vote.email==user.email).one_or_none()
+  if vote == None:
+    vote = Vote()
+    vote.talkId = request.json['talkId']
+    vote.email = user.email
+  vote.fitsTechfest = request.json['fitsTechfest']
+  vote.fitsTrack = 0
+  vote.expectedAttendance = 0
+  db.session.add(vote)
+  db.session.commit()
+  return jsonify({'vote': vote}), 201

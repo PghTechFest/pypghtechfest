@@ -3,43 +3,43 @@ import SubmissionList from './SubmissionList';
 import $ from "jquery";
 
 var SubmissionBox = React.createClass({
-  loadUserFromServer: function() {
-    $.ajax({
-      url: this.props.userUrl,
-      dataType: 'json',
-      cache: false,
-      success: function(data) {
-        this.setState({user: data});
-      }.bind(this),
-      error: function(xhr, status, err) {
-        console.error(this.props.userUrl, status, err.toString());
-      }.bind(this)
-    });
-  },
   loadSubmissionsFromServer: function() {
     $.ajax({
       url: this.props.submissionsUrl,
       dataType: 'json',
       cache: false,
       success: function(data) {
-        this.setState({data: data});
+        this.setState({submissions: data});
       }.bind(this),
       error: function(xhr, status, err) {
         console.error(this.props.submissionsUrl, status, err.toString());
       }.bind(this)
     });
   },
+  loadVotesFromServer: function() {
+    $.ajax({
+      url: this.props.votesUrl,
+      dataType: 'json',
+      cache: false,
+      success: function(data) {
+        this.setState({votes: data});
+      }.bind(this),
+      error: function(xhr, status, err) {
+        console.error(this.props.votesUrl, status, err.toString());
+      }.bind(this)
+    });
+  },
   getInitialState: function() {
-    return {data: [], user: { email: "" }};
+    return {submissions: [], votes: []};
   },
   componentDidMount: function() {
-    this.loadUserFromServer();
     this.loadSubmissionsFromServer();
+    this.loadVotesFromServer();
     //setInterval(this.loadSubmissionsFromServer, this.props.pollInterval);
   },
   render: function() {
     return (
-      <SubmissionList data={this.state.data} user={this.state.user} />
+      <SubmissionList submissions={this.state.submissions} votes={this.state.votes} />
     );
   }
 });

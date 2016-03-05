@@ -1,5 +1,5 @@
 import React from 'react';
-import $ from "jquery";
+import $ from 'jquery';
 
 var VoteForm = React.createClass({
 /*
@@ -18,13 +18,39 @@ var VoteForm = React.createClass({
     });
   },
 */
+  getInitialState: function() {
+    console.log(this.props);
+    if (this.props.vote == {}){
+      return {
+          email: "",
+          expectedAttendance: 0,
+          fitsTechfest: 0,
+          fitsTrack: 0,
+          id: 0,
+          talkId: this.props.talkId
+      };
+    }
+    return this.props.vote;
+  },
+  handleFitChange: function(e) {
+    this.setState({fitsTechfest: e.target.value});
+  },
   render: function() {
-    return <div>
-        <div>{this.props.email}</div>
-        <div>TechFest Fit []</div>
-        <div>Track Fit []</div>
-        <div>Attendance []</div>
-      </div>;
+    return (
+      <div>
+        <div>
+          Fit:
+          <select value="{this.state.fitsTechfest}"
+            onChange={this.handleFitChange}>
+            <option value="0">None</option>
+            <option value="1">Marginal</option>
+            <option value="2">Decent</option>
+            <option value="3">Solid</option>
+            <option value="4">Awesome</option>
+          </select>
+        </div>
+      </div>
+    );
   }
 });
 

@@ -77,7 +77,7 @@
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
-	_reactDom2['default'].render(_react2['default'].createElement(_SubmissionBox2['default'], { submissionsUrl: '/api/submissions', userUrl: '/api/currentuser', pollInterval: 200000 }), document.getElementById('reactEntry'));
+	_reactDom2['default'].render(_react2['default'].createElement(_SubmissionBox2['default'], { submissionsUrl: '/api/submissions', votesUrl: '/api/votes', pollInterval: 200000 }), document.getElementById('reactEntry'));
 
 /***/ },
 /* 2 */
@@ -19726,18 +19726,56 @@
 
 	var _VoteForm2 = _interopRequireDefault(_VoteForm);
 
+	function zip(submissions, votes) {
+	  var zipped = [];
+	  var _iteratorNormalCompletion = true;
+	  var _didIteratorError = false;
+	  var _iteratorError = undefined;
+
+	  try {
+	    for (var _iterator = submissions[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+	      var submission = _step.value;
+
+	      var vote = {};
+	      for (var i = 0; i < votes.length; i++) {
+	        if (votes[i].talkId === submission.id) {
+	          vote = votes[i];
+	        }
+	      }
+	      zipped.push({ submission: submission, vote: vote });
+	    }
+	  } catch (err) {
+	    _didIteratorError = true;
+	    _iteratorError = err;
+	  } finally {
+	    try {
+	      if (!_iteratorNormalCompletion && _iterator['return']) {
+	        _iterator['return']();
+	      }
+	    } finally {
+	      if (_didIteratorError) {
+	        throw _iteratorError;
+	      }
+	    }
+	  }
+
+	  return zipped;
+	}
+
 	var SubmissionList = _react2['default'].createClass({
 	  displayName: 'SubmissionList',
 
 	  render: function render() {
-	    var email = this.props.user.email;
-	    var submissionNodes = this.props.data.map(function (submission) {
-	      return _react2['default'].createElement('tr', { key: submission.id }, _react2['default'].createElement('td', null, _react2['default'].createElement(_Submission2['default'], { key: submission.id,
-	        title: submission.title,
-	        abstract: submission.abstract,
-	        tracks: submission.tracks })), _react2['default'].createElement('td', null, _react2['default'].createElement(_VoteForm2['default'], { key: submission.id, email: email })));
+	    var combined = zip(this.props.submissions, this.props.votes);
+	    var submissionNodes = combined.map(function (item) {
+	      return _react2['default'].createElement('tr', { key: item.submission.id }, _react2['default'].createElement('td', null, _react2['default'].createElement(_Submission2['default'], { key: item.submission.id,
+	        title: item.submission.title,
+	        abstract: item.submission.abstract,
+	        tracks: item.submission.tracks })), _react2['default'].createElement('td', null, _react2['default'].createElement(_VoteForm2['default'], { key: item.submission.id,
+	        talkId: item.submission.id,
+	        vote: item.vote })));
 	    });
-	    return _react2['default'].createElement('div', { className: 'submissionList' }, _react2['default'].createElement('table', null, _react2['default'].createElement('tbody', null, submissionNodes)));
+	    return _react2['default'].createElement('div', { className: 'submissionList' }, _react2['default'].createElement('form', { className: 'votingForm' }, _react2['default'].createElement('table', null, _react2['default'].createElement('tbody', null, submissionNodes))));
 	  }
 	});
 
@@ -19748,14 +19786,14 @@
 /* 161 */
 /***/ function(module, exports, __webpack_require__) {
 
-	"use strict";
+	'use strict';
 
-	Object.defineProperty(exports, "__esModule", {
+	Object.defineProperty(exports, '__esModule', {
 	  value: true
 	});
 
 	function _interopRequireDefault(obj) {
-	  return obj && obj.__esModule ? obj : { "default": obj };
+	  return obj && obj.__esModule ? obj : { 'default': obj };
 	}
 
 	var _react = __webpack_require__(3);
@@ -19766,8 +19804,8 @@
 
 	var _jquery2 = _interopRequireDefault(_jquery);
 
-	var VoteForm = _react2["default"].createClass({
-	  displayName: "VoteForm",
+	var VoteForm = _react2['default'].createClass({
+	  displayName: 'VoteForm',
 
 	  /*
 	    handleVoteSubmit: function(submission) {
@@ -19785,13 +19823,31 @@
 	      });
 	    },
 	  */
+	  getInitialState: function getInitialState() {
+	    console.log(this.props);
+	    if (this.props.vote == {}) {
+	      return {
+	        email: "",
+	        expectedAttendance: 0,
+	        fitsTechfest: 0,
+	        fitsTrack: 0,
+	        id: 0,
+	        talkId: this.props.talkId
+	      };
+	    }
+	    return this.props.vote;
+	  },
+	  handleFitChange: function handleFitChange(e) {
+	    this.setState({ fitsTechfest: e.target.value });
+	  },
 	  render: function render() {
-	    return _react2["default"].createElement("div", null, _react2["default"].createElement("div", null, this.props.email), _react2["default"].createElement("div", null, "TechFest Fit []"), _react2["default"].createElement("div", null, "Track Fit []"), _react2["default"].createElement("div", null, "Attendance []"));
+	    return _react2['default'].createElement('div', null, _react2['default'].createElement('div', null, 'Fit:', _react2['default'].createElement('select', { value: '{this.state.fitsTechfest}',
+	      onChange: this.handleFitChange }, _react2['default'].createElement('option', { value: '0' }, 'None'), _react2['default'].createElement('option', { value: '1' }, 'Marginal'), _react2['default'].createElement('option', { value: '2' }, 'Decent'), _react2['default'].createElement('option', { value: '3' }, 'Solid'), _react2['default'].createElement('option', { value: '4' }, 'Awesome'))));
 	  }
 	});
 
-	exports["default"] = VoteForm;
-	module.exports = exports["default"];
+	exports['default'] = VoteForm;
+	module.exports = exports['default'];
 
 /***/ },
 /* 162 */
@@ -29659,42 +29715,42 @@
 	var SubmissionBox = _react2['default'].createClass({
 	  displayName: 'SubmissionBox',
 
-	  loadUserFromServer: function loadUserFromServer() {
-	    _jquery2['default'].ajax({
-	      url: this.props.userUrl,
-	      dataType: 'json',
-	      cache: false,
-	      success: (function (data) {
-	        this.setState({ user: data });
-	      }).bind(this),
-	      error: (function (xhr, status, err) {
-	        console.error(this.props.userUrl, status, err.toString());
-	      }).bind(this)
-	    });
-	  },
 	  loadSubmissionsFromServer: function loadSubmissionsFromServer() {
 	    _jquery2['default'].ajax({
 	      url: this.props.submissionsUrl,
 	      dataType: 'json',
 	      cache: false,
 	      success: (function (data) {
-	        this.setState({ data: data });
+	        this.setState({ submissions: data });
 	      }).bind(this),
 	      error: (function (xhr, status, err) {
 	        console.error(this.props.submissionsUrl, status, err.toString());
 	      }).bind(this)
 	    });
 	  },
+	  loadVotesFromServer: function loadVotesFromServer() {
+	    _jquery2['default'].ajax({
+	      url: this.props.votesUrl,
+	      dataType: 'json',
+	      cache: false,
+	      success: (function (data) {
+	        this.setState({ votes: data });
+	      }).bind(this),
+	      error: (function (xhr, status, err) {
+	        console.error(this.props.votesUrl, status, err.toString());
+	      }).bind(this)
+	    });
+	  },
 	  getInitialState: function getInitialState() {
-	    return { data: [], user: { email: "" } };
+	    return { submissions: [], votes: [] };
 	  },
 	  componentDidMount: function componentDidMount() {
-	    this.loadUserFromServer();
 	    this.loadSubmissionsFromServer();
+	    this.loadVotesFromServer();
 	    //setInterval(this.loadSubmissionsFromServer, this.props.pollInterval);
 	  },
 	  render: function render() {
-	    return _react2['default'].createElement(_SubmissionList2['default'], { data: this.state.data, user: this.state.user });
+	    return _react2['default'].createElement(_SubmissionList2['default'], { submissions: this.state.submissions, votes: this.state.votes });
 	  }
 	});
 

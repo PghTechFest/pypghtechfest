@@ -12,7 +12,7 @@ var SubmissionBox = React.createClass({
         this.setState({user: data});
       }.bind(this),
       error: function(xhr, status, err) {
-        console.error(this.props.url, status, err.toString());
+        console.error(this.props.userUrl, status, err.toString());
       }.bind(this)
     });
   },
@@ -25,21 +25,7 @@ var SubmissionBox = React.createClass({
         this.setState({data: data});
       }.bind(this),
       error: function(xhr, status, err) {
-        console.error(this.props.url, status, err.toString());
-      }.bind(this)
-    });
-  },
-  handleSubmissionSubmit: function(submission) {
-    $.ajax({
-      url: this.props.url,
-      dataType: 'json',
-      type: 'POST',
-      data: submission,
-      success: function(data) {
-        this.setState({data: data});
-      }.bind(this),
-      error: function(xhr, status, err) {
-        console.error(this.props.url, status, err.toString());
+        console.error(this.props.submissionsUrl, status, err.toString());
       }.bind(this)
     });
   },

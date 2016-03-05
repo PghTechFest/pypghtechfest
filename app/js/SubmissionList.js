@@ -1,7 +1,6 @@
 import React from 'react';
 import Submission from './Submission';
 import VoteForm from './VoteForm';
-import $ from "jquery";
 
 var SubmissionList = React.createClass({
   render: function() {
@@ -24,7 +23,6 @@ var SubmissionList = React.createClass({
     });
     return (
       <div className="submissionList">
-        <div>Hello {this.props.user.email}!</div>
         <table>
           <tbody>
             {submissionNodes}

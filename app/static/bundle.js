@@ -19726,10 +19726,6 @@
 
 	var _VoteForm2 = _interopRequireDefault(_VoteForm);
 
-	var _jquery = __webpack_require__(162);
-
-	var _jquery2 = _interopRequireDefault(_jquery);
-
 	var SubmissionList = _react2['default'].createClass({
 	  displayName: 'SubmissionList',
 
@@ -19741,7 +19737,7 @@
 	        abstract: submission.abstract,
 	        tracks: submission.tracks })), _react2['default'].createElement('td', null, _react2['default'].createElement(_VoteForm2['default'], { key: submission.id, email: email })));
 	    });
-	    return _react2['default'].createElement('div', { className: 'submissionList' }, _react2['default'].createElement('div', null, 'Hello ', this.props.user.email, '!'), _react2['default'].createElement('table', null, _react2['default'].createElement('tbody', null, submissionNodes)));
+	    return _react2['default'].createElement('div', { className: 'submissionList' }, _react2['default'].createElement('table', null, _react2['default'].createElement('tbody', null, submissionNodes)));
 	  }
 	});
 
@@ -19752,30 +19748,50 @@
 /* 161 */
 /***/ function(module, exports, __webpack_require__) {
 
-	'use strict';
+	"use strict";
 
-	Object.defineProperty(exports, '__esModule', {
+	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
 
 	function _interopRequireDefault(obj) {
-	  return obj && obj.__esModule ? obj : { 'default': obj };
+	  return obj && obj.__esModule ? obj : { "default": obj };
 	}
 
 	var _react = __webpack_require__(3);
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var VoteForm = _react2['default'].createClass({
-	  displayName: 'VoteForm',
+	var _jquery = __webpack_require__(162);
 
+	var _jquery2 = _interopRequireDefault(_jquery);
+
+	var VoteForm = _react2["default"].createClass({
+	  displayName: "VoteForm",
+
+	  /*
+	    handleVoteSubmit: function(submission) {
+	      $.ajax({
+	        url: this.props.voteUrl,
+	        dataType: 'json',
+	        type: 'POST',
+	        data: submission,
+	        success: function(data) {
+	          this.setState({data: data});
+	        }.bind(this),
+	        error: function(xhr, status, err) {
+	          console.error(this.props.voteUrl, status, err.toString());
+	        }.bind(this)
+	      });
+	    },
+	  */
 	  render: function render() {
-	    return _react2['default'].createElement('div', null, _react2['default'].createElement('div', null, this.props.email), _react2['default'].createElement('div', null, 'TechFest Fit []'), _react2['default'].createElement('div', null, 'Track Fit []'), _react2['default'].createElement('div', null, 'Attendance []'));
+	    return _react2["default"].createElement("div", null, _react2["default"].createElement("div", null, this.props.email), _react2["default"].createElement("div", null, "TechFest Fit []"), _react2["default"].createElement("div", null, "Track Fit []"), _react2["default"].createElement("div", null, "Attendance []"));
 	  }
 	});
 
-	exports['default'] = VoteForm;
-	module.exports = exports['default'];
+	exports["default"] = VoteForm;
+	module.exports = exports["default"];
 
 /***/ },
 /* 162 */
@@ -29652,7 +29668,7 @@
 	        this.setState({ user: data });
 	      }).bind(this),
 	      error: (function (xhr, status, err) {
-	        console.error(this.props.url, status, err.toString());
+	        console.error(this.props.userUrl, status, err.toString());
 	      }).bind(this)
 	    });
 	  },
@@ -29665,21 +29681,7 @@
 	        this.setState({ data: data });
 	      }).bind(this),
 	      error: (function (xhr, status, err) {
-	        console.error(this.props.url, status, err.toString());
-	      }).bind(this)
-	    });
-	  },
-	  handleSubmissionSubmit: function handleSubmissionSubmit(submission) {
-	    _jquery2['default'].ajax({
-	      url: this.props.url,
-	      dataType: 'json',
-	      type: 'POST',
-	      data: submission,
-	      success: (function (data) {
-	        this.setState({ data: data });
-	      }).bind(this),
-	      error: (function (xhr, status, err) {
-	        console.error(this.props.url, status, err.toString());
+	        console.error(this.props.submissionsUrl, status, err.toString());
 	      }).bind(this)
 	    });
 	  },

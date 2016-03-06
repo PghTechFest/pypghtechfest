@@ -49,7 +49,7 @@ var VoteForm = React.createClass({
         <div>
           Fit:
           <select
-            defaultValue={this.state.fitsTechfest}
+            value={this.state.fitsTechfest}
             onChange={this.handleFitChange}>
             <option value="0">None</option>
             <option value="1">Marginal</option>

@@ -19919,7 +19919,7 @@
 	  },
 	  render: function render() {
 	    return _react2['default'].createElement('div', null, _react2['default'].createElement('div', null, 'Fit:', _react2['default'].createElement('select', {
-	      defaultValue: this.state.fitsTechfest,
+	      value: this.state.fitsTechfest,
 	      onChange: this.handleFitChange }, _react2['default'].createElement('option', { value: '0' }, 'None'), _react2['default'].createElement('option', { value: '1' }, 'Marginal'), _react2['default'].createElement('option', { value: '2' }, 'Decent'), _react2['default'].createElement('option', { value: '3' }, 'Solid'), _react2['default'].createElement('option', { value: '4' }, 'Awesome'))));
 	  }
 	});

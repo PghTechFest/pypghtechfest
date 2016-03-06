@@ -2,22 +2,23 @@ import React from 'react';
 import $ from 'jquery';
 
 var VoteForm = React.createClass({
-/*
-  handleVoteSubmit: function(submission) {
+  handleVoteSubmit: function(vote) {
+    console.log('Sending fitsTechfest=%d', vote.fitsTechfest);
     $.ajax({
-      url: this.props.voteUrl,
+      url: this.props.votesUrl,
+      contentType: "application/json",
       dataType: 'json',
       type: 'POST',
-      data: submission,
+      data: JSON.stringify(vote),
       success: function(data) {
-        this.setState({data: data});
+        console.dir(data);
+        //this.setState({data: data});
       }.bind(this),
       error: function(xhr, status, err) {
-        console.error(this.props.voteUrl, status, err.toString());
+        console.error(this.props.votesUrl, status, err.toString());
       }.bind(this)
     });
   },
-*/
   getInitialState: function() {
     return {
       email: "",
@@ -40,8 +41,9 @@ var VoteForm = React.createClass({
   },
   handleFitChange: function(e) {
     var newFitsTechfest = parseInt(e.target.value);
-    console.log("Vote changed - fitsTechfest=%d", newFitsTechfest);
+    console.log('newFitsTechfest=%d', newFitsTechfest);
     this.setState({fitsTechfest: newFitsTechfest});
+    this.handleVoteSubmit(this.state);
   },
   render: function() {
     return (

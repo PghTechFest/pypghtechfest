@@ -1,5 +1,5 @@
 import datetime
-from flask import redirect, jsonify, Response, json
+from flask import redirect, jsonify, Response, json, request, abort
 from flask.ext.login import login_required, current_user
 from app import app, db
 from .models import Submission, Vote
@@ -33,7 +33,8 @@ def post_vote():
     abort(400)
 
   talkId = request.json['talkId']
-  vote = Vote.query.filter(Vote.talkId==talkId).filter(Vote.email==user.email).one_or_none()
+  vote = db.session.query(Vote).filter(Vote.talkId==talkId).filter(Vote.email==user.email).first()
+  print(dir(vote))
   if vote == None:
     vote = Vote()
     vote.talkId = request.json['talkId']
@@ -43,4 +44,4 @@ def post_vote():
   vote.expectedAttendance = 0
   db.session.add(vote)
   db.session.commit()
-  return jsonify({'vote': vote}), 201
+  return json.dumps(vote.serialize), 201

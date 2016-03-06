@@ -127,15 +127,19 @@
 	    });
 	  },
 	  getInitialState: function getInitialState() {
-	    return { submissions: [], votes: [] };
+	    return { submissions: [], votes: [], votesUrl: "" };
 	  },
 	  componentDidMount: function componentDidMount() {
+	    this.setState({ votesUrl: this.props.votesUrl });
 	    this.loadSubmissionsFromServer();
 	    this.loadVotesFromServer();
 	    //setInterval(this.loadSubmissionsFromServer, this.props.pollInterval);
 	  },
 	  render: function render() {
-	    return _react2['default'].createElement(_SubmissionList2['default'], { submissions: this.state.submissions, votes: this.state.votes });
+	    return _react2['default'].createElement(_SubmissionList2['default'], {
+	      submissions: this.state.submissions,
+	      votes: this.state.votes,
+	      votesUrl: this.state.votesUrl });
 	  }
 	});
 
@@ -19760,7 +19764,7 @@
 
 	var _VoteForm2 = _interopRequireDefault(_VoteForm);
 
-	function zip(submissions, votes) {
+	function zip(submissions, votes, votesUrl) {
 	  var zipped = [];
 	  var _iteratorNormalCompletion = true;
 	  var _didIteratorError = false;
@@ -19783,7 +19787,10 @@
 	          vote = votes[i];
 	        }
 	      }
-	      zipped.push({ submission: submission, vote: vote });
+	      zipped.push({
+	        submission: submission,
+	        vote: vote,
+	        votesUrl: votesUrl });
 	    }
 	  } catch (err) {
 	    _didIteratorError = true;
@@ -19807,13 +19814,16 @@
 	  displayName: 'SubmissionList',
 
 	  render: function render() {
-	    var combined = zip(this.props.submissions, this.props.votes);
+	    var combined = zip(this.props.submissions, this.props.votes, this.props.votesUrl);
 	    var submissionNodes = combined.map(function (item) {
-	      return _react2['default'].createElement('tr', { key: item.submission.id }, _react2['default'].createElement('td', null, _react2['default'].createElement(_Submission2['default'], { key: item.submission.id,
+	      return _react2['default'].createElement('tr', { key: item.submission.id }, _react2['default'].createElement('td', null, _react2['default'].createElement(_Submission2['default'], {
+	        key: item.submission.id,
 	        title: item.submission.title,
 	        abstract: item.submission.abstract,
-	        tracks: item.submission.tracks })), _react2['default'].createElement('td', null, _react2['default'].createElement(_VoteForm2['default'], { key: item.submission.id,
-	        vote: item.vote })));
+	        tracks: item.submission.tracks })), _react2['default'].createElement('td', null, _react2['default'].createElement(_VoteForm2['default'], {
+	        key: item.submission.id,
+	        vote: item.vote,
+	        votesUrl: item.votesUrl })));
 	    });
 	    return _react2['default'].createElement('div', { className: 'submissionList' }, _react2['default'].createElement('form', { className: 'votingForm' }, _react2['default'].createElement('table', null, _react2['default'].createElement('tbody', null, submissionNodes))));
 	  }
@@ -19876,22 +19886,23 @@
 	var VoteForm = _react2['default'].createClass({
 	  displayName: 'VoteForm',
 
-	  /*
-	    handleVoteSubmit: function(submission) {
-	      $.ajax({
-	        url: this.props.voteUrl,
-	        dataType: 'json',
-	        type: 'POST',
-	        data: submission,
-	        success: function(data) {
-	          this.setState({data: data});
-	        }.bind(this),
-	        error: function(xhr, status, err) {
-	          console.error(this.props.voteUrl, status, err.toString());
-	        }.bind(this)
-	      });
-	    },
-	  */
+	  handleVoteSubmit: function handleVoteSubmit(vote) {
+	    console.log('Sending fitsTechfest=%d', vote.fitsTechfest);
+	    _jquery2['default'].ajax({
+	      url: this.props.votesUrl,
+	      contentType: "application/json",
+	      dataType: 'json',
+	      type: 'POST',
+	      data: JSON.stringify(vote),
+	      success: (function (data) {
+	        console.dir(data);
+	        //this.setState({data: data});
+	      }).bind(this),
+	      error: (function (xhr, status, err) {
+	        console.error(this.props.votesUrl, status, err.toString());
+	      }).bind(this)
+	    });
+	  },
 	  getInitialState: function getInitialState() {
 	    return {
 	      email: "",
@@ -19914,8 +19925,9 @@
 	  },
 	  handleFitChange: function handleFitChange(e) {
 	    var newFitsTechfest = parseInt(e.target.value);
-	    console.log("Vote changed - fitsTechfest=%d", newFitsTechfest);
+	    console.log('newFitsTechfest=%d', newFitsTechfest);
 	    this.setState({ fitsTechfest: newFitsTechfest });
+	    this.handleVoteSubmit(this.state);
 	  },
 	  render: function render() {
 	    return _react2['default'].createElement('div', null, _react2['default'].createElement('div', null, 'Fit:', _react2['default'].createElement('select', {

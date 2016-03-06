@@ -30,16 +30,20 @@ var SubmissionBox = React.createClass({
     });
   },
   getInitialState: function() {
-    return {submissions: [], votes: []};
+    return {submissions: [], votes: [], votesUrl: ""};
   },
   componentDidMount: function() {
+    this.setState({votesUrl: this.props.votesUrl});
     this.loadSubmissionsFromServer();
     this.loadVotesFromServer();
     //setInterval(this.loadSubmissionsFromServer, this.props.pollInterval);
   },
   render: function() {
     return (
-      <SubmissionList submissions={this.state.submissions} votes={this.state.votes} />
+      <SubmissionList
+        submissions={this.state.submissions}
+        votes={this.state.votes}
+        votesUrl={this.state.votesUrl}/>
     );
   }
 });

@@ -19887,7 +19887,6 @@
 	  displayName: 'VoteForm',
 
 	  handleVoteSubmit: function handleVoteSubmit(vote) {
-	    console.log('Sending fitsTechfest=%d', vote.fitsTechfest);
 	    _jquery2['default'].ajax({
 	      url: this.props.votesUrl,
 	      contentType: "application/json",
@@ -19895,7 +19894,7 @@
 	      type: 'POST',
 	      data: JSON.stringify(vote),
 	      success: (function (data) {
-	        console.dir(data);
+	        console.log('Saved vote change.');
 	        //this.setState({data: data});
 	      }).bind(this),
 	      error: (function (xhr, status, err) {
@@ -19925,9 +19924,11 @@
 	  },
 	  handleFitChange: function handleFitChange(e) {
 	    var newFitsTechfest = parseInt(e.target.value);
-	    console.log('newFitsTechfest=%d', newFitsTechfest);
+	    var vote = this.state;
+	    vote.fitsTechfest = newFitsTechfest;
+	    this.handleVoteSubmit(vote);
+
 	    this.setState({ fitsTechfest: newFitsTechfest });
-	    this.handleVoteSubmit(this.state);
 	  },
 	  render: function render() {
 	    return _react2['default'].createElement('div', null, _react2['default'].createElement('div', null, 'Fit:', _react2['default'].createElement('select', {

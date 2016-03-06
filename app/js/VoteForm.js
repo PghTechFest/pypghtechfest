@@ -3,7 +3,6 @@ import $ from 'jquery';
 
 var VoteForm = React.createClass({
   handleVoteSubmit: function(vote) {
-    console.log('Sending fitsTechfest=%d', vote.fitsTechfest);
     $.ajax({
       url: this.props.votesUrl,
       contentType: "application/json",
@@ -11,7 +10,7 @@ var VoteForm = React.createClass({
       type: 'POST',
       data: JSON.stringify(vote),
       success: function(data) {
-        console.dir(data);
+        console.log('Saved vote change.');
         //this.setState({data: data});
       }.bind(this),
       error: function(xhr, status, err) {
@@ -41,9 +40,11 @@ var VoteForm = React.createClass({
   },
   handleFitChange: function(e) {
     var newFitsTechfest = parseInt(e.target.value);
-    console.log('newFitsTechfest=%d', newFitsTechfest);
+    var vote = this.state;
+    vote.fitsTechfest = newFitsTechfest;
+    this.handleVoteSubmit(vote);
+
     this.setState({fitsTechfest: newFitsTechfest});
-    this.handleVoteSubmit(this.state);
   },
   render: function() {
     return (

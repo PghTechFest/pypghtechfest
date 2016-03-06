@@ -5,7 +5,14 @@ import VoteForm from './VoteForm';
 function zip(submissions, votes){
   var zipped = [];
   for (let submission of submissions) {
-    var vote = {};
+    var vote = {
+          email: "",
+          expectedAttendance: 0,
+          fitsTechfest: 0,
+          fitsTrack: 0,
+          id: 0,
+          talkId: submission.id
+      };
     for (var i=0; i < votes.length; i++) {
       if (votes[i].talkId === submission.id) {
         vote = votes[i];
@@ -32,7 +39,6 @@ var SubmissionList = React.createClass({
           </td>
           <td>
             <VoteForm key={item.submission.id}
-              talkId={item.submission.id}
               vote={item.vote}/>
           </td>
         </tr>

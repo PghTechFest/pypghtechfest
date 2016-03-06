@@ -57,15 +57,7 @@
 	  return obj && obj.__esModule ? obj : { 'default': obj };
 	}
 
-	var _Submission = __webpack_require__(2);
-
-	var _Submission2 = _interopRequireDefault(_Submission);
-
-	var _SubmissionList = __webpack_require__(160);
-
-	var _SubmissionList2 = _interopRequireDefault(_SubmissionList);
-
-	var _SubmissionBox = __webpack_require__(163);
+	var _SubmissionBox = __webpack_require__(2);
 
 	var _SubmissionBox2 = _interopRequireDefault(_SubmissionBox);
 
@@ -97,15 +89,57 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var Submission = _react2['default'].createClass({
-	  displayName: 'Submission',
+	var _SubmissionList = __webpack_require__(160);
 
+	var _SubmissionList2 = _interopRequireDefault(_SubmissionList);
+
+	var _jquery = __webpack_require__(163);
+
+	var _jquery2 = _interopRequireDefault(_jquery);
+
+	var SubmissionBox = _react2['default'].createClass({
+	  displayName: 'SubmissionBox',
+
+	  loadSubmissionsFromServer: function loadSubmissionsFromServer() {
+	    _jquery2['default'].ajax({
+	      url: this.props.submissionsUrl,
+	      dataType: 'json',
+	      cache: false,
+	      success: (function (data) {
+	        this.setState({ submissions: data });
+	      }).bind(this),
+	      error: (function (xhr, status, err) {
+	        console.error(this.props.submissionsUrl, status, err.toString());
+	      }).bind(this)
+	    });
+	  },
+	  loadVotesFromServer: function loadVotesFromServer() {
+	    _jquery2['default'].ajax({
+	      url: this.props.votesUrl,
+	      dataType: 'json',
+	      cache: false,
+	      success: (function (data) {
+	        this.setState({ votes: data });
+	      }).bind(this),
+	      error: (function (xhr, status, err) {
+	        console.error(this.props.votesUrl, status, err.toString());
+	      }).bind(this)
+	    });
+	  },
+	  getInitialState: function getInitialState() {
+	    return { submissions: [], votes: [] };
+	  },
+	  componentDidMount: function componentDidMount() {
+	    this.loadSubmissionsFromServer();
+	    this.loadVotesFromServer();
+	    //setInterval(this.loadSubmissionsFromServer, this.props.pollInterval);
+	  },
 	  render: function render() {
-	    return _react2['default'].createElement('div', null, _react2['default'].createElement('div', null, _react2['default'].createElement('b', null, this.props.title)), _react2['default'].createElement('div', null, this.props.abstract), _react2['default'].createElement('div', null, this.props.tracks));
+	    return _react2['default'].createElement(_SubmissionList2['default'], { submissions: this.state.submissions, votes: this.state.votes });
 	  }
 	});
 
-	exports['default'] = Submission;
+	exports['default'] = SubmissionBox;
 	module.exports = exports['default'];
 
 /***/ },
@@ -19718,11 +19752,11 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _Submission = __webpack_require__(2);
+	var _Submission = __webpack_require__(161);
 
 	var _Submission2 = _interopRequireDefault(_Submission);
 
-	var _VoteForm = __webpack_require__(161);
+	var _VoteForm = __webpack_require__(162);
 
 	var _VoteForm2 = _interopRequireDefault(_VoteForm);
 
@@ -19736,7 +19770,14 @@
 	    for (var _iterator = submissions[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
 	      var submission = _step.value;
 
-	      var vote = {};
+	      var vote = {
+	        email: "",
+	        expectedAttendance: 0,
+	        fitsTechfest: 0,
+	        fitsTrack: 0,
+	        id: 0,
+	        talkId: submission.id
+	      };
 	      for (var i = 0; i < votes.length; i++) {
 	        if (votes[i].talkId === submission.id) {
 	          vote = votes[i];
@@ -19772,7 +19813,6 @@
 	        title: item.submission.title,
 	        abstract: item.submission.abstract,
 	        tracks: item.submission.tracks })), _react2['default'].createElement('td', null, _react2['default'].createElement(_VoteForm2['default'], { key: item.submission.id,
-	        talkId: item.submission.id,
 	        vote: item.vote })));
 	    });
 	    return _react2['default'].createElement('div', { className: 'submissionList' }, _react2['default'].createElement('form', { className: 'votingForm' }, _react2['default'].createElement('table', null, _react2['default'].createElement('tbody', null, submissionNodes))));
@@ -19800,7 +19840,36 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _jquery = __webpack_require__(162);
+	var Submission = _react2['default'].createClass({
+	  displayName: 'Submission',
+
+	  render: function render() {
+	    return _react2['default'].createElement('div', null, _react2['default'].createElement('div', null, _react2['default'].createElement('b', null, this.props.title)), _react2['default'].createElement('div', null, this.props.abstract), _react2['default'].createElement('div', null, this.props.tracks));
+	  }
+	});
+
+	exports['default'] = Submission;
+	module.exports = exports['default'];
+
+/***/ },
+/* 162 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, '__esModule', {
+	  value: true
+	});
+
+	function _interopRequireDefault(obj) {
+	  return obj && obj.__esModule ? obj : { 'default': obj };
+	}
+
+	var _react = __webpack_require__(3);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _jquery = __webpack_require__(163);
 
 	var _jquery2 = _interopRequireDefault(_jquery);
 
@@ -19824,24 +19893,33 @@
 	    },
 	  */
 	  getInitialState: function getInitialState() {
-	    console.log(this.props);
-	    if (this.props.vote == {}) {
-	      return {
-	        email: "",
-	        expectedAttendance: 0,
-	        fitsTechfest: 0,
-	        fitsTrack: 0,
-	        id: 0,
-	        talkId: this.props.talkId
-	      };
-	    }
-	    return this.props.vote;
+	    return {
+	      email: "",
+	      expectedAttendance: 0,
+	      fitsTechfest: 0,
+	      fitsTrack: 0,
+	      id: 0,
+	      talkId: 0
+	    };
+	  },
+	  componentWillReceiveProps: function componentWillReceiveProps(nextProps) {
+	    this.setState({
+	      email: nextProps.vote.email,
+	      expectedAttendance: nextProps.vote.expectedAttendance,
+	      fitsTechfest: nextProps.vote.fitsTechfest,
+	      fitsTrack: nextProps.vote.fitsTrack,
+	      id: nextProps.vote.id,
+	      talkId: nextProps.vote.talkId
+	    });
 	  },
 	  handleFitChange: function handleFitChange(e) {
-	    this.setState({ fitsTechfest: e.target.value });
+	    var newFitsTechfest = parseInt(e.target.value);
+	    console.log("Vote changed - fitsTechfest=%d", newFitsTechfest);
+	    this.setState({ fitsTechfest: newFitsTechfest });
 	  },
 	  render: function render() {
-	    return _react2['default'].createElement('div', null, _react2['default'].createElement('div', null, 'Fit:', _react2['default'].createElement('select', { value: '{this.state.fitsTechfest}',
+	    return _react2['default'].createElement('div', null, _react2['default'].createElement('div', null, 'Fit:', _react2['default'].createElement('select', {
+	      defaultValue: this.state.fitsTechfest,
 	      onChange: this.handleFitChange }, _react2['default'].createElement('option', { value: '0' }, 'None'), _react2['default'].createElement('option', { value: '1' }, 'Marginal'), _react2['default'].createElement('option', { value: '2' }, 'Decent'), _react2['default'].createElement('option', { value: '3' }, 'Solid'), _react2['default'].createElement('option', { value: '4' }, 'Awesome'))));
 	  }
 	});
@@ -19850,7 +19928,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 162 */
+/* 163 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -29685,77 +29763,6 @@
 	return jQuery;
 	}));
 
-
-/***/ },
-/* 163 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, '__esModule', {
-	  value: true
-	});
-
-	function _interopRequireDefault(obj) {
-	  return obj && obj.__esModule ? obj : { 'default': obj };
-	}
-
-	var _react = __webpack_require__(3);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _SubmissionList = __webpack_require__(160);
-
-	var _SubmissionList2 = _interopRequireDefault(_SubmissionList);
-
-	var _jquery = __webpack_require__(162);
-
-	var _jquery2 = _interopRequireDefault(_jquery);
-
-	var SubmissionBox = _react2['default'].createClass({
-	  displayName: 'SubmissionBox',
-
-	  loadSubmissionsFromServer: function loadSubmissionsFromServer() {
-	    _jquery2['default'].ajax({
-	      url: this.props.submissionsUrl,
-	      dataType: 'json',
-	      cache: false,
-	      success: (function (data) {
-	        this.setState({ submissions: data });
-	      }).bind(this),
-	      error: (function (xhr, status, err) {
-	        console.error(this.props.submissionsUrl, status, err.toString());
-	      }).bind(this)
-	    });
-	  },
-	  loadVotesFromServer: function loadVotesFromServer() {
-	    _jquery2['default'].ajax({
-	      url: this.props.votesUrl,
-	      dataType: 'json',
-	      cache: false,
-	      success: (function (data) {
-	        this.setState({ votes: data });
-	      }).bind(this),
-	      error: (function (xhr, status, err) {
-	        console.error(this.props.votesUrl, status, err.toString());
-	      }).bind(this)
-	    });
-	  },
-	  getInitialState: function getInitialState() {
-	    return { submissions: [], votes: [] };
-	  },
-	  componentDidMount: function componentDidMount() {
-	    this.loadSubmissionsFromServer();
-	    this.loadVotesFromServer();
-	    //setInterval(this.loadSubmissionsFromServer, this.props.pollInterval);
-	  },
-	  render: function render() {
-	    return _react2['default'].createElement(_SubmissionList2['default'], { submissions: this.state.submissions, votes: this.state.votes });
-	  }
-	});
-
-	exports['default'] = SubmissionBox;
-	module.exports = exports['default'];
 
 /***/ },
 /* 164 */

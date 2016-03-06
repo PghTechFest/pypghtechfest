@@ -19922,7 +19922,7 @@
 	      talkId: nextProps.vote.talkId
 	    });
 	  },
-	  handleFitChange: function handleFitChange(e) {
+	  handleTechfestFitChange: function handleTechfestFitChange(e) {
 	    var newFitsTechfest = parseInt(e.target.value);
 	    var vote = this.state;
 	    vote.fitsTechfest = newFitsTechfest;
@@ -19930,10 +19930,30 @@
 
 	    this.setState({ fitsTechfest: newFitsTechfest });
 	  },
+	  handleTrackFitChange: function handleTrackFitChange(e) {
+	    var newFitsTrack = parseInt(e.target.value);
+	    var vote = this.state;
+	    vote.fitsTrack = newFitsTrack;
+	    this.handleVoteSubmit(vote);
+
+	    this.setState({ fitsTrack: newFitsTrack });
+	  },
+	  handleExpectedAttendanceChange: function handleExpectedAttendanceChange(e) {
+	    var newExpectedAttendance = parseInt(e.target.value);
+	    var vote = this.state;
+	    vote.expectedAttendance = newExpectedAttendance;
+	    this.handleVoteSubmit(vote);
+
+	    this.setState({ expectedAttendance: newExpectedAttendance });
+	  },
 	  render: function render() {
-	    return _react2['default'].createElement('div', null, _react2['default'].createElement('div', null, 'Fit:', _react2['default'].createElement('select', {
+	    return _react2['default'].createElement('div', null, _react2['default'].createElement('div', null, 'TechFest Fit:', _react2['default'].createElement('select', {
 	      value: this.state.fitsTechfest,
-	      onChange: this.handleFitChange }, _react2['default'].createElement('option', { value: '0' }, 'None'), _react2['default'].createElement('option', { value: '1' }, 'Marginal'), _react2['default'].createElement('option', { value: '2' }, 'Decent'), _react2['default'].createElement('option', { value: '3' }, 'Solid'), _react2['default'].createElement('option', { value: '4' }, 'Awesome'))));
+	      onChange: this.handleTechfestFitChange }, _react2['default'].createElement('option', { value: '0' }, 'None'), _react2['default'].createElement('option', { value: '1' }, 'Marginal'), _react2['default'].createElement('option', { value: '2' }, 'Decent'), _react2['default'].createElement('option', { value: '3' }, 'Solid'), _react2['default'].createElement('option', { value: '4' }, 'Awesome'))), _react2['default'].createElement('div', null, 'Track Fit:', _react2['default'].createElement('select', {
+	      value: this.state.fitsTrack,
+	      onChange: this.handleTrackFitChange }, _react2['default'].createElement('option', { value: '0' }, 'None'), _react2['default'].createElement('option', { value: '1' }, 'Marginal'), _react2['default'].createElement('option', { value: '2' }, 'Decent'), _react2['default'].createElement('option', { value: '3' }, 'Solid'), _react2['default'].createElement('option', { value: '4' }, 'Awesome'))), _react2['default'].createElement('div', null, 'Expected Attendance:', _react2['default'].createElement('select', {
+	      value: this.state.expectedAttendance,
+	      onChange: this.handleExpectedAttendanceChange }, _react2['default'].createElement('option', { value: '0' }, 'Low (10 or less)'), _react2['default'].createElement('option', { value: '1' }, 'Small (11-20)'), _react2['default'].createElement('option', { value: '2' }, 'Average (21-40)'), _react2['default'].createElement('option', { value: '3' }, 'Bigger (41-60)'), _react2['default'].createElement('option', { value: '4' }, 'Sell-out (more than 60)'))));
 	  }
 	});
 

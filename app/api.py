@@ -34,14 +34,13 @@ def post_vote():
 
   talkId = request.json['talkId']
   vote = db.session.query(Vote).filter(Vote.talkId==talkId).filter(Vote.email==user.email).first()
-  print(dir(vote))
   if vote == None:
     vote = Vote()
     vote.talkId = request.json['talkId']
     vote.email = user.email
   vote.fitsTechfest = request.json['fitsTechfest']
-  vote.fitsTrack = 0
-  vote.expectedAttendance = 0
+  vote.fitsTrack = request.json['fitsTrack']
+  vote.expectedAttendance = request.json['expectedAttendance']
   db.session.add(vote)
   db.session.commit()
   return json.dumps(vote.serialize), 201

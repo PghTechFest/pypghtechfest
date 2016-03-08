@@ -25,7 +25,10 @@ class SpeakerForm(Form):
     ('Data', 'Data Science'),
     ('Agile', 'Agile'),
     ('Quality', 'Quality'),
-    ('Soft', 'Soft Skills')
+    ('Soft', 'Soft Skills'),
+    ('Design', 'Design'),
+    ('IoT', 'Hardware/IoT'),
+    ('Other', 'Other')
   ]
 
   title = StringField('title', validators=[DataRequired()])

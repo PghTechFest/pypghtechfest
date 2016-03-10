@@ -1,3 +1,4 @@
+import sys
 import datetime
 from flask import redirect, jsonify, Response, json, request, abort
 from flask.ext.login import login_required, current_user
@@ -33,14 +34,27 @@ def post_vote():
     abort(400)
 
   talkId = request.json['talkId']
-  vote = db.session.query(Vote).filter(Vote.talkId==talkId).filter(Vote.email==user.email).first()
-  if vote == None:
-    vote = Vote()
-    vote.talkId = request.json['talkId']
-    vote.email = user.email
-  vote.fitsTechfest = request.json['fitsTechfest']
-  vote.fitsTrack = request.json['fitsTrack']
-  vote.expectedAttendance = request.json['expectedAttendance']
-  db.session.add(vote)
-  db.session.commit()
+  print('User {} voted on talkId {}.'.format(user.email, talkId))
+  sys.stdout.flush()
+
+  try:
+    vote = db.session.query(Vote).filter(Vote.talkId==talkId).filter(Vote.email==user.email).first()
+  except:
+    print("Unexpected error loading the vote:", sys.exc_info()[0])
+    raise
+
+  try:
+    if vote == None:
+      vote = Vote()
+      vote.talkId = request.json['talkId']
+      vote.email = user.email
+    vote.fitsTechfest = request.json['fitsTechfest']
+    vote.fitsTrack = request.json['fitsTrack']
+    vote.expectedAttendance = request.json['expectedAttendance']
+    db.session.add(vote)
+    db.session.commit()
+  except:
+    print("Unexpected error saving the vote:", sys.exc_info()[0])
+    raise
+
   return json.dumps(vote.serialize), 201

@@ -16,7 +16,11 @@ def get_submissions():
 @login_required
 def get_votes():
   user = current_user
+  print('Getting votes for user {}.'.format(user.email))
+  sys.stdout.flush()
   items = Vote.query.filter(Vote.email==user.email).all()
+  print('Found {} votes entered by user {}.'.format(len(items), user.email))
+  sys.stdout.flush()
   return Response(json.dumps([item.serialize for item in items]), mimetype='application/json')
 
 @app.route('/api/votes/<int:talkId>', methods=['GET'])
@@ -41,6 +45,7 @@ def post_vote():
     vote = db.session.query(Vote).filter(Vote.talkId==talkId).filter(Vote.email==user.email).first()
   except:
     print("Unexpected error loading the vote:", sys.exc_info()[0])
+    sys.stdout.flush()
     raise
 
   try:
@@ -55,6 +60,7 @@ def post_vote():
     db.session.commit()
   except:
     print("Unexpected error saving the vote:", sys.exc_info()[0])
+    sys.stdout.flush()
     raise
 
   return json.dumps(vote.serialize), 201

@@ -1,24 +1,6 @@
 import React from 'react';
-import $ from 'jquery';
 
 var VoteForm = React.createClass({
-  // handleVoteSubmit: function(vote) {
-  //   console.log('In VoteForm.handleVoteSubmit-talkId=', vote.talkId);
-  //   $.ajax({
-  //     url: this.props.votesUrl,
-  //     contentType: "application/json",
-  //     dataType: 'json',
-  //     type: 'POST',
-  //     data: JSON.stringify(vote),
-  //     success: function(data) {
-  //       this.setState({id: data.id});
-  //       console.log('Saved vote change-id=', data.id);
-  //     }.bind(this),
-  //     error: function(xhr, status, err) {
-  //       console.error(this.props.votesUrl, status, err.toString());
-  //     }.bind(this)
-  //   });
-  // },
   getInitialState: function() {
     return {
       email: "",
@@ -29,43 +11,25 @@ var VoteForm = React.createClass({
       talkId: 0
     };
   },
-  componentWillReceiveProps: function(nextProps) {
-    console.log('VoteForm.componentWillReceiveProps-talkId=', nextProps.vote.talkId);
-    // this.setState({
-    //   email: nextProps.vote.email,
-    //   expectedAttendance: nextProps.vote.expectedAttendance,
-    //   fitsTechfest: nextProps.vote.fitsTechfest,
-    //   fitsTrack: nextProps.vote.fitsTrack,
-    //   id: nextProps.vote.id,
-    //   talkId: nextProps.vote.talkId
-    // });
-  },
   handleTechfestFitChange: function(e) {
     var newFitsTechfest = parseInt(e.target.value);
     var vote = Object.assign({}, this.props.vote);
     vote.fitsTechfest = newFitsTechfest;
     this.props.handleVoteSubmit(vote);
-
-    // this.setState({fitsTechfest: newFitsTechfest});
   },
   handleTrackFitChange: function(e) {
     var newFitsTrack = parseInt(e.target.value);
     var vote = Object.assign({}, this.props.vote);
     vote.fitsTrack = newFitsTrack;
     this.props.handleVoteSubmit(vote);
-
-    // this.setState({fitsTrack: newFitsTrack});
   },
   handleExpectedAttendanceChange: function(e) {
     var newExpectedAttendance = parseInt(e.target.value);
     var vote = Object.assign({}, this.props.vote);
     vote.expectedAttendance = newExpectedAttendance;
     this.props.handleVoteSubmit(vote);
-
-    // this.setState({expectedAttendance: newExpectedAttendance});
   },
   render: function() {
-    console.log('In VoteForm.render-talkId=', this.state.talkId);
     return (
       <div>
         <div>

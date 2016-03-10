@@ -45,11 +45,12 @@ var SubmissionList = React.createClass({
             <VoteForm
               key={item.submission.id}
               vote={item.vote}
-              votesUrl={item.votesUrl}/>
+              votesUrl={item.votesUrl}
+              handleVoteSubmit={this.props.handleVoteSubmit} />
           </td>
         </tr>
       );
-    });
+    }, this);
     return (
       <div className="submissionList">
         <form className="votingForm">

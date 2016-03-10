@@ -100,26 +100,44 @@
 	var SubmissionBox = _react2['default'].createClass({
 	  displayName: 'SubmissionBox',
 	
+	  propTypes: {
+	    votesUrl: _react2['default'].PropTypes.string.isRequired
+	  },
 	  loadSubmissionsFromServer: function loadSubmissionsFromServer() {
-	    _jquery2['default'].ajax({
+	    return _jquery2['default'].ajax({
 	      url: this.props.submissionsUrl,
 	      dataType: 'json',
-	      cache: false,
-	      success: (function (data) {
-	        this.setState({ submissions: data });
-	      }).bind(this),
-	      error: (function (xhr, status, err) {
-	        console.error(this.props.submissionsUrl, status, err.toString());
-	      }).bind(this)
+	      cache: false
 	    });
 	  },
 	  loadVotesFromServer: function loadVotesFromServer() {
-	    _jquery2['default'].ajax({
+	    return _jquery2['default'].ajax({
 	      url: this.props.votesUrl,
 	      dataType: 'json',
-	      cache: false,
+	      cache: false
+	    });
+	  },
+	  handleVoteSubmit: function handleVoteSubmit(vote) {
+	    console.log('In VoteForm.handleVoteSubmit-talkId=', vote.talkId);
+	    _jquery2['default'].ajax({
+	      url: this.props.votesUrl,
+	      contentType: "application/json",
+	      dataType: 'json',
+	      type: 'POST',
+	      data: JSON.stringify(vote),
 	      success: (function (data) {
-	        this.setState({ votes: data });
+	        var votes = [];
+	        if (this.state.votes.length) {
+	          votes = this.state.votes.map(function (vote) {
+	            return vote.id !== data.id ? vote : data;
+	          });
+	        } else {
+	          votes = [data];
+	        }
+	        this.setState({
+	          votes: votes
+	        });
+	        console.log('Saved vote change-id=', data.id);
 	      }).bind(this),
 	      error: (function (xhr, status, err) {
 	        console.error(this.props.votesUrl, status, err.toString());
@@ -127,19 +145,24 @@
 	    });
 	  },
 	  getInitialState: function getInitialState() {
-	    return { submissions: [], votes: [], votesUrl: "" };
+	    return { submissions: [], votes: [] };
 	  },
 	  componentDidMount: function componentDidMount() {
-	    this.setState({ votesUrl: this.props.votesUrl });
-	    this.loadSubmissionsFromServer();
-	    this.loadVotesFromServer();
-	    //setInterval(this.loadSubmissionsFromServer, this.props.pollInterval);
+	    var _this = this;
+	
+	    _jquery2['default'].when(this.loadSubmissionsFromServer(), this.loadVotesFromServer()).then(function (submissions, votes) {
+	      _this.setState({
+	        submissions: submissions[0],
+	        votes: votes[0]
+	      });
+	    });
 	  },
 	  render: function render() {
 	    return _react2['default'].createElement(_SubmissionList2['default'], {
 	      submissions: this.state.submissions,
 	      votes: this.state.votes,
-	      votesUrl: this.state.votesUrl });
+	      votesUrl: this.props.votesUrl,
+	      handleVoteSubmit: this.handleVoteSubmit });
 	  }
 	});
 	
@@ -19823,8 +19846,9 @@
 	        tracks: item.submission.tracks })), _react2['default'].createElement('td', null, _react2['default'].createElement(_VoteForm2['default'], {
 	        key: item.submission.id,
 	        vote: item.vote,
-	        votesUrl: item.votesUrl })));
-	    });
+	        votesUrl: item.votesUrl,
+	        handleVoteSubmit: this.props.handleVoteSubmit })));
+	    }, this);
 	    return _react2['default'].createElement('div', { className: 'submissionList' }, _react2['default'].createElement('form', { className: 'votingForm' }, _react2['default'].createElement('table', null, _react2['default'].createElement('tbody', null, submissionNodes))));
 	  }
 	});
@@ -19886,23 +19910,23 @@
 	var VoteForm = _react2['default'].createClass({
 	  displayName: 'VoteForm',
 	
-	  handleVoteSubmit: function handleVoteSubmit(vote) {
-	    console.log('In VoteForm.handleVoteSubmit-talkId=', vote.talkId);
-	    _jquery2['default'].ajax({
-	      url: this.props.votesUrl,
-	      contentType: "application/json",
-	      dataType: 'json',
-	      type: 'POST',
-	      data: JSON.stringify(vote),
-	      success: (function (data) {
-	        this.setState({ id: data.id });
-	        console.log('Saved vote change-id=', data.id);
-	      }).bind(this),
-	      error: (function (xhr, status, err) {
-	        console.error(this.props.votesUrl, status, err.toString());
-	      }).bind(this)
-	    });
-	  },
+	  // handleVoteSubmit: function(vote) {
+	  //   console.log('In VoteForm.handleVoteSubmit-talkId=', vote.talkId);
+	  //   $.ajax({
+	  //     url: this.props.votesUrl,
+	  //     contentType: "application/json",
+	  //     dataType: 'json',
+	  //     type: 'POST',
+	  //     data: JSON.stringify(vote),
+	  //     success: function(data) {
+	  //       this.setState({id: data.id});
+	  //       console.log('Saved vote change-id=', data.id);
+	  //     }.bind(this),
+	  //     error: function(xhr, status, err) {
+	  //       console.error(this.props.votesUrl, status, err.toString());
+	  //     }.bind(this)
+	  //   });
+	  // },
 	  getInitialState: function getInitialState() {
 	    return {
 	      email: "",
@@ -19915,47 +19939,47 @@
 	  },
 	  componentWillReceiveProps: function componentWillReceiveProps(nextProps) {
 	    console.log('VoteForm.componentWillReceiveProps-talkId=', nextProps.vote.talkId);
-	    this.setState({
-	      email: nextProps.vote.email,
-	      expectedAttendance: nextProps.vote.expectedAttendance,
-	      fitsTechfest: nextProps.vote.fitsTechfest,
-	      fitsTrack: nextProps.vote.fitsTrack,
-	      id: nextProps.vote.id,
-	      talkId: nextProps.vote.talkId
-	    });
+	    // this.setState({
+	    //   email: nextProps.vote.email,
+	    //   expectedAttendance: nextProps.vote.expectedAttendance,
+	    //   fitsTechfest: nextProps.vote.fitsTechfest,
+	    //   fitsTrack: nextProps.vote.fitsTrack,
+	    //   id: nextProps.vote.id,
+	    //   talkId: nextProps.vote.talkId
+	    // });
 	  },
 	  handleTechfestFitChange: function handleTechfestFitChange(e) {
 	    var newFitsTechfest = parseInt(e.target.value);
-	    var vote = this.state;
+	    var vote = Object.assign({}, this.props.vote);
 	    vote.fitsTechfest = newFitsTechfest;
-	    this.handleVoteSubmit(vote);
+	    this.props.handleVoteSubmit(vote);
 	
-	    this.setState({ fitsTechfest: newFitsTechfest });
+	    // this.setState({fitsTechfest: newFitsTechfest});
 	  },
 	  handleTrackFitChange: function handleTrackFitChange(e) {
 	    var newFitsTrack = parseInt(e.target.value);
-	    var vote = this.state;
+	    var vote = Object.assign({}, this.props.vote);
 	    vote.fitsTrack = newFitsTrack;
-	    this.handleVoteSubmit(vote);
+	    this.props.handleVoteSubmit(vote);
 	
-	    this.setState({ fitsTrack: newFitsTrack });
+	    // this.setState({fitsTrack: newFitsTrack});
 	  },
 	  handleExpectedAttendanceChange: function handleExpectedAttendanceChange(e) {
 	    var newExpectedAttendance = parseInt(e.target.value);
-	    var vote = this.state;
+	    var vote = Object.assign({}, this.props.vote);
 	    vote.expectedAttendance = newExpectedAttendance;
-	    this.handleVoteSubmit(vote);
+	    this.props.handleVoteSubmit(vote);
 	
-	    this.setState({ expectedAttendance: newExpectedAttendance });
+	    // this.setState({expectedAttendance: newExpectedAttendance});
 	  },
 	  render: function render() {
 	    console.log('In VoteForm.render-talkId=', this.state.talkId);
 	    return _react2['default'].createElement('div', null, _react2['default'].createElement('div', null, 'TechFest Fit:', _react2['default'].createElement('select', {
-	      value: this.state.fitsTechfest,
+	      value: this.props.vote.fitsTechfest,
 	      onChange: this.handleTechfestFitChange }, _react2['default'].createElement('option', { value: '0' }, 'None'), _react2['default'].createElement('option', { value: '1' }, 'Marginal'), _react2['default'].createElement('option', { value: '2' }, 'Decent'), _react2['default'].createElement('option', { value: '3' }, 'Solid'), _react2['default'].createElement('option', { value: '4' }, 'Awesome'))), _react2['default'].createElement('div', null, 'Track Fit:', _react2['default'].createElement('select', {
-	      value: this.state.fitsTrack,
+	      value: this.props.vote.fitsTrack,
 	      onChange: this.handleTrackFitChange }, _react2['default'].createElement('option', { value: '0' }, 'None'), _react2['default'].createElement('option', { value: '1' }, 'Marginal'), _react2['default'].createElement('option', { value: '2' }, 'Decent'), _react2['default'].createElement('option', { value: '3' }, 'Solid'), _react2['default'].createElement('option', { value: '4' }, 'Awesome'))), _react2['default'].createElement('div', null, 'Expected Attendance:', _react2['default'].createElement('select', {
-	      value: this.state.expectedAttendance,
+	      value: this.props.vote.expectedAttendance,
 	      onChange: this.handleExpectedAttendanceChange }, _react2['default'].createElement('option', { value: '0' }, 'Low (10 or less)'), _react2['default'].createElement('option', { value: '1' }, 'Small (11-20)'), _react2['default'].createElement('option', { value: '2' }, 'Average (21-40)'), _react2['default'].createElement('option', { value: '3' }, 'Bigger (41-60)'), _react2['default'].createElement('option', { value: '4' }, 'Sell-out (more than 60)'))));
 	  }
 	});

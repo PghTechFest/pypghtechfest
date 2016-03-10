@@ -63,6 +63,8 @@ var VoteForm = React.createClass({
     this.setState({expectedAttendance: newExpectedAttendance});
   },
   render: function() {
+    console.log('In VoteForm.render');
+    console.dir(this.state);
     return (
       <div>
         <div>

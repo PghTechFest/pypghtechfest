@@ -19887,6 +19887,7 @@
 	  displayName: 'VoteForm',
 
 	  handleVoteSubmit: function handleVoteSubmit(vote) {
+	    console.log('In VoteForm.handleVoteSubmit-talkId=', vote.talkId);
 	    _jquery2['default'].ajax({
 	      url: this.props.votesUrl,
 	      contentType: "application/json",
@@ -19894,8 +19895,8 @@
 	      type: 'POST',
 	      data: JSON.stringify(vote),
 	      success: (function (data) {
-	        console.log('Saved vote change.');
-	        //this.setState({data: data});
+	        this.setState({ id: data.id });
+	        console.log('Saved vote change-id=', data.id);
 	      }).bind(this),
 	      error: (function (xhr, status, err) {
 	        console.error(this.props.votesUrl, status, err.toString());
@@ -19913,6 +19914,7 @@
 	    };
 	  },
 	  componentWillReceiveProps: function componentWillReceiveProps(nextProps) {
+	    console.log('VoteForm.componentWillReceiveProps-talkId=', nextProps.vote.talkId);
 	    this.setState({
 	      email: nextProps.vote.email,
 	      expectedAttendance: nextProps.vote.expectedAttendance,
@@ -19947,8 +19949,7 @@
 	    this.setState({ expectedAttendance: newExpectedAttendance });
 	  },
 	  render: function render() {
-	    console.log('In VoteForm.render');
-	    console.dir(this.state);
+	    console.log('In VoteForm.render-talkId=', this.state.talkId);
 	    return _react2['default'].createElement('div', null, _react2['default'].createElement('div', null, 'TechFest Fit:', _react2['default'].createElement('select', {
 	      value: this.state.fitsTechfest,
 	      onChange: this.handleTechfestFitChange }, _react2['default'].createElement('option', { value: '0' }, 'None'), _react2['default'].createElement('option', { value: '1' }, 'Marginal'), _react2['default'].createElement('option', { value: '2' }, 'Decent'), _react2['default'].createElement('option', { value: '3' }, 'Solid'), _react2['default'].createElement('option', { value: '4' }, 'Awesome'))), _react2['default'].createElement('div', null, 'Track Fit:', _react2['default'].createElement('select', {

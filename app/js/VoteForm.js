@@ -3,6 +3,7 @@ import $ from 'jquery';
 
 var VoteForm = React.createClass({
   handleVoteSubmit: function(vote) {
+    console.log('In VoteForm.handleVoteSubmit-talkId=', vote.talkId);
     $.ajax({
       url: this.props.votesUrl,
       contentType: "application/json",
@@ -10,8 +11,8 @@ var VoteForm = React.createClass({
       type: 'POST',
       data: JSON.stringify(vote),
       success: function(data) {
-        console.log('Saved vote change.');
-        //this.setState({data: data});
+        this.setState({id: data.id});
+        console.log('Saved vote change-id=', data.id);
       }.bind(this),
       error: function(xhr, status, err) {
         console.error(this.props.votesUrl, status, err.toString());
@@ -29,6 +30,7 @@ var VoteForm = React.createClass({
     };
   },
   componentWillReceiveProps: function(nextProps) {
+    console.log('VoteForm.componentWillReceiveProps-talkId=', nextProps.vote.talkId);
     this.setState({
       email: nextProps.vote.email,
       expectedAttendance: nextProps.vote.expectedAttendance,
@@ -63,8 +65,7 @@ var VoteForm = React.createClass({
     this.setState({expectedAttendance: newExpectedAttendance});
   },
   render: function() {
-    console.log('In VoteForm.render');
-    console.dir(this.state);
+    console.log('In VoteForm.render-talkId=', this.state.talkId);
     return (
       <div>
         <div>

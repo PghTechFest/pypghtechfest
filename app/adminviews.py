@@ -5,6 +5,7 @@ from app import app, db, lm, bcrypt
 from .forms import SpeakerForm, LoginForm, ChangePwdForm
 from .models import Submission, User
 from config import appConfiguration
+from sqlalchemy import func
 
 @app.route('/admin')
 @login_required
@@ -78,3 +79,9 @@ def logout():
 @lm.user_loader
 def user_loader(user_id):
   return User.query.get(user_id)
+
+@app.route('/admin/speakers', methods=['GET'])
+@login_required
+def get_speakers():
+  items = db.session.query(Submission.email, func.count(Submission.email)).group_by(Submission.email).all()
+  return render_template("adminspeakers.html", items = items)

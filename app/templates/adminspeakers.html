@@ -1,0 +1,23 @@
+{% extends "adminbase.html" %}
+
+{% block content %}
+
+<h1>Speaker Submitting</h1>
+<table>
+  <thead>
+    <tr>
+      <td width=60%>Speaker</td>
+      <td width=20%>Count</td>
+    </tr>
+  </thead>
+  <tbody>
+  {% for speaker in items %}
+    <tr>
+      <td>{{speaker.email}}</td>
+      <td>{{speaker[1]}}</td>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+
+{% endblock %}

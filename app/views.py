@@ -3,11 +3,12 @@ from flask import render_template, flash, redirect
 from app import app, db
 from .forms import SpeakerForm
 from .models import Submission
-from config import appConfiguration
+from config import appConfiguration, logger
 
 @app.route('/')
 @app.route('/index')
 def index():
+  logger.debug('Rendering index.')
   return render_template("index.html", settings = appConfiguration)
 
 @app.route('/react')

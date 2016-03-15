@@ -1,0 +1,514 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"th",
+				"thead	Tag"
+			],
+			[
+				"ta",
+				"talkId"
+			],
+			[
+				"fi",
+				"fitsTrack"
+			],
+			[
+				"f",
+				"fitsTrack"
+			],
+			[
+				"ne",
+				"newFitsTechfest"
+			],
+			[
+				"se",
+				"setState"
+			],
+			[
+				"votes",
+				"votesUrl"
+			],
+			[
+				"han",
+				"handleVoteSubmit"
+			],
+			[
+				"ex",
+				"expectedAttendance"
+			],
+			[
+				"pr",
+				"props"
+			],
+			[
+				"co",
+				"combined"
+			],
+			[
+				"Submission",
+				"SubmissionList"
+			],
+			[
+				"Ch",
+				"ChangePwdForm"
+			],
+			[
+				"curren",
+				"current_user"
+			],
+			[
+				"admin",
+				"adminindex"
+			],
+			[
+				"app",
+				"appConfiguration"
+			],
+			[
+				"re",
+				"render_template"
+			],
+			[
+				"log",
+				"login_required"
+			],
+			[
+				"Check",
+				"CheckboxField"
+			],
+			[
+				"prim",
+				"primeList"
+			],
+			[
+				"de",
+				"desired"
+			],
+			[
+				"ab",
+				"abundantNumbers"
+			],
+			[
+				"fin",
+				"Finding"
+			],
+			[
+				"ad",
+				"abundantNumbers"
+			],
+			[
+				"a",
+				"abundantNumbers"
+			],
+			[
+				"da",
+				"dayCount"
+			],
+			[
+				"mont",
+				"monthDays"
+			],
+			[
+				"l",
+				"lineNodes"
+			],
+			[
+				"we",
+				"weightAtNode"
+			],
+			[
+				"gee",
+				"getCumWeight"
+			],
+			[
+				"pa",
+				"parsePyramid"
+			],
+			[
+				"g",
+				"getWeigth"
+			],
+			[
+				"ge",
+				"getLeft"
+			],
+			[
+				"hun",
+				"hundredsDigit"
+			],
+			[
+				"tho",
+				"thousandsDigit"
+			],
+			[
+				"sin",
+				"singlesDigit"
+			],
+			[
+				"tens",
+				"tensDigit"
+			],
+			[
+				"sing",
+				"singles"
+			],
+			[
+				"si",
+				"singles"
+			],
+			[
+				"ten",
+				"tensDigit"
+			],
+			[
+				"fac",
+				"factorCount"
+			],
+			[
+				"get",
+				"getparts"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 87.0,
+		"last_filter": "instal",
+		"selected_items":
+		[
+			[
+				"instal",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 449.0
+	},
+	"console":
+	{
+		"height": 209.0,
+		"history":
+		[
+			"import urllib.request,os,hashlib; h = '2915d1851351e5ee549c20394736b442' + '8bc59f460fa1548d1514676163dafc88'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/Users/eric/github/pghtechfest/pypghtechfest"
+	],
+	"file_history":
+	[
+		"/Users/eric/github/ekepes/DemoCode/.gitignore",
+		"/Users/eric/github/pghtechfest/pypghtechfest/app/adminviews.py",
+		"/Users/eric/github/pghtechfest/pypghtechfest/app/api.py",
+		"/Users/eric/github/pghtechfest/pypghtechfest/app/forms.py",
+		"/Users/eric/github/pghtechfest/pypghtechfest/app/templates/adminspeakers.html",
+		"/Users/eric/github/pghtechfest/pypghtechfest/app/templates/adminbase.html",
+		"/Users/eric/github/pghtechfest/pypghtechfest/app/templates/sponsors.html",
+		"/Users/eric/github/pghtechfest/pypghtechfest/app/js/VoteForm.js",
+		"/Users/eric/github/pghtechfest/pypghtechfest/app/js/Submission.js",
+		"/Users/eric/github/pghtechfest/pypghtechfest/app/js/SubmissionBox.js",
+		"/Users/eric/github/pghtechfest/pypghtechfest/app/js/SubmissionList.js",
+		"/Users/eric/github/pghtechfest/pypghtechfest/webpack.config.js",
+		"/Users/eric/github/pghtechfest/pypghtechfest/app/js/app.js",
+		"/Users/eric/github/pghtechfest/pypghtechfest/app/models.py",
+		"/Users/eric/github/ekepes/DemoCode/react-tutorial-master/public/index.html",
+		"/Users/eric/github/pghtechfest/pypghtechfest/package.json",
+		"/Users/eric/github/pghtechfest/pypghtechfest/jsbuild.sh",
+		"/Users/eric/github/pghtechfest/pypghtechfest/config.py",
+		"/Users/eric/github/pghtechfest/pypghtechfest/app/templates/base.html",
+		"/Users/eric/github/pghtechfest/pypghtechfest/app/templates/index.html",
+		"/Users/eric/github/pghtechfest/pypghtechfest/app/templates/adminsubmissions.html",
+		"/Users/eric/github/pghtechfest/pypghtechfest/app/templates/react.html",
+		"/Users/eric/github/pghtechfest/pypghtechfest/app/js/Hello.js",
+		"/Users/eric/github/pghtechfest/pypghtechfest/app/__init__.py",
+		"/Users/eric/github/pghtechfest/pypghtechfest/.gitignore",
+		"/Users/eric/github/pghtechfest/pypghtechfest/app/templates/thanksforsubmitting.html",
+		"/Users/eric/github/pghtechfest/pypghtechfest/app/views.py",
+		"/Users/eric/github/pghtechfest/pypghtechfest/app/templates/adminconfig.html",
+		"/Users/eric/github/pghtechfest/pypghtechfest/requirements.txt",
+		"/Users/eric/github/pghtechfest/pypghtechfest/app/templates/changepwd.html",
+		"/Users/eric/github/pghtechfest/pypghtechfest/create_user.py",
+		"/Users/eric/github/pghtechfest/pypghtechfest/adduser.py",
+		"/Users/eric/github/pghtechfest/pypghtechfest/app/templates/login.html",
+		"/Users/eric/github/pghtechfest/pypghtechfest/deploy.sh",
+		"/Users/eric/github/pghtechfest/pypghtechfest/app/templates/codeofconduct.html",
+		"/Users/eric/github/pghtechfest/pypghtechfest/app/templates/talksubmit.html",
+		"/Users/eric/github/pghtechfest/pypghtechfest/app/templates/adminindex.html",
+		"/Users/eric/github/pghtechfest/pypghtechfest/Procfile",
+		"/Users/eric/github/pghtechfest/pypghtechfest/runtime.txt",
+		"/Users/eric/github/pghtechfest/pypghtechfest/app/static/images/sponsors/ptc.png",
+		"/Users/eric/github/pghtechfest/pypghtechfest/db_downgrade.py",
+		"/Users/eric/github/pghtechfest/pypghtechfest/db_upgrade.py",
+		"/Users/eric/github/pghtechfest/pypghtechfest/db_migrate.py",
+		"/Users/eric/github/pghtechfest/pypghtechfest/db_create.py",
+		"/Users/eric/github/pghtechfest/pypghtechfest/app/templates/venue.html",
+		"/Users/eric/github/pghtechfest/pypghtechfest/README.md",
+		"/Users/eric/github/pghtechfest/pypghtechfest/app/templates/callforspeakers.html",
+		"/Users/eric/github/pghtechfest/pypghtechfest/LICENSE",
+		"/Users/eric/github/ekepes/DemoCode/Flask/app/views.py",
+		"/Users/eric/github/ekepes/DemoCode/microblog/.gitignore",
+		"/Users/eric/github/ekepes/DemoCode/Flask/installflask.sh",
+		"/Users/eric/github/ekepes/DemoCode/Flask/app.py",
+		"/Users/eric/github/ekepes/ProjectEuler/python/p026.py",
+		"/Users/eric/github/ekepes/ProjectEuler/python/p024.py",
+		"/Users/eric/github/ekepes/ProjectEuler/python/util.py",
+		"/Users/eric/github/ekepes/ProjectEuler/python/x.rb",
+		"/Users/eric/github/ekepes/ProjectEuler/python/x.py",
+		"/Users/eric/github/ekepes/ProjectEuler/python/p023.py",
+		"/Users/eric/github/ekepes/ProjectEuler/python/solution_template.py",
+		"/Users/eric/github/ekepes/ProjectEuler/python/p005.py",
+		"/Users/eric/github/ekepes/ProjectEuler/python/p021.py",
+		"/Users/eric/github/ekepes/ProjectEuler/python/setup.sh",
+		"/Users/eric/github/ekepes/DemoCode/DAT208x/lab1.1.py",
+		"/Users/eric/github/ekepes/ProjectEuler/python/p022.py",
+		"/Users/eric/github/ekepes/ProjectEuler/python/p020.py",
+		"/Users/eric/github/ekepes/ProjectEuler/python/p019.py",
+		"/Users/eric/github/ekepes/ProjectEuler/python/p018.py",
+		"/Users/eric/github/ekepes/ProjectEuler/python/scratchpad.py",
+		"/Users/eric/github/ekepes/ProjectEuler/python/p016.py",
+		"/Users/eric/github/ekepes/ProjectEuler/python/p017.py",
+		"/Users/eric/github/ekepes/ProjectEuler/python/p011.py",
+		"/Users/eric/github/ekepes/ProjectEuler/python/p012.py",
+		"/Users/eric/github/ekepes/ProjectEuler/python/p014.py",
+		"/Users/eric/github/ekepes/ProjectEuler/python/p013.py",
+		"/Users/eric/github/ekepes/ProjectEuler/python/try.py",
+		"/Users/eric/Library/Application Support/Sublime Text 3/Packages/Default/Preferences.sublime-settings",
+		"/Users/eric/github/ekepes/ProjectEuler/python/p010.py",
+		"/Users/eric/github/ekepes/ProjectEuler/python/p009.py",
+		"/Users/eric/github/ekepes/ProjectEuler/python/p010-naive.py",
+		"/Users/eric/github/ekepes/ProjectEuler/FEuler/Solutions/Euler010.fsx",
+		"/Users/eric/github/ekepes/ProjectEuler/python/p008.py",
+		"/Users/eric/github/ekepes/ProjectEuler/python/p007.py",
+		"/Users/eric/github/ekepes/ProjectEuler/FEuler/Solutions/Euler009.fsx",
+		"/Users/eric/github/ekepes/ProjectEuler/python/p006.py",
+		"/Users/eric/github/ekepes/ProjectEuler/Problems/Problems/ProblemSeven.cs",
+		"/Users/eric/github/ekepes/ProjectEuler/python/p004.py",
+		"/Users/eric/github/ekepes/ProjectEuler/python/p003.py",
+		"/Users/eric/github/ekepes/ProjectEuler/Problems/Problems/ProblemFour.cs",
+		"/Users/eric/play/pyreact/app.py",
+		"/Users/eric/play/pyreact/templates/index.html",
+		"/Users/eric/play/pyreact/requirements.txt",
+		"/Users/eric/.bash_aliases",
+		"/Users/eric/.bashrc",
+		"/Users/eric/.bash_profile",
+		"/Users/eric/.bashprofile",
+		"/Users/eric/github/ekepes/ProjectEuler/python/p002.py",
+		"/Users/eric/.gitconfig",
+		"/Users/eric/Dropbox/StuffToSetUpAMachine/.gitconfig",
+		"/Users/eric/github/ekepes/ProjectEuler/python/p001.py",
+		"/Users/eric/github/ekepes/ProjectEuler/.gitignore",
+		"/Users/eric/github/ekepes/ProjectEuler/python/problem001.py",
+		"/Users/eric/github/ekepes/ProjectEuler/python/problem-1.py",
+		"/Users/eric/github/ekepes/elmplay/guess/src/guess.elm",
+		"/Users/eric/github/ekepes/reactplay/hellojsx/index.html",
+		"/Users/eric/github/ekepes/reactplay/helloworld/index.html",
+		"/Users/eric/play/elmguess/elm-package.json",
+		"/Users/eric/play/elmguess/Guess.elm"
+	],
+	"find":
+	{
+		"height": 35.0
+	},
+	"find_in_files":
+	{
+		"height": 117.0,
+		"where_history":
+		[
+			"*.html",
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": true,
+		"find_history":
+		[
+			"handleFitChange",
+			"Comment",
+			"comment",
+			"dic",
+			".js",
+			"~",
+			"content",
+			"~/content/",
+			"content",
+			"dicell",
+			"~/content/",
+			"flask/",
+			"$ ",
+			"prime",
+			"result",
+			"\n  + ",
+			" +\n  ",
+			"\n",
+			")",
+			"grid.append(",
+			"07",
+			"06",
+			"05",
+			"04",
+			"03",
+			"01",
+			"07",
+			"02",
+			"00",
+			"09",
+			"08",
+			"],",
+			"  [",
+			"], ",
+			", \\\n  ",
+			" ",
+			"marked"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"handleTechfestFitChange",
+			"Submission",
+			"submission",
+			"/static/",
+			"",
+			"number ",
+			",\n   ",
+			"\n  + ",
+			" +\n  ",
+			",",
+			"  ",
+			"7",
+			"6",
+			"5",
+			"4",
+			"13",
+			"1",
+			"7",
+			"2",
+			"0",
+			"9",
+			"8",
+			"])",
+			"grid.append([",
+			"],\n  ",
+			", ",
+			"sieve"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 35.0
+	},
+	"input":
+	{
+		"height": 43.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "pypghtechfest.sublime-project",
+	"replace":
+	{
+		"height": 66.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 280.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

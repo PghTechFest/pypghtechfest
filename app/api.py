@@ -4,7 +4,7 @@ from flask import redirect, jsonify, Response, json, request, abort
 from flask.ext.login import login_required, current_user
 from app import app, db
 from .models import Submission, Vote
-from config import appConfiguration
+from config import appConfiguration, logger
 
 @app.route('/api/submissions', methods=['GET'])
 @login_required
@@ -16,11 +16,10 @@ def get_submissions():
 @login_required
 def get_votes():
   user = current_user
-  print('Getting votes for user {}.'.format(user.email))
+  logger.debug('Getting votes for user {}.'.format(user.email))
   sys.stdout.flush()
   items = Vote.query.filter(Vote.email==user.email).all()
-  print('Found {} votes entered by user {}.'.format(len(items), user.email))
-  sys.stdout.flush()
+  logger.debug('Found {} votes entered by user {}.'.format(len(items), user.email))
   return Response(json.dumps([item.serialize for item in items]), mimetype='application/json')
 
 @app.route('/api/votes/<int:talkId>', methods=['GET'])
@@ -38,14 +37,12 @@ def post_vote():
     abort(400)
 
   talkId = request.json['talkId']
-  print('User {} voted on talkId {}.'.format(user.email, talkId))
-  sys.stdout.flush()
+  logger.debug('User {} voted on talkId {}.'.format(user.email, talkId))
 
   try:
     vote = db.session.query(Vote).filter(Vote.talkId==talkId).filter(Vote.email==user.email).first()
   except:
-    print("Unexpected error loading the vote:", sys.exc_info()[0])
-    sys.stdout.flush()
+    logger.error("Unexpected error loading the vote:", sys.exc_info()[0])
     raise
 
   try:
@@ -59,8 +56,7 @@ def post_vote():
     db.session.add(vote)
     db.session.commit()
   except:
-    print("Unexpected error saving the vote:", sys.exc_info()[0])
-    sys.stdout.flush()
+    logger.error("Unexpected error saving the vote:", sys.exc_info()[0])
     raise
 
   return json.dumps(vote.serialize), 201

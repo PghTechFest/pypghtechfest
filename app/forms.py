@@ -1,7 +1,7 @@
 from flask.ext.wtf import Form
 from wtforms import widgets, StringField, TextAreaField, RadioField, SelectMultipleField, BooleanField, PasswordField
 from wtforms.fields.html5 import EmailField
-from wtforms.validators import DataRequired
+from wtforms.validators import DataRequired, Length
 
 class MultiCheckboxField(SelectMultipleField):
   widget = widgets.ListWidget(prefix_label=False)
@@ -31,13 +31,13 @@ class SpeakerForm(Form):
     ('Other', 'Other')
   ]
 
-  title = StringField('title', validators=[DataRequired()])
+  title = StringField('title', validators=[DataRequired(), Length(max=80)])
   abstract = TextAreaField('abstract', validators=[DataRequired()])
   time = RadioField('time', choices=[('60','60 Minutes'),('30','30 Minutes'),('45','30 or 60 Minutes - just let me know')])
   tracks = MultiCheckboxField('tracks', choices=availableTracks)
-  firstName = StringField('name', validators=[DataRequired()])
-  lastName = StringField('name', validators=[DataRequired()])
-  email = EmailField('email', validators=[DataRequired()])
+  firstName = StringField('name', validators=[DataRequired(), Length(max=30)])
+  lastName = StringField('name', validators=[DataRequired(), Length(max=30)])
+  email = EmailField('email', validators=[DataRequired(), Length(max=80)])
   twitter = StringField('twitter')
   bio = TextAreaField('bio', validators=[DataRequired()])
   comments = TextAreaField('comments')

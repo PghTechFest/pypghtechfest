@@ -213,14 +213,20 @@
 	},
 	"expanded_folders":
 	[
-		"/Users/eric/github/pghtechfest/pypghtechfest"
+		"/Users/eric/github/pghtechfest/pypghtechfest",
+		"/Users/eric/github/pghtechfest/pypghtechfest/app",
+		"/Users/eric/github/pghtechfest/pypghtechfest/flask",
+		"/Users/eric/github/pghtechfest/pypghtechfest/flask/bin"
 	],
 	"file_history":
 	[
-		"/Users/eric/github/ekepes/DemoCode/.gitignore",
-		"/Users/eric/github/pghtechfest/pypghtechfest/app/adminviews.py",
-		"/Users/eric/github/pghtechfest/pypghtechfest/app/api.py",
+		"/Users/eric/github/pghtechfest/pypghtechfest/config.py",
+		"/Users/eric/github/pghtechfest/pypghtechfest/app/views.py",
+		"/Users/eric/github/pghtechfest/pypghtechfest/app/models.py",
 		"/Users/eric/github/pghtechfest/pypghtechfest/app/forms.py",
+		"/Users/eric/github/pghtechfest/pypghtechfest/app/api.py",
+		"/Users/eric/github/pghtechfest/pypghtechfest/app/adminviews.py",
+		"/Users/eric/github/ekepes/DemoCode/.gitignore",
 		"/Users/eric/github/pghtechfest/pypghtechfest/app/templates/adminspeakers.html",
 		"/Users/eric/github/pghtechfest/pypghtechfest/app/templates/adminbase.html",
 		"/Users/eric/github/pghtechfest/pypghtechfest/app/templates/sponsors.html",
@@ -230,11 +236,9 @@
 		"/Users/eric/github/pghtechfest/pypghtechfest/app/js/SubmissionList.js",
 		"/Users/eric/github/pghtechfest/pypghtechfest/webpack.config.js",
 		"/Users/eric/github/pghtechfest/pypghtechfest/app/js/app.js",
-		"/Users/eric/github/pghtechfest/pypghtechfest/app/models.py",
 		"/Users/eric/github/ekepes/DemoCode/react-tutorial-master/public/index.html",
 		"/Users/eric/github/pghtechfest/pypghtechfest/package.json",
 		"/Users/eric/github/pghtechfest/pypghtechfest/jsbuild.sh",
-		"/Users/eric/github/pghtechfest/pypghtechfest/config.py",
 		"/Users/eric/github/pghtechfest/pypghtechfest/app/templates/base.html",
 		"/Users/eric/github/pghtechfest/pypghtechfest/app/templates/index.html",
 		"/Users/eric/github/pghtechfest/pypghtechfest/app/templates/adminsubmissions.html",
@@ -243,7 +247,6 @@
 		"/Users/eric/github/pghtechfest/pypghtechfest/app/__init__.py",
 		"/Users/eric/github/pghtechfest/pypghtechfest/.gitignore",
 		"/Users/eric/github/pghtechfest/pypghtechfest/app/templates/thanksforsubmitting.html",
-		"/Users/eric/github/pghtechfest/pypghtechfest/app/views.py",
 		"/Users/eric/github/pghtechfest/pypghtechfest/app/templates/adminconfig.html",
 		"/Users/eric/github/pghtechfest/pypghtechfest/requirements.txt",
 		"/Users/eric/github/pghtechfest/pypghtechfest/app/templates/changepwd.html",
@@ -327,13 +330,14 @@
 	],
 	"find":
 	{
-		"height": 35.0
+		"height": 43.0
 	},
 	"find_in_files":
 	{
 		"height": 117.0,
 		"where_history":
 		[
+			"<open files>",
 			"*.html",
 			""
 		]
@@ -343,6 +347,7 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			"print(",
 			"handleFitChange",
 			"Comment",
 			"comment",

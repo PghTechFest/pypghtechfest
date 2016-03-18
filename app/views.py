@@ -11,10 +11,6 @@ def index():
   logger.debug('Rendering index.')
   return render_template("index.html", settings = appConfiguration)
 
-@app.route('/react')
-def react():
-  return render_template("react.html")
-
 @app.route('/venue')
 def venue():
   return render_template("venue.html", settings = appConfiguration)

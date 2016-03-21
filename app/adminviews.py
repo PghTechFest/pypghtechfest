@@ -4,7 +4,7 @@ from flask.ext.login import login_required, login_user, logout_user, current_use
 from app import app, db, lm, bcrypt
 from .forms import SpeakerForm, LoginForm, ChangePwdForm
 from .models import Submission, User
-from config import appConfiguration
+from config import appConfiguration, logger
 from sqlalchemy import func
 
 @app.route('/admin')
@@ -84,4 +84,13 @@ def user_loader(user_id):
 @login_required
 def get_speakers():
   items = db.session.query(Submission.email, func.count(Submission.email)).group_by(Submission.email).all()
-  return render_template("adminspeakers.html", items = items)
+  totalSubmissions = 0
+  totalSpeakers = 0
+  for item in items:
+    totalSpeakers += 1
+    totalSubmissions += item[1]
+  logger.info('Found {} speakers with {} submissions.'.format(totalSpeakers, totalSubmissions))
+  return render_template("adminspeakers.html", 
+    items = items,
+    totalSpeakers = totalSpeakers,
+    totalSubmissions=totalSubmissions)

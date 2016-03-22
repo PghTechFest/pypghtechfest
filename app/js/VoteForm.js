@@ -37,23 +37,28 @@ var VoteForm = React.createClass({
           <select
             value={this.props.vote.fitsTechfest}
             onChange={this.handleTechfestFitChange}>
-            <option value="0">None</option>
-            <option value="1">Marginal</option>
-            <option value="2">Decent</option>
-            <option value="3">Solid</option>
-            <option value="4">Awesome</option>
+            <option value="0">0 - Nope Nope Nope</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3 - Marginal</option>
+            <option value="4">4</option>
+            <option value="5">5 - Decent</option>
+            <option value="6">6</option>
+            <option value="7">7 - Solid</option>
+            <option value="8">8</option>
+            <option value="9">9 - Awesome</option>
           </select>
         </div>
         <div>
-          Track Fit:
+          I'd Go:
           <select
             value={this.props.vote.fitsTrack}
             onChange={this.handleTrackFitChange}>
-            <option value="0">None</option>
-            <option value="1">Marginal</option>
-            <option value="2">Decent</option>
-            <option value="3">Solid</option>
-            <option value="4">Awesome</option>
+            <option value="0">No</option>
+            <option value="1">Meh</option>
+            <option value="2">OK</option>
+            <option value="3">Probably</option>
+            <option value="4">Totes!</option>
           </select>
         </div>
         <div>

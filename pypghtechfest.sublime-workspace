@@ -4,6 +4,14 @@
 		"selected_items":
 		[
 			[
+				"tot",
+				"totalSubmissions"
+			],
+			[
+				"to",
+				"totalSubmissions"
+			],
+			[
 				"th",
 				"thead	Tag"
 			],
@@ -175,6 +183,14 @@
 	},
 	"buffers":
 	[
+		{
+			"file": "requirements.txt",
+			"settings":
+			{
+				"buffer_size": 241,
+				"line_ending": "Unix"
+			}
+		}
 	],
 	"build_system": "",
 	"build_system_choices":
@@ -215,19 +231,20 @@
 	[
 		"/Users/eric/github/pghtechfest/pypghtechfest",
 		"/Users/eric/github/pghtechfest/pypghtechfest/app",
+		"/Users/eric/github/pghtechfest/pypghtechfest/app/templates",
 		"/Users/eric/github/pghtechfest/pypghtechfest/flask",
 		"/Users/eric/github/pghtechfest/pypghtechfest/flask/bin"
 	],
 	"file_history":
 	[
+		"/Users/eric/github/pghtechfest/pypghtechfest/app/templates/adminspeakers.html",
+		"/Users/eric/github/pghtechfest/pypghtechfest/app/adminviews.py",
 		"/Users/eric/github/pghtechfest/pypghtechfest/config.py",
 		"/Users/eric/github/pghtechfest/pypghtechfest/app/views.py",
 		"/Users/eric/github/pghtechfest/pypghtechfest/app/models.py",
 		"/Users/eric/github/pghtechfest/pypghtechfest/app/forms.py",
 		"/Users/eric/github/pghtechfest/pypghtechfest/app/api.py",
-		"/Users/eric/github/pghtechfest/pypghtechfest/app/adminviews.py",
 		"/Users/eric/github/ekepes/DemoCode/.gitignore",
-		"/Users/eric/github/pghtechfest/pypghtechfest/app/templates/adminspeakers.html",
 		"/Users/eric/github/pghtechfest/pypghtechfest/app/templates/adminbase.html",
 		"/Users/eric/github/pghtechfest/pypghtechfest/app/templates/sponsors.html",
 		"/Users/eric/github/pghtechfest/pypghtechfest/app/js/VoteForm.js",
@@ -429,8 +446,37 @@
 	"groups":
 	[
 		{
+			"selected": 0,
 			"sheets":
 			[
+				{
+					"buffer": 0,
+					"file": "requirements.txt",
+					"semi_transient": true,
+					"settings":
+					{
+						"buffer_size": 241,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
 			]
 		}
 	],

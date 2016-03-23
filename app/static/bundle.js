@@ -97,6 +97,97 @@
 
 	var _jquery2 = _interopRequireDefault(_jquery);
 
+	function zip(submissions, votes, votesUrl) {
+	  var zipped = [];
+	  var _iteratorNormalCompletion = true;
+	  var _didIteratorError = false;
+	  var _iteratorError = undefined;
+
+	  try {
+	    for (var _iterator = submissions[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+	      var submission = _step.value;
+
+	      var vote = {
+	        email: "",
+	        expectedAttendance: 0,
+	        fitsTechfest: 0,
+	        fitsTrack: 0,
+	        id: 0,
+	        talkId: submission.id
+	      };
+	      for (var i = 0; i < votes.length; i++) {
+	        if (votes[i].talkId === submission.id) {
+	          vote = votes[i];
+	        }
+	      }
+	      zipped.push({
+	        submission: submission,
+	        vote: vote,
+	        votesUrl: votesUrl });
+	    }
+	  } catch (err) {
+	    _didIteratorError = true;
+	    _iteratorError = err;
+	  } finally {
+	    try {
+	      if (!_iteratorNormalCompletion && _iterator['return']) {
+	        _iterator['return']();
+	      }
+	    } finally {
+	      if (_didIteratorError) {
+	        throw _iteratorError;
+	      }
+	    }
+	  }
+
+	  return zipped;
+	}
+
+	function ensureVoteExists(submissions, votes) {
+	  var _iteratorNormalCompletion2 = true;
+	  var _didIteratorError2 = false;
+	  var _iteratorError2 = undefined;
+
+	  try {
+	    for (var _iterator2 = submissions[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
+	      var submission = _step2.value;
+
+	      var found = false;
+	      for (var i = 0; i < votes.length; i++) {
+	        if (votes[i].talkId === submission.id) {
+	          found = true;
+	          break;
+	        }
+	      }
+	      if (!found) {
+	        votes.push({
+	          email: "",
+	          expectedAttendance: 0,
+	          fitsTechfest: 0,
+	          fitsTrack: 0,
+	          id: 0,
+	          talkId: submission.id
+	        });
+	      }
+	    }
+	  } catch (err) {
+	    _didIteratorError2 = true;
+	    _iteratorError2 = err;
+	  } finally {
+	    try {
+	      if (!_iteratorNormalCompletion2 && _iterator2['return']) {
+	        _iterator2['return']();
+	      }
+	    } finally {
+	      if (_didIteratorError2) {
+	        throw _iteratorError2;
+	      }
+	    }
+	  }
+
+	  return votes;
+	}
+
 	var SubmissionBox = _react2['default'].createClass({
 	  displayName: 'SubmissionBox',
 
@@ -119,6 +210,7 @@
 	  },
 	  handleVoteSubmit: function handleVoteSubmit(vote) {
 	    console.log('In VoteForm.handleVoteSubmit-talkId=', vote.talkId);
+	    console.dir(vote);
 	    _jquery2['default'].ajax({
 	      url: this.props.votesUrl,
 	      contentType: "application/json",
@@ -129,7 +221,7 @@
 	        var votes = [];
 	        if (this.state.votes.length) {
 	          votes = this.state.votes.map(function (vote) {
-	            return vote.id !== data.id ? vote : data;
+	            return vote.talkId !== data.talkId ? vote : data;
 	          });
 	        } else {
 	          votes = [data];
@@ -138,6 +230,7 @@
 	          votes: votes
 	        });
 	        console.log('Saved vote change-id=', data.id);
+	        console.dir(votes);
 	      }).bind(this),
 	      error: (function (xhr, status, err) {
 	        console.error(this.props.votesUrl, status, err.toString());
@@ -153,7 +246,7 @@
 	    _jquery2['default'].when(this.loadSubmissionsFromServer(), this.loadVotesFromServer()).then(function (submissions, votes) {
 	      _this.setState({
 	        submissions: submissions[0],
-	        votes: votes[0]
+	        votes: ensureVoteExists(submissions[0], votes[0])
 	      });
 	    });
 	  },
@@ -19844,7 +19937,7 @@
 	        title: item.submission.title,
 	        abstract: item.submission.abstract,
 	        tracks: item.submission.tracks })), _react2['default'].createElement('td', null, _react2['default'].createElement(_VoteForm2['default'], {
-	        key: item.submission.id,
+	        key: item.submission.talkId,
 	        vote: item.vote,
 	        votesUrl: item.votesUrl,
 	        handleVoteSubmit: this.props.handleVoteSubmit })));

@@ -37,7 +37,6 @@ def post_vote():
     abort(400)
 
   talkId = request.json['talkId']
-  logger.debug('User {} voted on talkId {}.'.format(user.email, talkId))
 
   try:
     vote = db.session.query(Vote).filter(Vote.talkId==talkId).filter(Vote.email==user.email).first()
@@ -48,13 +47,15 @@ def post_vote():
   try:
     if vote == None:
       vote = Vote()
-      vote.talkId = request.json['talkId']
+      vote.talkId = talkId
       vote.email = user.email
     vote.fitsTechfest = request.json['fitsTechfest']
     vote.fitsTrack = request.json['fitsTrack']
     vote.expectedAttendance = request.json['expectedAttendance']
     db.session.add(vote)
     db.session.commit()
+    logger.debug('User {} voted on talkId {} - {}/{}/{}.'.format(user.email,
+      talkId, vote.fitsTechfest, vote.fitsTrack, vote.expectedAttendance))
   except:
     logger.error("Unexpected error saving the vote:", sys.exc_info()[0])
     raise

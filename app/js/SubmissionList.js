@@ -43,7 +43,7 @@ var SubmissionList = React.createClass({
           </td>
           <td>
             <VoteForm
-              key={item.submission.id}
+              key={item.submission.talkId}
               vote={item.vote}
               votesUrl={item.votesUrl}
               handleVoteSubmit={this.props.handleVoteSubmit} />

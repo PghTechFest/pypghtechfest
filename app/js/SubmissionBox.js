@@ -2,6 +2,55 @@ import React from 'react';
 import SubmissionList from './SubmissionList';
 import $ from "jquery";
 
+function zip(submissions, votes, votesUrl){
+  var zipped = [];
+  for (let submission of submissions) {
+    var vote = {
+          email: "",
+          expectedAttendance: 0,
+          fitsTechfest: 0,
+          fitsTrack: 0,
+          id: 0,
+          talkId: submission.id
+      };
+    for (var i=0; i < votes.length; i++) {
+      if (votes[i].talkId === submission.id) {
+        vote = votes[i];
+      }
+    }
+    zipped.push({
+      submission: submission,
+      vote: vote,
+      votesUrl: votesUrl});
+  }
+
+  return zipped;
+}
+
+function ensureVoteExists(submissions, votes){
+  for (let submission of submissions) {
+    var found = false;
+    for (var i=0; i < votes.length; i++) {
+      if (votes[i].talkId === submission.id) {
+        found = true;
+        break;
+      }
+    }
+    if(!found){
+      votes.push({
+          email: "",
+          expectedAttendance: 0,
+          fitsTechfest: 0,
+          fitsTrack: 0,
+          id: 0,
+          talkId: submission.id
+      });
+    }
+  }
+
+  return votes;
+}
+
 var SubmissionBox = React.createClass({
   propTypes: {
     votesUrl: React.PropTypes.string.isRequired
@@ -22,6 +71,7 @@ var SubmissionBox = React.createClass({
   },
   handleVoteSubmit: function(vote) {
     console.log('In VoteForm.handleVoteSubmit-talkId=', vote.talkId);
+    console.dir(vote)
     $.ajax({
       url: this.props.votesUrl,
       contentType: "application/json",
@@ -31,7 +81,7 @@ var SubmissionBox = React.createClass({
       success: function(data) {
         let votes = [];
         if(this.state.votes.length) {
-          votes = this.state.votes.map(vote => vote.id !== data.id ? vote : data)
+          votes = this.state.votes.map(vote => vote.talkId !== data.talkId ? vote : data)
         } else {
           votes = [data];
         }
@@ -39,6 +89,7 @@ var SubmissionBox = React.createClass({
           votes
         });
         console.log('Saved vote change-id=', data.id);
+        console.dir(votes);
       }.bind(this),
       error: function(xhr, status, err) {
         console.error(this.props.votesUrl, status, err.toString());
@@ -53,7 +104,7 @@ var SubmissionBox = React.createClass({
     .then((submissions, votes) => {
       this.setState({
         submissions: submissions[0],
-        votes: votes[0]
+        votes: ensureVoteExists(submissions[0], votes[0])
       });
     });
   },

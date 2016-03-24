@@ -5,17 +5,11 @@ import VoteForm from './VoteForm';
 function zip(submissions, votes, votesUrl){
   var zipped = [];
   for (let submission of submissions) {
-    var vote = {
-          email: "",
-          expectedAttendance: 0,
-          fitsTechfest: 0,
-          fitsTrack: 0,
-          id: 0,
-          talkId: submission.id
-      };
+    var vote;
     for (var i=0; i < votes.length; i++) {
       if (votes[i].talkId === submission.id) {
         vote = votes[i];
+        break;
       }
     }
     zipped.push({

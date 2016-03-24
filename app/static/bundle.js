@@ -19890,17 +19890,11 @@
 	    for (var _iterator = submissions[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
 	      var submission = _step.value;
 
-	      var vote = {
-	        email: "",
-	        expectedAttendance: 0,
-	        fitsTechfest: 0,
-	        fitsTrack: 0,
-	        id: 0,
-	        talkId: submission.id
-	      };
+	      var vote;
 	      for (var i = 0; i < votes.length; i++) {
 	        if (votes[i].talkId === submission.id) {
 	          vote = votes[i];
+	          break;
 	        }
 	      }
 	      zipped.push({

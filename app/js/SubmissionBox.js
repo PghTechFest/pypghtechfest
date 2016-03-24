@@ -2,31 +2,6 @@ import React from 'react';
 import SubmissionList from './SubmissionList';
 import $ from "jquery";
 
-function zip(submissions, votes, votesUrl){
-  var zipped = [];
-  for (let submission of submissions) {
-    var vote = {
-          email: "",
-          expectedAttendance: 0,
-          fitsTechfest: 0,
-          fitsTrack: 0,
-          id: 0,
-          talkId: submission.id
-      };
-    for (var i=0; i < votes.length; i++) {
-      if (votes[i].talkId === submission.id) {
-        vote = votes[i];
-      }
-    }
-    zipped.push({
-      submission: submission,
-      vote: vote,
-      votesUrl: votesUrl});
-  }
-
-  return zipped;
-}
-
 function ensureVoteExists(submissions, votes){
   for (let submission of submissions) {
     var found = false;

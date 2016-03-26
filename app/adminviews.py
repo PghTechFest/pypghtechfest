@@ -83,7 +83,7 @@ def user_loader(user_id):
 @app.route('/admin/speakers', methods=['GET'])
 @login_required
 def get_speakers():
-  items = db.session.query(Submission.email, func.count(Submission.email)).group_by(Submission.email).all()
+  items = db.session.query(Submission.email, func.count(Submission.email)).group_by(Submission.email).order_by(Submission.email).all()
   totalSubmissions = 0
   totalSpeakers = 0
   for item in items:

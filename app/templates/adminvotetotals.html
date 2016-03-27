@@ -1,0 +1,29 @@
+{% extends "adminbase.html" %}
+
+{% block content %}
+
+<h1>Vote Totals</h1>
+<table>
+  <thead>
+    <tr>
+      <td width=60%>Talk Title</td>
+      <td width=10%>Count</td>
+      <td width=10%>Fit</td>
+      <td width=10%>Go</td>
+      <td width=10%>Attend</td>
+    </tr>
+  </thead>
+  <tbody>
+  {% for item in items %}
+    <tr>
+      <td>{{item.title}}</td>
+      <td>{{item.voteCount}}</td>
+      <td>{{item.avgFitsTechfest}}-{{item.sumFitsTechfest}}</td>
+      <td>{{item.avgIWouldGo}}-{{item.sumIWouldGo}}</td>
+      <td>{{item.avgExpectedAttendance}}-{{item.sumExpectedAttendance}}</td>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+
+{% endblock %}

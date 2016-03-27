@@ -3,7 +3,7 @@ from flask import render_template, flash, redirect
 from flask.ext.login import login_required, login_user, logout_user, current_user
 from app import app, db, lm, bcrypt
 from .forms import SpeakerForm, LoginForm, ChangePwdForm
-from .models import Submission, User
+from .models import Submission, User, Vote
 from config import appConfiguration, logger
 from sqlalchemy import func
 
@@ -90,7 +90,22 @@ def get_speakers():
     totalSpeakers += 1
     totalSubmissions += item[1]
   logger.info('Found {} speakers with {} submissions.'.format(totalSpeakers, totalSubmissions))
-  return render_template("adminspeakers.html", 
+  return render_template("adminspeakers.html",
     items = items,
     totalSpeakers = totalSpeakers,
     totalSubmissions=totalSubmissions)
+
+@app.route('/admin/votetotals', methods=['GET'])
+@login_required
+def get_votetotals():
+  items = db.session.query(Submission.title,
+    func.count(Vote.id).label("voteCount"),
+    func.sum(Vote.fitsTechfest).label("sumFitsTechfest"),
+    func.sum(Vote.fitsTrack).label("sumIWouldGo"),
+    func.sum(Vote.expectedAttendance).label("sumExpectedAttendance"),
+    func.avg(Vote.fitsTechfest).label("avgFitsTechfest"),
+    func.avg(Vote.fitsTrack).label("avgIWouldGo"),
+    func.avg(Vote.expectedAttendance).label("avgExpectedAttendance")).\
+    join(Vote).group_by(Submission.title).all()
+  return render_template("adminvotetotals.html",
+    items = items)

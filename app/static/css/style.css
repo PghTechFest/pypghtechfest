@@ -339,7 +339,7 @@ header.center_style.dark.small .social_nav li:hover i { color: white; }
 5 - WELCOME
 =================================================*/
 
-#welcome { background-color: #F7F7F7; font-size: 24px; font-weight: lighter; text-align: center; line-height: 40px; padding: 100px 0px; }
+#welcome { background-color: #F7F7F7; font-size: 24px; font-weight: lighter; text-align: center; line-height: 40px; padding: 50px 0px; }
 .welcome-text { width: 78%; text-align: center; margin: 0 auto; margin-top: 50px; }
 
 /*=================================================
@@ -463,9 +463,9 @@ header.small .mobileAreaMenu li a { color: #555555; }
 .cap_style_12_subtitle { color: white; font-size: 22px; font-weight: 100; line-height: 40px; }
 
 
-.cap_style_13 { color: black; font-size: 62px; background: white; padding: 20px 20px; text-transform: uppercase; }
-.cap_style_13_subtitle { color: black; font-size: 22px; background: white; padding: 10px 10px; text-transform: uppercase; }
-.cap_style_13_button { color: black; font-size: 16px; background: white; padding: 10px 10px; text-transform: uppercase; font-weight: bold; }
+.cap_style_13 { color: black; font-size: 62px; padding: 20px; text-transform: uppercase; }
+.cap_style_13_subtitle { color: black; font-size: 22px; padding: 10px; text-transform: uppercase; }
+.cap_style_13_button { color: black; font-size: 16px; padding: 10px; text-transform: uppercase; font-weight: bold; }
     .cap_style_13_button a { color: black; }
 
 

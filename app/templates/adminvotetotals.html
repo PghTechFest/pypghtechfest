@@ -18,9 +18,9 @@
     <tr>
       <td>{{item.title}}</td>
       <td>{{item.voteCount}}</td>
-      <td>{{item.avgFitsTechfest}}-{{item.sumFitsTechfest}}</td>
-      <td>{{item.avgIWouldGo}}-{{item.sumIWouldGo}}</td>
-      <td>{{item.avgExpectedAttendance}}-{{item.sumExpectedAttendance}}</td>
+      <td>{{'%0.2f' % item.avgFitsTechfest|float}}-{{item.sumFitsTechfest}}</td>
+      <td>{{'%0.2f' % item.avgIWouldGo|float}}-{{item.sumIWouldGo}}</td>
+      <td>{{'%0.2f' % item.avgExpectedAttendance|float}}-{{item.sumExpectedAttendance}}</td>
     </tr>
   {% endfor %}
   </tbody>

@@ -106,6 +106,9 @@ def get_votetotals():
     func.avg(Vote.fitsTechfest).label("avgFitsTechfest"),
     func.avg(Vote.fitsTrack).label("avgIWouldGo"),
     func.avg(Vote.expectedAttendance).label("avgExpectedAttendance")).\
-    join(Vote).group_by(Submission.title).all()
+    join(Vote).\
+    group_by(Submission.title).\
+    order_by(Submission.title).\
+    all()
   return render_template("adminvotetotals.html",
     items = items)

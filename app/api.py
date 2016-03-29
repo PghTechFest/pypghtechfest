@@ -5,6 +5,7 @@ from flask.ext.login import login_required, current_user
 from app import app, db
 from .models import Submission, Vote, User
 from config import appConfiguration, logger
+from sqlalchemy import func
 
 @app.route('/api/submissions', methods=['GET'])
 @login_required

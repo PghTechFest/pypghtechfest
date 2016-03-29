@@ -3,7 +3,7 @@ import datetime
 from flask import redirect, jsonify, Response, json, request, abort
 from flask.ext.login import login_required, current_user
 from app import app, db
-from .models import Submission, Vote
+from .models import Submission, Vote, User
 from config import appConfiguration, logger
 
 @app.route('/api/submissions', methods=['GET'])

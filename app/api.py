@@ -61,3 +61,14 @@ def post_vote():
     raise
 
   return json.dumps(vote.serialize), 201
+
+@app.route('/api/users', methods=['GET'])
+@login_required
+def get_users():
+  items = db.session.query(User.email,
+    func.count(Vote.id).label("voteCount")).\
+    join(Vote).\
+    group_by(User.email).\
+    order_by(User.email).\
+    all()
+  return json.dumps(items), 201

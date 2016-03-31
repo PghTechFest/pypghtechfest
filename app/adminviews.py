@@ -101,6 +101,7 @@ def get_votetotals():
   items = db.session.query(Submission.title,
     Submission.firstName,
     Submission.lastName,
+    Submission.time,
     func.count(Vote.id).label("voteCount"),
     func.sum(Vote.fitsTechfest).label("sumFitsTechfest"),
     func.sum(Vote.fitsTrack).label("sumIWouldGo"),
@@ -112,6 +113,7 @@ def get_votetotals():
     group_by(Submission.title).\
     group_by(Submission.firstName).\
     group_by(Submission.lastName).\
+    group_by(Submission.time).\
     order_by(Submission.title).\
     all()
   return render_template("adminvotetotals.html",

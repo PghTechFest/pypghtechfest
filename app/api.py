@@ -3,8 +3,9 @@ import datetime
 from flask import redirect, jsonify, Response, json, request, abort
 from flask.ext.login import login_required, current_user
 from app import app, db
-from .models import Submission, Vote
+from .models import Submission, Vote, User
 from config import appConfiguration, logger
+from sqlalchemy import func
 
 @app.route('/api/submissions', methods=['GET'])
 @login_required
@@ -61,3 +62,14 @@ def post_vote():
     raise
 
   return json.dumps(vote.serialize), 201
+
+@app.route('/api/users', methods=['GET'])
+@login_required
+def get_users():
+  items = db.session.query(User.email,
+    func.count(Vote.id).label("voteCount")).\
+    join(Vote).\
+    group_by(User.email).\
+    order_by(User.email).\
+    all()
+  return json.dumps(items), 201

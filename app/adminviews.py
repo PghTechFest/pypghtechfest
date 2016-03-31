@@ -99,6 +99,8 @@ def get_speakers():
 @login_required
 def get_votetotals():
   items = db.session.query(Submission.title,
+    Submission.firstName,
+    Submission.lastName,
     func.count(Vote.id).label("voteCount"),
     func.sum(Vote.fitsTechfest).label("sumFitsTechfest"),
     func.sum(Vote.fitsTrack).label("sumIWouldGo"),
@@ -108,6 +110,8 @@ def get_votetotals():
     func.avg(Vote.expectedAttendance).label("avgExpectedAttendance")).\
     join(Vote).\
     group_by(Submission.title).\
+    group_by(Submission.firstName).\
+    group_by(Submission.lastName).\
     order_by(Submission.title).\
     all()
   return render_template("adminvotetotals.html",

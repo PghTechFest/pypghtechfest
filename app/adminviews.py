@@ -103,9 +103,6 @@ def get_votetotals():
     Submission.lastName,
     Submission.time,
     func.count(Vote.id).label("voteCount"),
-    func.sum(Vote.fitsTechfest).label("sumFitsTechfest"),
-    func.sum(Vote.fitsTrack).label("sumIWouldGo"),
-    func.sum(Vote.expectedAttendance).label("sumExpectedAttendance"),
     func.avg(Vote.fitsTechfest).label("avgFitsTechfest"),
     func.avg(Vote.fitsTrack).label("avgIWouldGo"),
     func.avg(Vote.expectedAttendance).label("avgExpectedAttendance")).\

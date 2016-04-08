@@ -188,34 +188,10 @@
 	"buffers":
 	[
 		{
-			"file": "app/adminviews.py",
+			"file": "app/templates/base.html",
 			"settings":
 			{
-				"buffer_size": 3905,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "app/templates/adminvotetotals.html",
-			"settings":
-			{
-				"buffer_size": 753,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "app/templates/sponsors.html",
-			"settings":
-			{
-				"buffer_size": 1996,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "app/models.py",
-			"settings":
-			{
-				"buffer_size": 2660,
+				"buffer_size": 9366,
 				"line_ending": "Unix"
 			}
 		}
@@ -259,29 +235,29 @@
 	[
 		"/Users/eric/github/pghtechfest/pypghtechfest",
 		"/Users/eric/github/pghtechfest/pypghtechfest/app",
-		"/Users/eric/github/pghtechfest/pypghtechfest/app/js",
-		"/Users/eric/github/pghtechfest/pypghtechfest/app/static",
-		"/Users/eric/github/pghtechfest/pypghtechfest/app/static/images",
-		"/Users/eric/github/pghtechfest/pypghtechfest/app/templates",
-		"/Users/eric/github/pghtechfest/pypghtechfest/flask",
-		"/Users/eric/github/pghtechfest/pypghtechfest/flask/bin"
+		"/Users/eric/github/pghtechfest/pypghtechfest/app/templates"
 	],
 	"file_history":
 	[
+		"/Users/eric/github/pghtechfest/pypghtechfest/app/models.py",
+		"/Users/eric/github/pghtechfest/pypghtechfest/app/templates/sponsors.html",
+		"/Users/eric/github/pghtechfest/pypghtechfest/app/templates/adminvotetotals.html",
+		"/Users/eric/github/pghtechfest/pypghtechfest/config.py",
+		"/Users/eric/github/ekepes/StatTracker/run.py",
+		"/Users/eric/github/pghtechfest/pypghtechfest/app/adminviews.py",
+		"/Users/eric/github/ekepes/StatTracker/Procfile",
+		"/Users/eric/github/ekepes/StatTracker/config.py",
+		"/Users/eric/github/ekepes/StatTracker/.gitignore",
 		"/Users/eric/github/pghtechfest/pypghtechfest/app/api.py",
 		"/Users/eric/github/pghtechfest/pypghtechfest/app/js/VoteForm.js",
 		"/Users/eric/github/pghtechfest/pypghtechfest/app/js/SubmissionList.js",
 		"/Users/eric/github/pghtechfest/pypghtechfest/app/js/SubmissionBox.js",
 		"/Users/eric/github/ekepes/DemoCode/programming-elixir/pmap1.exs",
 		"/Users/eric/github/pghtechfest/pypghtechfest/app/templates/adminspeakers.html",
-		"/Users/eric/github/pghtechfest/pypghtechfest/app/adminviews.py",
-		"/Users/eric/github/pghtechfest/pypghtechfest/config.py",
 		"/Users/eric/github/pghtechfest/pypghtechfest/app/views.py",
-		"/Users/eric/github/pghtechfest/pypghtechfest/app/models.py",
 		"/Users/eric/github/pghtechfest/pypghtechfest/app/forms.py",
 		"/Users/eric/github/ekepes/DemoCode/.gitignore",
 		"/Users/eric/github/pghtechfest/pypghtechfest/app/templates/adminbase.html",
-		"/Users/eric/github/pghtechfest/pypghtechfest/app/templates/sponsors.html",
 		"/Users/eric/github/pghtechfest/pypghtechfest/app/js/Submission.js",
 		"/Users/eric/github/pghtechfest/pypghtechfest/webpack.config.js",
 		"/Users/eric/github/pghtechfest/pypghtechfest/app/js/app.js",
@@ -479,84 +455,24 @@
 	"groups":
 	[
 		{
-			"selected": 2,
+			"selected": 0,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "app/adminviews.py",
-					"semi_transient": false,
+					"file": "app/templates/base.html",
+					"semi_transient": true,
 					"settings":
 					{
-						"buffer_size": 3905,
+						"buffer_size": 9366,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								3791,
-								3791
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Python/Python.sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 2448.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "app/templates/adminvotetotals.html",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 753,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								488,
-								488
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/HTML/HTML.sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 56.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "app/templates/sponsors.html",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1996,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1396,
-								1396
+								150,
+								0
 							]
 						],
 						"settings":
@@ -570,36 +486,6 @@
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "app/models.py",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2660,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								2635,
-								2653
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Python/Python.sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 3,
 					"type": "text"
 				}
 			]

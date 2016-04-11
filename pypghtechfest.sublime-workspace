@@ -188,10 +188,10 @@
 	"buffers":
 	[
 		{
-			"file": "app/templates/base.html",
+			"file": "app/templates/sponsors.html",
 			"settings":
 			{
-				"buffer_size": 9366,
+				"buffer_size": 2230,
 				"line_ending": "Unix"
 			}
 		}
@@ -235,6 +235,10 @@
 	[
 		"/Users/eric/github/pghtechfest/pypghtechfest",
 		"/Users/eric/github/pghtechfest/pypghtechfest/app",
+		"/Users/eric/github/pghtechfest/pypghtechfest/app/static",
+		"/Users/eric/github/pghtechfest/pypghtechfest/app/static/images",
+		"/Users/eric/github/pghtechfest/pypghtechfest/app/static/images/sponsors",
+		"/Users/eric/github/pghtechfest/pypghtechfest/app/static/images/sponsors/2016",
 		"/Users/eric/github/pghtechfest/pypghtechfest/app/templates"
 	],
 	"file_history":
@@ -460,19 +464,19 @@
 			[
 				{
 					"buffer": 0,
-					"file": "app/templates/base.html",
-					"semi_transient": true,
+					"file": "app/templates/sponsors.html",
+					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 9366,
+						"buffer_size": 2230,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								150,
-								0
+								438,
+								438
 							]
 						],
 						"settings":

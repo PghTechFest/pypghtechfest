@@ -34,4 +34,4 @@ else:
 appConfiguration = { "openSpeakers":CALL_FOR_SPEAKERS_OPEN,
   "openVolunteers":False,
   "openRegistration":True,
-  "showSessions":False }
+  "showSessions":True }

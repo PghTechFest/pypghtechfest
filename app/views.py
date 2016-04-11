@@ -15,6 +15,10 @@ def index():
 def venue():
   return render_template("venue.html", settings = appConfiguration)
 
+@app.route('/sessions')
+def sessions():
+  return render_template("sessions.html", settings = appConfiguration)
+
 @app.route('/codeofconduct')
 def codeofconduct():
   return render_template("codeofconduct.html", settings = appConfiguration)

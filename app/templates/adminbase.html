@@ -1,168 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Pittsburgh TechFest</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
-
-    <!-- DEFAULT TEMPLATE FONTS DO NOT REMOVE -->
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,800,300,600,700' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=PT+Sans:400,700' rel='stylesheet' type='text/css'>
-
-    <!-- MAIN CSS LIBRARIES -->
-    <link href="/static/css/reset.css" rel="stylesheet" type="text/css" />
-    <link href="/static/css/bootstrap.css" rel="stylesheet" type="text/css" />
-    <link href="/static/css/prettyPhoto.css" rel="stylesheet" type="text/css" />
-    <link href="/static/css/font-awesome.css" rel="stylesheet" type="text/css" />
-    <link href="/static/css/owl.carousel.css" rel="stylesheet" type="text/css" />
-    <link href="/static/css/owl.theme.css" rel="stylesheet" type="text/css" />
-    <link href="/static/css/YTPlayer.css" rel="stylesheet" type="text/css" />
-    <link href="/static/css/animate.css" rel="stylesheet" type="text/css" />
-
-    <!-- SLIDER REVOLUTION 4.x CSS SETTINGS -->
-    <link rel="stylesheet" type="text/css" href="/static/rs-plugin/css/settings.css" media="screen" />
-    <link rel="stylesheet" type="text/css" href="/static/rs-plugin/css/extralayers.css" media="screen" />
-
-    <!-- MAIN STYLES FOR THE TEMPLATE -->
-    <link href="/static/css/style.css" rel="stylesheet" type="text/css" />
-
+    <link rel="stylesheet" href="/static/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/static/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="/static/css/styles.css" />
 </head>
 
 <body>
-    <div id="top"></div>
-    <!-- *** HEADER STARTS *** -->
-    <header class="transparent_menu" id="top_menu">
-
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-md-12">
-
-                    <!-- *** LOGOS STARTS *** -->
-                    <div id="logo">
-                        <a href="/" class="external"><img src="/static/images/logo.png" alt="logo"></a>
-                    </div>
-                    <div id="logo_dark">
-                        <a href="/" class="external"><img src="/static/images/logo_dark.png" alt="logo"></a>
-                    </div>
-                    <!-- *** LOGOS END *** -->
-
-                    <ul class="mobile_nav_trigger">
-                        <li><a href="#responsive_nav" class="menu_trigger"><i class="fa fa-bars fa-2x"></i></a></li>
-                    </ul>
-
-                    <!-- *** MAIN NAVIGATION STARTS *** -->
-                    <nav class="main_nav white">
-                        <ul>
-                            <li><a href="/" class="external">Back to Site</a></li>
-                            <li><a href="/admin/submissions" class="external">View Submissions</a></li>
-                            <li><a href="/admin/speakers" class="external">View Speakers</a></li>
-                            <li><a href="/admin/changepwd" class="external">Change Password</a></li>
-                            <li><a href="/logout" class="external">Log Out</a></li>
-                        </ul>
-                    </nav>
-                    <!-- *** MAIN NAVIGATION END *** -->
-
+    <header>
+        <nav class="navbar navbar-inverse">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a href="/" class="navbar-brand navbar-link"><img src="/static/images/logo.png" /></a>
+                    <button data-toggle="collapse" data-target="#navcol-1" class="navbar-toggle collapsed"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
                 </div>
-                <!--col-me-12-->
-            </div>
-            <!--row-->
-        </div>
-        <!--container-fluid-->
-
-        <!-- *** RESPONSIVE NAV START *** -->
-        <div class="responsive_nav">
-            <div class="mobileAreaMenu">
-                <ul>
-                    <li><a href="/" class="external">Back to Site</a></li>
-                    <li><a href="/admin/submissions" class="external">View Submissions</a></li>
-                    <li><a href="/admin/speakers" class="external">View Speakers</a></li>
-                    <li><a href="/admin/changepwd" class="external">Change Password</a></li>
-                </ul>
-            </div>
-            <!--mobileAreaMenu-->
-        </div>
-        <!--responsive_nav-->
-        <!-- *** RESPONSIVE NAV END *** -->
-
-    </header>
-    <!-- *** HEADER END *** -->
-
-    <div id="welcome">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-12">
-            <div class="logo_welcome">
-              <h1 class="title" style="text-align: left;">Administration</h1>
-            </div>
-            <div class="welcome-text" style="text-align: left; margin: 40px 0 0 0">
-                {% with messages = get_flashed_messages() %}
-                  {% if messages %}
-                    <ul>
-                    {% for message in messages %}
-                        <li>{{ message }} </li>
-                    {% endfor %}
+                <div class="collapse navbar-collapse" id="navcol-1">
+                    <ul class="nav navbar-nav">
+                        <li role="presentation"><a href="/" class="external">Back to Site</a></li>
+                        <li role="presentation"><a href="/admin/submissions" class="external">View Submissions</a></li>
+                        <li role="presentation"><a href="/admin/speakers" class="external">View Speakers</a></li>
+                        <li role="presentation"><a href="/admin/changepwd" class="external">Change Password</a></li>
+                        <li role="presentation"><a href="/logout" class="external">Log Out</a></li>
                     </ul>
-                  {% endif %}
-                {% endwith %}
-
-                {% block content %}{% endblock %}
+                </div>
             </div>
-          </div>
-        </div>
-      </div>
+        </nav>
+    </header>
+    <div class="container-fluid">
+
+
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        <ul>
+        {% for message in messages %}
+            <li>{{ message }} </li>
+        {% endfor %}
+        </ul>
+      {% endif %}
+    {% endwith %}
+
+    {% block content %}{% endblock %}
+
+
     </div>
-    <!-- *** FOOTER START *** -->
-    <div id="footer">
-        <div class="col_footer">
-            <h2>Logistics</h2>
-
-            <ul class="footer_adress">
-                <li><i class="fa fa-map-marker fa-2x"></i>LaRoche College<br />
-                    June 11, 2016 - 8:00am<br />
-                    <a href="venue">Venue Info</a></li>
-            </ul>
-
+    <footer>
+        <div class="row">
+            <div class="col-md-4">
+                <h1>Logistics </h1></div>
+            <div class="col-md-4">
+                <h1>Social </h1></div>
+            <div class="col-md-4">
+                <h1>Contact Us</h1></div>
         </div>
-
-        <div class="col_footer middle">
-            <h2>Social</h2>
-
-            <ul class="footer_icon">
-                <li><a href="https://twitter.com/thepghtechfest" class="external" target="_blank"><i class="fa fa-twitter fa-2x"></i></a></li>
-                <li><a href="https://www.facebook.com/PghTechFest" class="external" target="_blank"><i class="fa fa-facebook fa-2x"></i></a></li>
-            </ul>
-
+        <div class="row">
+            <div class="col-md-4">
+                <p><i class="fa fa-map-marker fa-2x"></i> LaRoche College</p>
+                <p>June 11, 2016 - 8:30am</p>
+            </div>
+            <div class="col-md-4"><a href="https://twitter.com/thepghtechfest" target="_blank"><i class="fa fa-twitter fa-2x"></i></a><img height="1" width="20" /><a href="https://www.facebook.com/PghTechFest" target="_blank"><i class="fa fa-facebook-f fa-2x"></i></a></div>
+            <div
+            class="col-md-4">
+                <p>If you have any questions regarding Pittsburgh TechFest, please contact us at</p><a href="mailto:pittsburghtechfest@gmail.com"><strong>pittsburghtechfest@gmaiil.com</strong> </a></div>
         </div>
-
-        <div class="col_footer">
-            <h2>Contact Us</h2>
-
-            <p>
-                If you have any questions regarding Pittsburgh TechFest, please 
-      contact us at <a href="mailto:pittsburghtechfest@gmail.com">pittsburghtechfest@gmail.com</a>
-            </p>
-        </div>
-        <div class="clear"></div>
-    </div>
-    <!-- *** FOOTER END *** -->
-
-
-
-    <!-- *** SUBFOOTER START *** -->
-    <div id="subfooter">
-        <div class="copyright">Copyright Pittsburgh TechFest 2016. All Right Reserved.</div>
-        <div class="clear"></div>
-    </div>
-    <!-- *** SUBFOOTER END *** -->
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-    <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
-    <script type="text/javascript" src="/static/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="/static/js/modernizr.custom.js"></script>
-    <script type="text/javascript">
-        {
-            $('#top_menu').addClass('dark_menu');
-            $('#top_menu').removeClass('transparent_menu');
-            $('#logo_dark').html('<img src="/static/images/logo.png" alt="logo">');
-        }
-    </script>
+    </footer>
+    <script src="/static/js/jquery.min.js"></script>
+    <script src="/static/js/bootstrap.min.js"></script>
 </body>
+
+</html>

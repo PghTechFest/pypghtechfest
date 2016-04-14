@@ -187,14 +187,6 @@
 	},
 	"buffers":
 	[
-		{
-			"file": "app/templates/sponsors.html",
-			"settings":
-			{
-				"buffer_size": 2230,
-				"line_ending": "Unix"
-			}
-		}
 	],
 	"build_system": "",
 	"build_system_choices":
@@ -243,12 +235,16 @@
 	],
 	"file_history":
 	[
+		"/Users/eric/github/pghtechfest/pypghtechfest/config.py",
+		"/Users/eric/github/pghtechfest/pypghtechfest/app/templates/base.html",
+		"/Users/eric/github/pghtechfest/pypghtechfest/app/templates/sessions.html",
 		"/Users/eric/github/pghtechfest/pypghtechfest/app/models.py",
+		"/Users/eric/github/pghtechfest/pypghtechfest/app/views.py",
+		"/Users/eric/github/pghtechfest/pypghtechfest/app/adminviews.py",
+		"/Users/eric/github/pghtechfest/pypghtechfest/app/forms.py",
 		"/Users/eric/github/pghtechfest/pypghtechfest/app/templates/sponsors.html",
 		"/Users/eric/github/pghtechfest/pypghtechfest/app/templates/adminvotetotals.html",
-		"/Users/eric/github/pghtechfest/pypghtechfest/config.py",
 		"/Users/eric/github/ekepes/StatTracker/run.py",
-		"/Users/eric/github/pghtechfest/pypghtechfest/app/adminviews.py",
 		"/Users/eric/github/ekepes/StatTracker/Procfile",
 		"/Users/eric/github/ekepes/StatTracker/config.py",
 		"/Users/eric/github/ekepes/StatTracker/.gitignore",
@@ -258,8 +254,6 @@
 		"/Users/eric/github/pghtechfest/pypghtechfest/app/js/SubmissionBox.js",
 		"/Users/eric/github/ekepes/DemoCode/programming-elixir/pmap1.exs",
 		"/Users/eric/github/pghtechfest/pypghtechfest/app/templates/adminspeakers.html",
-		"/Users/eric/github/pghtechfest/pypghtechfest/app/views.py",
-		"/Users/eric/github/pghtechfest/pypghtechfest/app/forms.py",
 		"/Users/eric/github/ekepes/DemoCode/.gitignore",
 		"/Users/eric/github/pghtechfest/pypghtechfest/app/templates/adminbase.html",
 		"/Users/eric/github/pghtechfest/pypghtechfest/app/js/Submission.js",
@@ -268,7 +262,6 @@
 		"/Users/eric/github/ekepes/DemoCode/react-tutorial-master/public/index.html",
 		"/Users/eric/github/pghtechfest/pypghtechfest/package.json",
 		"/Users/eric/github/pghtechfest/pypghtechfest/jsbuild.sh",
-		"/Users/eric/github/pghtechfest/pypghtechfest/app/templates/base.html",
 		"/Users/eric/github/pghtechfest/pypghtechfest/app/templates/index.html",
 		"/Users/eric/github/pghtechfest/pypghtechfest/app/templates/adminsubmissions.html",
 		"/Users/eric/github/pghtechfest/pypghtechfest/app/templates/react.html",
@@ -376,6 +369,10 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			"</td></tr>",
+			"</td><td>",
+			"<tr><td>",
+			"WTF_CSRF_ENABLED",
 			"zip",
 			"print(",
 			"handleFitChange",
@@ -422,6 +419,9 @@
 		"regex": false,
 		"replace_history":
 		[
+			"</p></div></div>",
+			"</p></div><div class=\"col-sm-4\"><p>",
+			"<div class=\"row\"><div class=\"col-sm-8\"><p>",
 			"handleTechfestFitChange",
 			"Submission",
 			"submission",
@@ -459,39 +459,8 @@
 	"groups":
 	[
 		{
-			"selected": 0,
 			"sheets":
 			[
-				{
-					"buffer": 0,
-					"file": "app/templates/sponsors.html",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2230,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								438,
-								438
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/HTML/HTML.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				}
 			]
 		}
 	],
@@ -534,7 +503,7 @@
 	"project": "pypghtechfest.sublime-project",
 	"replace":
 	{
-		"height": 66.0
+		"height": 80.0
 	},
 	"save_all_on_build": true,
 	"select_file":

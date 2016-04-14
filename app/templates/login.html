@@ -1,7 +1,10 @@
 {% extends "adminbase.html" %}
 
 {% block content %}
-  <h1>Sign In</h1>
+<div class="page-header">
+    <h3>Sign In</h3>
+</div>
+<div>
   <form action="" method="post" name="login">
       {{ form.hidden_tag() }}
       <p>Email:    {{ form.email(size=80) }}</p>
@@ -9,4 +12,5 @@
       <p>{{ form.remember_me }} Remember Me</p>
       <p><input type="submit" value="Sign In"></p>
   </form>
+</div>
 {% endblock %}

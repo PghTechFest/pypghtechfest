@@ -17,6 +17,9 @@
 
 img.welcome-logo{
   width:170px;
+}
+
+.centered-column{
   display:flex;
   justify-content: center;
 }

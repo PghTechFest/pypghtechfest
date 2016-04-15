@@ -187,6 +187,30 @@
 	},
 	"buffers":
 	[
+		{
+			"file": "app/templates/base.html",
+			"settings":
+			{
+				"buffer_size": 3092,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "app/templates/adminbase.html",
+			"settings":
+			{
+				"buffer_size": 3012,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "app/templates/sessions.html",
+			"settings":
+			{
+				"buffer_size": 8661,
+				"line_ending": "Windows"
+			}
+		}
 	],
 	"build_system": "",
 	"build_system_choices":
@@ -225,16 +249,13 @@
 	},
 	"expanded_folders":
 	[
-		"/Users/eric/github/pghtechfest/pypghtechfest",
-		"/Users/eric/github/pghtechfest/pypghtechfest/app",
-		"/Users/eric/github/pghtechfest/pypghtechfest/app/static",
-		"/Users/eric/github/pghtechfest/pypghtechfest/app/static/images",
-		"/Users/eric/github/pghtechfest/pypghtechfest/app/static/images/sponsors",
-		"/Users/eric/github/pghtechfest/pypghtechfest/app/static/images/sponsors/2016",
-		"/Users/eric/github/pghtechfest/pypghtechfest/app/templates"
+		"/C/github/pghtechfest/pypghtechfest",
+		"/C/github/pghtechfest/pypghtechfest/app",
+		"/C/github/pghtechfest/pypghtechfest/app/templates"
 	],
 	"file_history":
 	[
+		"/C/github/pghtechfest/pypghtechfest/.git/COMMIT_EDITMSG",
 		"/Users/eric/github/pghtechfest/pypghtechfest/config.py",
 		"/Users/eric/github/pghtechfest/pypghtechfest/app/templates/base.html",
 		"/Users/eric/github/pghtechfest/pypghtechfest/app/templates/sessions.html",
@@ -352,7 +373,7 @@
 	],
 	"find":
 	{
-		"height": 43.0
+		"height": 48.0
 	},
 	"find_in_files":
 	{
@@ -369,6 +390,7 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			"ryan",
 			"</td></tr>",
 			"</td><td>",
 			"<tr><td>",
@@ -459,8 +481,99 @@
 	"groups":
 	[
 		{
+			"selected": 2,
 			"sheets":
 			[
+				{
+					"buffer": 0,
+					"file": "app/templates/base.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3092,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2353,
+								2353
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 2252.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "app/templates/adminbase.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3012,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2322,
+								2322
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 2304.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "app/templates/sessions.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 8661,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								7182,
+								7182
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 4910.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
 			]
 		}
 	],

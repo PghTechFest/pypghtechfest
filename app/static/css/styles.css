@@ -24,6 +24,11 @@ img.welcome-logo{
   justify-content: center;
 }
 
+.wall-of-text{
+  width: 80%;
+  left: 10%;
+}
+
 div#content-area.container-fluid{
   background-image:url('../images/dicello-pittsburgh.jpg');
   width:100%;

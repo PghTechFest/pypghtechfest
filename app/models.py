@@ -92,3 +92,9 @@ class Vote(db.Model):
       'fitsTrack' : self.fitsTrack,
       'expectedAttendance' : self.expectedAttendance
      }
+
+class ScheduleSlot(db.Model):
+  id = db.Column(db.Integer, primary_key=True)
+  talkId = db.Column(db.Integer, db.ForeignKey('submission.id'))
+  timeSlot = db.Column(db.String(30))
+  room = db.Column(db.String(30))

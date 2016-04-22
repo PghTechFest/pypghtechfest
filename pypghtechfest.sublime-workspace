@@ -4,6 +4,10 @@
 		"selected_items":
 		[
 			[
+				"font",
+				"font-size"
+			],
+			[
 				"sub",
 				"submissions"
 			],
@@ -188,27 +192,35 @@
 	"buffers":
 	[
 		{
-			"file": "app/templates/base.html",
+			"file": "app/static/css/styles.css",
 			"settings":
 			{
-				"buffer_size": 3092,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "app/templates/adminbase.html",
-			"settings":
-			{
-				"buffer_size": 3012,
-				"line_ending": "Windows"
+				"buffer_size": 525,
+				"line_ending": "Unix"
 			}
 		},
 		{
 			"file": "app/templates/sessions.html",
 			"settings":
 			{
-				"buffer_size": 8661,
-				"line_ending": "Windows"
+				"buffer_size": 8992,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/templates/venue.html",
+			"settings":
+			{
+				"buffer_size": 1472,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/templates/codeofconduct.html",
+			"settings":
+			{
+				"buffer_size": 2727,
+				"line_ending": "Unix"
 			}
 		}
 	],
@@ -249,21 +261,32 @@
 	},
 	"expanded_folders":
 	[
-		"/C/github/pghtechfest/pypghtechfest",
-		"/C/github/pghtechfest/pypghtechfest/app",
-		"/C/github/pghtechfest/pypghtechfest/app/templates"
+		"/Users/eric/github/pghtechfest/pypghtechfest",
+		"/Users/eric/github/pghtechfest/pypghtechfest/app",
+		"/Users/eric/github/pghtechfest/pypghtechfest/app/static",
+		"/Users/eric/github/pghtechfest/pypghtechfest/app/static/css",
+		"/Users/eric/github/pghtechfest/pypghtechfest/app/templates"
 	],
 	"file_history":
 	[
-		"/C/github/pghtechfest/pypghtechfest/.git/COMMIT_EDITMSG",
-		"/Users/eric/github/pghtechfest/pypghtechfest/config.py",
-		"/Users/eric/github/pghtechfest/pypghtechfest/app/templates/base.html",
+		"/Users/eric/github/pghtechfest/pypghtechfest/app/static/css/styles.css",
 		"/Users/eric/github/pghtechfest/pypghtechfest/app/templates/sessions.html",
+		"/Users/eric/github/pghtechfest/pypghtechfest/app/templates/sponsors.html",
+		"/Users/eric/github/pghtechfest/pypghtechfest/app/templates/codeofconduct.html",
+		"/Users/eric/github/pghtechfest/pypghtechfest/app/templates/index.html",
+		"/Users/eric/github/pghtechfest/pypghtechfest/app/templates/adminbase.html",
+		"/Users/eric/github/pghtechfest/pypghtechfest/app/templates/base.html",
+		"/Users/eric/Documents/pghtf/index.html",
+		"/Users/eric/github/pghtechfest/pypghtechfest/app/templates/adminindex.html",
+		"/Users/eric/github/pghtechfest/pypghtechfest/app/templates/login.html",
+		"/Users/eric/github/pghtechfest/pypghtechfest/app/static/css/bootstrap.css",
+		"/Users/eric/github/pghtechfest/pypghtechfest/app/static/css/bootstrap-theme.min.css",
+		"/Users/eric/github/pghtechfest/pypghtechfest/app/static/css/animate.css",
+		"/Users/eric/github/pghtechfest/pypghtechfest/config.py",
 		"/Users/eric/github/pghtechfest/pypghtechfest/app/models.py",
 		"/Users/eric/github/pghtechfest/pypghtechfest/app/views.py",
 		"/Users/eric/github/pghtechfest/pypghtechfest/app/adminviews.py",
 		"/Users/eric/github/pghtechfest/pypghtechfest/app/forms.py",
-		"/Users/eric/github/pghtechfest/pypghtechfest/app/templates/sponsors.html",
 		"/Users/eric/github/pghtechfest/pypghtechfest/app/templates/adminvotetotals.html",
 		"/Users/eric/github/ekepes/StatTracker/run.py",
 		"/Users/eric/github/ekepes/StatTracker/Procfile",
@@ -276,14 +299,12 @@
 		"/Users/eric/github/ekepes/DemoCode/programming-elixir/pmap1.exs",
 		"/Users/eric/github/pghtechfest/pypghtechfest/app/templates/adminspeakers.html",
 		"/Users/eric/github/ekepes/DemoCode/.gitignore",
-		"/Users/eric/github/pghtechfest/pypghtechfest/app/templates/adminbase.html",
 		"/Users/eric/github/pghtechfest/pypghtechfest/app/js/Submission.js",
 		"/Users/eric/github/pghtechfest/pypghtechfest/webpack.config.js",
 		"/Users/eric/github/pghtechfest/pypghtechfest/app/js/app.js",
 		"/Users/eric/github/ekepes/DemoCode/react-tutorial-master/public/index.html",
 		"/Users/eric/github/pghtechfest/pypghtechfest/package.json",
 		"/Users/eric/github/pghtechfest/pypghtechfest/jsbuild.sh",
-		"/Users/eric/github/pghtechfest/pypghtechfest/app/templates/index.html",
 		"/Users/eric/github/pghtechfest/pypghtechfest/app/templates/adminsubmissions.html",
 		"/Users/eric/github/pghtechfest/pypghtechfest/app/templates/react.html",
 		"/Users/eric/github/pghtechfest/pypghtechfest/app/js/Hello.js",
@@ -295,11 +316,8 @@
 		"/Users/eric/github/pghtechfest/pypghtechfest/app/templates/changepwd.html",
 		"/Users/eric/github/pghtechfest/pypghtechfest/create_user.py",
 		"/Users/eric/github/pghtechfest/pypghtechfest/adduser.py",
-		"/Users/eric/github/pghtechfest/pypghtechfest/app/templates/login.html",
 		"/Users/eric/github/pghtechfest/pypghtechfest/deploy.sh",
-		"/Users/eric/github/pghtechfest/pypghtechfest/app/templates/codeofconduct.html",
 		"/Users/eric/github/pghtechfest/pypghtechfest/app/templates/talksubmit.html",
-		"/Users/eric/github/pghtechfest/pypghtechfest/app/templates/adminindex.html",
 		"/Users/eric/github/pghtechfest/pypghtechfest/Procfile",
 		"/Users/eric/github/pghtechfest/pypghtechfest/runtime.txt",
 		"/Users/eric/github/pghtechfest/pypghtechfest/app/static/images/sponsors/ptc.png",
@@ -373,13 +391,15 @@
 	],
 	"find":
 	{
-		"height": 48.0
+		"height": 43.0
 	},
 	"find_in_files":
 	{
 		"height": 117.0,
 		"where_history":
 		[
+			"/Users/eric/github/pghtechfest/pypghtechfest/app/static/css",
+			"",
 			"<open files>",
 			"*.html",
 			""
@@ -390,7 +410,9 @@
 		"case_sensitive": true,
 		"find_history":
 		[
-			"ryan",
+			"logo_welcome",
+			"dicel",
+			"fa ",
 			"</td></tr>",
 			"</td><td>",
 			"<tr><td>",
@@ -486,29 +508,29 @@
 			[
 				{
 					"buffer": 0,
-					"file": "app/templates/base.html",
+					"file": "app/static/css/styles.css",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 3092,
+						"buffer_size": 525,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2353,
-								2353
+								331,
+								331
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/HTML/HTML.sublime-syntax",
-							"tab_size": 4,
+							"syntax": "Packages/CSS/CSS.sublime-syntax",
+							"tab_size": 2,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 2252.0,
+						"translation.y": 272.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 2,
@@ -516,19 +538,19 @@
 				},
 				{
 					"buffer": 1,
-					"file": "app/templates/adminbase.html",
+					"file": "app/templates/sessions.html",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 3012,
+						"buffer_size": 8992,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2322,
-								2322
+								8978,
+								8978
 							]
 						],
 						"settings":
@@ -538,7 +560,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 2304.0,
+						"translation.y": 3453.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 1,
@@ -546,19 +568,49 @@
 				},
 				{
 					"buffer": 2,
-					"file": "app/templates/sessions.html",
+					"file": "app/templates/venue.html",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 8661,
+						"buffer_size": 1472,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								7182,
-								7182
+								46,
+								46
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "app/templates/codeofconduct.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2727,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								163,
+								163
 							]
 						],
 						"settings":
@@ -568,10 +620,10 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 4910.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 3,
 					"type": "text"
 				}
 			]

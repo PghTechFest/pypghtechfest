@@ -98,3 +98,12 @@ class ScheduleSlot(db.Model):
   talkId = db.Column(db.Integer, db.ForeignKey('submission.id'))
   timeSlot = db.Column(db.String(30))
   room = db.Column(db.String(30))
+
+  @property
+  def serialize(self):
+    return {
+      'id' : self.id,
+      'talkId' : self.talkId,
+      'timeSlot' : self.timeSlot,
+      'room' : self.room
+     }

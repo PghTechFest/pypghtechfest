@@ -3,7 +3,7 @@ import datetime
 from flask import redirect, jsonify, Response, json, request, abort
 from flask.ext.login import login_required, current_user
 from app import app, db
-from .models import Submission, Vote, User
+from .models import Submission, Vote, User, ScheduleSlot
 from config import appConfiguration, logger
 from sqlalchemy import func
 
@@ -73,3 +73,8 @@ def get_users():
     order_by(User.email).\
     all()
   return json.dumps(items), 201
+
+@app.route('/api/schedule', methods=['GET'])
+def get_schedule():
+  items = ScheduleSlot.query.all()
+  return Response(json.dumps([item.serialize for item in items]), mimetype='application/json')

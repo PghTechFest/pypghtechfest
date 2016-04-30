@@ -56,3 +56,10 @@ def talks():
                            settings = appConfiguration,
                            title='Submit Talk',
                            form=form)
+
+@app.route('/schedule', methods=['GET'])
+def schedule():
+  items = ScheduleSlot.query.all()
+  return render_template('schedule.html',
+                          items = items,
+                           settings = appConfiguration)

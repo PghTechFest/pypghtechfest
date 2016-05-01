@@ -73,8 +73,3 @@ def get_users():
     order_by(User.email).\
     all()
   return json.dumps(items), 201
-
-@app.route('/api/schedule', methods=['GET'])
-def get_schedule():
-  items = ScheduleSlot.query.all()
-  return Response(json.dumps([item.serialize for item in items]), mimetype='application/json')

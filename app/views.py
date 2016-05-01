@@ -2,7 +2,7 @@ import datetime
 from flask import render_template, flash, redirect
 from app import app, db
 from .forms import SpeakerForm
-from .models import Submission
+from .models import Submission, ScheduleSlot
 from config import appConfiguration, logger
 
 @app.route('/')
@@ -62,4 +62,4 @@ def schedule():
   items = ScheduleSlot.query.all()
   return render_template('schedule.html',
                           items = items,
-                           settings = appConfiguration)
+                          settings = appConfiguration)

@@ -93,17 +93,18 @@ class Vote(db.Model):
       'expectedAttendance' : self.expectedAttendance
      }
 
+class Room(db.Model):
+  id = db.Column(db.Integer, primary_key=True)
+  sortOrder = db.Column(db.Integer)
+  roomName = db.Column(db.String(30))
+
+class TimeSlot(db.Model):
+  id = db.Column(db.Integer, primary_key=True)
+  sortOrder = db.Column(db.Integer)
+  timeSlotName = db.Column(db.String(30))
+
 class ScheduleSlot(db.Model):
   id = db.Column(db.Integer, primary_key=True)
   talkId = db.Column(db.Integer, db.ForeignKey('submission.id'))
-  timeSlot = db.Column(db.String(30))
-  room = db.Column(db.String(30))
-
-  @property
-  def serialize(self):
-    return {
-      'id' : self.id,
-      'talkId' : self.talkId,
-      'timeSlot' : self.timeSlot,
-      'room' : self.room
-     }
+  timeSlotId = db.Column(db.Integer, db.ForeignKey('timeslot.id'))
+  roomId = db.Column(db.Integer, db.ForeignKey('room.id'))

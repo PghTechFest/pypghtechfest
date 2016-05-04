@@ -10,7 +10,24 @@
           <h1 class="title" style="text-align: center;">Schedule</h1>
         </div>
         <div class="welcome-text" style="text-align: left; margin: 40px 0 0 0">
-          <p>Schedule goes here...</p>
+          <table>
+            <thead>
+              <tr>
+                <td width=30%>Talk</td>
+                <td width=30%>Room</td>
+                <td width=30%>Time</td>
+              </tr>
+            </thead>
+            <tbody>
+            {% for session in items %}
+              <tr>
+                <td>{{session.talkId}}</td>
+                <td>{{session.roomId}}</td>
+                <td>{{session.timeSlotId}}</td>
+              </tr>
+            {% endfor %}
+            </tbody>
+          </table>
         </div>
       </div>
     </div>

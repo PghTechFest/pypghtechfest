@@ -13,17 +13,17 @@
           <table>
             <thead>
               <tr>
+                <td width=30%>Time</td>
                 <td width=30%>Talk</td>
                 <td width=30%>Room</td>
-                <td width=30%>Time</td>
               </tr>
             </thead>
             <tbody>
             {% for session in items %}
               <tr>
-                <td>{{session.talkId}}</td>
-                <td>{{session.roomId}}</td>
-                <td>{{session.timeSlotId}}</td>
+                <td>{{session.timeSlotName}}</td>
+                <td>{{session.title}}</td>
+                <td>{{session.roomName}}</td>
               </tr>
             {% endfor %}
             </tbody>

@@ -106,5 +106,5 @@ class TimeSlot(db.Model):
 class ScheduleSlot(db.Model):
   id = db.Column(db.Integer, primary_key=True)
   talkId = db.Column(db.Integer, db.ForeignKey('submission.id'))
-  timeSlotId = db.Column(db.Integer, db.ForeignKey('timeslot.id'))
+  timeSlotId = db.Column(db.Integer, db.ForeignKey('timeSlot.id'))
   roomId = db.Column(db.Integer, db.ForeignKey('room.id'))

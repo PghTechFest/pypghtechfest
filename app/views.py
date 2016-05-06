@@ -2,7 +2,7 @@ import datetime
 from flask import render_template, flash, redirect
 from app import app, db
 from .forms import SpeakerForm
-from .models import Submission, ScheduleSlot
+from .models import Submission, ScheduleSlot, Room, TimeSlot
 from config import appConfiguration, logger
 
 @app.route('/')
@@ -59,7 +59,13 @@ def talks():
 
 @app.route('/schedule', methods=['GET'])
 def schedule():
-  items = ScheduleSlot.query.all()
+  items = ScheduleSlot.query.\
+  join(TimeSlot, ScheduleSlot.timeSlotId==TimeSlot.id).\
+  join(Submission).\
+  join(Room).\
+  add_columns(TimeSlot.timeSlotName, Submission.title, Room.roomName).\
+  order_by(TimeSlot.sortOrder, Room.sortOrder).\
+  all()
   return render_template('schedule.html',
                           items = items,
                           settings = appConfiguration)

@@ -63,7 +63,12 @@ def schedule():
   join(TimeSlot, ScheduleSlot.timeSlotId==TimeSlot.id).\
   join(Submission).\
   join(Room).\
-  add_columns(TimeSlot.timeSlotName, Submission.title, Room.roomName).\
+  add_columns(TimeSlot.timeSlotName,
+    Room.roomName,
+    Submission.title,
+    Submission.abstract,
+    Submission.firstName,
+    Submission.lastName).\
   order_by(TimeSlot.sortOrder, Room.sortOrder).\
   all()
   return render_template('schedule.html',

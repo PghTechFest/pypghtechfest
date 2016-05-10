@@ -9,32 +9,15 @@
         <div class="logo_welcome">
           <h1 class="title" style="text-align: center;">Schedule</h1>
         </div>
-        <div class="welcome-text" style="text-align: left; margin: 40px 0 0 0">
-          <table>
-            <thead>
-              <tr>
-                <td width=30%>Time</td>
-                <td width=30%>Talk</td>
-                <td width=30%>Room</td>
-              </tr>
-            </thead>
-            <tbody>
-            {% for session in items %}
-              <tr>
-                <td>{{session.timeSlotName}}</td>
-                <td>{{session.title}}</td>
-                <td>{{session.roomName}}</td>
-              </tr>
-              <tr>
-                <td colspan="3">{{session.firstName}} {{session.lastName}}</td>
-              </tr>
-              <tr>
-                <td colspan="3">{{session.abstract}}</td>
-              </tr>
+        {% for group in items|groupby('timeSlotName') %}
+          <div class="welcome-text" style="text-align: left; margin: 40px 0 0 0">
+            <h2>{{group.grouper}}</h2>
+            {% for session in group.list %}
+              <h3>{{session.roomName}} - {{session.title}} <i>{{session.firstName}} {{session.lastName}}</i></h3>
+              <p>{{session.abstract}}</p>
             {% endfor %}
-            </tbody>
-          </table>
-        </div>
+          </div>
+        {% endfor %}
       </div>
     </div>
   </div>

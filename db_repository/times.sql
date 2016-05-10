@@ -19,3 +19,5 @@ INSERT INTO time_slot(id, "sortOrder", "timeSlotName") VALUES (9, 9, '4:00 - 5:0
 INSERT INTO time_slot(id, "sortOrder", "timeSlotName") VALUES (10, 10, '5:00 - 5:15');
 
 INSERT INTO time_slot(id, "sortOrder", "timeSlotName") VALUES (11, 11, '5:15 - 7:00');
+
+INSERT INTO time_slot(id, "sortOrder", "timeSlotName") VALUES (12, 12, '1:30 - 5:00');

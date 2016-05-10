@@ -1,0 +1,1 @@
+INSERT INTO schedule_slot(id, "talkId", "roomId", "timeSlotId") VALUES (?, ?, ?, ?);

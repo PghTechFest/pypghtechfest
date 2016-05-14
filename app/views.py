@@ -63,7 +63,8 @@ def schedule():
   join(TimeSlot, ScheduleSlot.timeSlotId==TimeSlot.id).\
   join(Submission).\
   join(Room).\
-  add_columns(TimeSlot.timeSlotName,
+  add_columns(TimeSlot.sortOrder,
+    TimeSlot.timeSlotName,
     Room.roomName,
     Submission.title,
     Submission.abstract,

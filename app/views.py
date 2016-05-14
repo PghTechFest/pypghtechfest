@@ -27,7 +27,7 @@ def sessions():
     Submission.abstract,
     Submission.firstName,
     Submission.lastName).\
-  order_by(TimeSlot.sortOrder, Room.sortOrder).\
+  order_by(Room.sortOrder).\
   all()
   return render_template('sessions.html',
                           items = items,

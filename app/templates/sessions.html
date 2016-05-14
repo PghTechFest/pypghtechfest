@@ -29,7 +29,7 @@
                 <h2>{{group.grouper}}</h2>
                 {% for session in group.list %}
                   <h4>{{session.roomName}} - <b>{{session.title}}</b> <i>{{session.firstName}} {{session.lastName}}</i></h4>
-                  <p>{{session.abstract}}</p>
+                  <p class="abstract-text">{{session.abstract}}</p>
                 {% endfor %}
               </div>
             {% endfor %}

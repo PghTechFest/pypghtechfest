@@ -29,6 +29,10 @@ img.welcome-logo{
   left: 10%;
 }
 
+.abstract-text{
+  font-size: small
+}
+
 div#content-area.container-fluid{
   background-image:url('../images/dicello-pittsburgh.jpg');
   width:100%;

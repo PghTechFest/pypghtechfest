@@ -17,7 +17,21 @@ def venue():
 
 @app.route('/sessions')
 def sessions():
-  return render_template("sessions.html", settings = appConfiguration)
+  items = ScheduleSlot.query.\
+  join(TimeSlot, ScheduleSlot.timeSlotId==TimeSlot.id).\
+  join(Submission).\
+  join(Room).\
+  add_columns(TimeSlot.timeSlotName,
+    Room.roomName,
+    Submission.title,
+    Submission.abstract,
+    Submission.firstName,
+    Submission.lastName).\
+  order_by(TimeSlot.sortOrder, Room.sortOrder).\
+  all()
+  return render_template('sessions.html',
+                          items = items,
+                          settings = appConfiguration)
 
 @app.route('/codeofconduct')
 def codeofconduct():

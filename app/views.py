@@ -70,21 +70,3 @@ def talks():
                            settings = appConfiguration,
                            title='Submit Talk',
                            form=form)
-
-@app.route('/schedule', methods=['GET'])
-def schedule():
-  items = ScheduleSlot.query.\
-  join(TimeSlot, ScheduleSlot.timeSlotId==TimeSlot.id).\
-  join(Submission).\
-  join(Room).\
-  add_columns(TimeSlot.timeSlotName,
-    Room.roomName,
-    Submission.title,
-    Submission.abstract,
-    Submission.firstName,
-    Submission.lastName).\
-  order_by(TimeSlot.sortOrder, Room.sortOrder).\
-  all()
-  return render_template('schedule.html',
-                          items = items,
-                          settings = appConfiguration)

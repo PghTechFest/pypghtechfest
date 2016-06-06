@@ -41,6 +41,10 @@ def codeofconduct():
 def sponsors():
   return render_template("sponsors.html", settings = appConfiguration)
 
+@app.route('/soldout')
+def soldout():
+  return render_template("soldout.html", settings = appConfiguration)
+
 @app.route('/callforspeakers', methods=['GET', 'POST'])
 def talks():
   if not appConfiguration['openSpeakers']:

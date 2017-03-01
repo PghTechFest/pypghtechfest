@@ -31,7 +31,7 @@ if os.environ.get('CALL_FOR_SPEAKERS_OPEN') is not None and str.lower(str(os.env
 else:
   CALL_FOR_SPEAKERS_OPEN = False
 
-appConfiguration = { "openSpeakers":False,
+appConfiguration = { "openSpeakers":True,
   "openVolunteers":False,
   "openRegistration":True,
   "showSessions":True }

@@ -10,7 +10,7 @@ from app.models import User
 def main():
     """Main entry point for script."""
     with app.app_context():
-        db.metadata.create_all(db.engine)
+        #db.metadata.create_all(db.engine)
 
         email = sys.argv[1]
         password = sys.argv[2]

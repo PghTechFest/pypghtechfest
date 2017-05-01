@@ -1,5 +1,6 @@
 import datetime
 from flask import render_template, flash, redirect
+from sqlalchemy.dialects import postgresql
 from app import app, db
 from .forms import SpeakerForm
 from .models import Submission, ScheduleSlot, Room, TimeSlot
@@ -17,7 +18,7 @@ def venue():
 
 @app.route('/sessions')
 def sessions():
-  items = ScheduleSlot.query.\
+  q = ScheduleSlot.query.\
   join(TimeSlot, ScheduleSlot.timeSlotId==TimeSlot.id).\
   join(Submission).\
   join(Room).\
@@ -27,8 +28,12 @@ def sessions():
     Submission.abstract,
     Submission.firstName,
     Submission.lastName).\
-  order_by(Room.sortOrder).\
-  all()
+  order_by(Room.sortOrder)
+
+  logger.debug(str(q.statement.compile(dialect=postgresql.dialect())))
+
+  items = q.all()
+
   return render_template('sessions.html',
                           items = items,
                           settings = appConfiguration)

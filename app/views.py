@@ -28,7 +28,7 @@ def sessions():
     Submission.abstract,
     Submission.firstName,
     Submission.lastName).\
-  order_by(Room.sortOrder)
+  order_by(TimeSlot.sortOrder, Room.sortOrder)
 
   #logger.debug(str(q.statement.compile(dialect=postgresql.dialect())))
 

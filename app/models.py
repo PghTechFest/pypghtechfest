@@ -108,5 +108,5 @@ class ScheduleSlot(db.Model):
   __tablename__ = 'schedule_slot'
   id = db.Column(db.Integer, primary_key=True)
   talkId = db.Column(db.Integer, db.ForeignKey('submission.id'))
-  timeSlotId = db.Column(db.Integer, db.ForeignKey('time_Slot.id'))
+  timeSlotId = db.Column(db.Integer, db.ForeignKey('time_slot.id'))
   roomId = db.Column(db.Integer, db.ForeignKey('room.id'))

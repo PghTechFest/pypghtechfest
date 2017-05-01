@@ -23,13 +23,12 @@ def sessions():
   join(Submission).\
   join(Room).\
   add_columns(TimeSlot.timeSlotName,
-    TimeSlot.sortOrder,
     Room.roomName,
     Submission.title,
     Submission.abstract,
     Submission.firstName,
     Submission.lastName).\
-  order_by(TimeSlot.sortOrder, Room.sortOrder)
+  order_by(Room.sortOrder)
 
   #logger.debug(str(q.statement.compile(dialect=postgresql.dialect())))
 

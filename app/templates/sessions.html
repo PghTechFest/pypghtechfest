@@ -12,7 +12,7 @@
     <div class="row wall-of-text">
         <div class="col-md-12">
             <h1>Sessions</h1>
-            {% for group in items|groupby('timeSlotName') %}
+            {% for group in items|groupby('sortOrder') %}
               <div class="welcome-text" style="text-align: left; margin: 40px 0 0 0">
                 <h2>{{group.grouper}}</h2>
                 {% for session in group.list %}

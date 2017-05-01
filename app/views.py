@@ -23,6 +23,7 @@ def sessions():
   join(Submission).\
   join(Room).\
   add_columns(TimeSlot.timeSlotName,
+    TimeSlot.sortOrder,
     Room.roomName,
     Submission.title,
     Submission.abstract,

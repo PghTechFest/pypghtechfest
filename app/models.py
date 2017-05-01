@@ -99,11 +99,13 @@ class Room(db.Model):
   roomName = db.Column(db.String(30))
 
 class TimeSlot(db.Model):
+  __tablename__ = 'time_slot'
   id = db.Column(db.Integer, primary_key=True)
   sortOrder = db.Column(db.Integer)
   timeSlotName = db.Column(db.String(30))
 
 class ScheduleSlot(db.Model):
+  __tablename__ = 'schedule_slot'
   id = db.Column(db.Integer, primary_key=True)
   talkId = db.Column(db.Integer, db.ForeignKey('submission.id'))
   timeSlotId = db.Column(db.Integer, db.ForeignKey('timeSlot.id'))

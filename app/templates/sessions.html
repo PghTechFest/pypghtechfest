@@ -11,6 +11,20 @@
     </div>
     <div class="row wall-of-text">
         <div class="col-md-12">
+            <h1>Sessions</h1>
+            {% for group in items|groupby('timeSlotName') %}
+              <div class="welcome-text" style="text-align: left; margin: 40px 0 0 0">
+                <h2>{{group.grouper}}</h2>
+                {% for session in group.list %}
+                  <h4>{{session.roomName}} - <b>{{session.title}}</b> <i>{{session.firstName}} {{session.lastName}}</i></h4>
+                  <p class="abstract-text">{{session.abstract}}</p>
+                {% endfor %}
+              </div>
+            {% endfor %}
+        </div>
+    </div>
+    <div class="row wall-of-text">
+        <div class="col-md-12">
             <h1>Panel Discussion</h1>
             <h2>Making the Leap: Become a Tech Entrepreneur</h2>
             <div class="welcome-text" style="text-align: left; margin: 40px 0 0 0">
@@ -23,43 +37,49 @@
                     <img width="100" height="100" src="/static/images/jackie-vesci.jpg" title="Jackie Vesci" alt="Jackie Vesci"/>
                 </div>
                 <div class="col-md-9">
-                    <h3>Jackie Vesci</h3>
-                    <p>Jackie is a co-founder of software startups Tagalong Tour and Spacefinity, an AlphaLab alum, and a co-organizer of Startup Weekend Pittsburgh Women&#39;s Edition.</p>
+                    <h4>Jackie Vesci</h4>
+                    <p class="abstract-text">Jackie is a co-founder of software startups Tagalong Tour and Spacefinity, an AlphaLab alum, and a co-organizer of Startup Weekend Pittsburgh Women&#39;s Edition.</p>
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-3"></div>
-                <div class="col-md-9"></div>
+                <div class="col-md-3">
+                    <img width="100" height="100" src="/static/images/carol-nichols.jpg" title="Carol Nichols" alt="Carol Nichols"/>
+                </div>
+                <div class="col-md-9">
+                    <h4>Carol Nichols</h4>
+                    <p class="abstract-text">Carol Nichols is a co-founder of Integer 32, the world's first Rust consultancy. She's a member of the Rust Core, Tools, and Community teams, and an organizer of the Rust Belt Rust conference. Carol is also a coauthor on The Rust Programming Language book, coming to print in October.</p>
+                </div>
             </div>
             <div class="row">
-                <div class="col-md-3"></div>
-                <div class="col-md-9"></div>
+                <div class="col-md-3">
+                    <img width="100" height="100" src="/static/images/jake-goulding.jpg" title="Jake Goulding" alt="Jake Goulding"/>
+                </div>
+                <div class="col-md-9">
+                    <h4>Jake Goulding</h4>
+                    <p class="abstract-text">Jake is a cofounder of Integer32, LLC, the world's first Rust consultancy. He's the number-one answerer for questions about Rust on Stack Overflow.</p>
+                </div>
             </div>
             <div class="row">
-                <div class="col-md-3"></div>
-                <div class="col-md-9"></div>
+                <div class="col-md-3">
+                    <img width="100" height="100" src="/static/images/jeremy-jarrell.jpg" title="Jeremy Jarrell" alt="Jeremy Jarrell"/>
+                </div>
+                <div class="col-md-9">
+                    <h4>Jeremy Jarrell</h4>
+                    <p class="abstract-text">Jeremy Jarrell is an author and mentor who helps teams ship great products. His work has been featured in publications such as InfoQ, Better Software Magazine, Pluralsight.com, and Front Row Agile.  </p>
+                </div>
             </div>
             <div class="row">
                 <div class="col-md-12">Your Moderator</div>
             </div>
             <div class="row">
-                <div class="col-md-3"></div>
-                <div class="col-md-9"></div>
+                <div class="col-md-3">
+                    <img width="100" height="100" src="/static/images/eric-kepes.jpg" title="Eric Kepes" alt="Eric Kepes"/>
+                </div>
+                <div class="col-md-9">
+                    <h4>Eric Kepes</h4>
+                    <p class="abstract-text">Eric Kepes is a technical leader specializing in helping teams deliver high-quality software. He chairs Pittsburgh TechFest and used to be Communications Director for PghDotNet. Eric currently works for Omnicell building medication supply chain solutions as a software architect.</p>
+                </div>
             </div>
-        </div>
-    </div>
-    <div class="row wall-of-text">
-        <div class="col-md-12">
-            <h1>Sessions</h1>
-            {% for group in items|groupby('timeSlotName') %}
-              <div class="welcome-text" style="text-align: left; margin: 40px 0 0 0">
-                <h2>{{group.grouper}}</h2>
-                {% for session in group.list %}
-                  <h4>{{session.roomName}} - <b>{{session.title}}</b> <i>{{session.firstName}} {{session.lastName}}</i></h4>
-                  <p class="abstract-text">{{session.abstract}}</p>
-                {% endfor %}
-              </div>
-            {% endfor %}
         </div>
     </div>
 </div>

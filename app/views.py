@@ -52,6 +52,7 @@ def soldout():
 
 @app.route('/callforspeakers', methods=['GET', 'POST'])
 def talks():
+  return redirect("https://www.papercall.io/pghtechfest2018", code=302)
   if not appConfiguration['openSpeakers']:
     return render_template('callforspeakers.html',
       settings = appConfiguration)

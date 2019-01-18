@@ -1,4 +1,4 @@
-.navbar {margin:20px 20px; padding-left:20px;}
+.navbar {margin:0px; padding:0; border:0; background:transparent !important; background-color:transparent !important;}
      .nav, .nav * {background:transparent !important; background-color:transparent !important;}
      .pad {padding:20px 20px 15px 20px;}
      .pad a:link, a:visited {color:white !important; font-size:medium}

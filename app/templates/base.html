@@ -7,17 +7,25 @@
     <title>Pittsburgh TechFest</title>
     <link rel="stylesheet" href="/static/css/bootstrap.min.css" />
     <link rel="stylesheet" href="/static/fonts/font-awesome.min.css">
-    <link rel="stylesheet" href="/static/css/styles.css?x15" />
+    <link rel="stylesheet" href="/static/css/styles.css?w" />
     <link rel="icon" href="/static/favicon.ico" sizes="16x16" type="image/x-icon">
 </head>
-
+<style>
+    .navbar {margin:20px 20px; padding-left:20px;}
+     .nav, .nav * {background:transparent !important; background-color:transparent !important;}
+     .pad {padding:20px 20px 15px 20px;}
+     .pad a:link, a:visited {color:white !important; font-size:medium}
+    
+    #title { margin:5% !important; align-content: center; margin-left:-15% !important;}
+    .banner {background:transparent !important; background-color:transparent !important; margin-top:30%;}
+    #main { background-image: url('/static/images/kevin-erdvig-761315-unsplash.jpg?e'); background-position: bottom; width: 110%; min-height: 1200px; position:relative; margin: -21px -30px 0 -30px; }
+</style>
 <body>
-    <nav class="navbar navbar-inverse">
+    <nav class="navbar navbar-inverse nav">
         <div class="container-fluid">
             <div class="navbar-header">
                 <a href="/" class="navbar-brand navbar-link">
-                    <!--<img src="/static/images/logo.png?x12" style="margin-top:-12px" />-->
-                    PGH TECHFEST 2019
+                    <img src="/static/images/logo-h.png?x1" alt="PGH TECHFEST Storytellers 2019" title="PGH TECHFEST Storytellers 2019"/>
                 </a>
                 <button data-toggle="collapse" data-target="#navcol-1" class="navbar-toggle collapsed">
                     <span class="sr-only">Toggle navigation</span>
@@ -28,28 +36,29 @@
             </div>
             <div class="collapse navbar-collapse" id="navcol-1">
                 <ul class="nav navbar-nav">
+                    <li role="presentation" class="pad"><a href="https://www.papercall.io/techfest-storytellers-2019"><span style="background-color:green !important">SUBMIT A TALK &nbsp; [OPEN!]</span></span></a></li>
                     <!--<li role="presentation"><a href="venue">VENUE </a></li>
                     <li role="presentation" class="active"><a href="https://www.eventbrite.com/e/pittsburgh-techfest-2018-tickets-44705285713">REGISTER</a></li>
-                    <li role="presentation"><a href="https://goo.gl/forms/g1HUjyQwFGlgGTbN2">VOLUNTEER</a></li> -->
-                    <li role="presentation">
+                    <li role="presentation"><a href="https://goo.gl/forms/g1HUjyQwFGlgGTbN2">VOLUNTEER</a></li> 
+                    <li role="presentation" class="pad">
                         <a href="sponsors">2018 SPONSORS</a>
                     </li>
-                    <li role="presentation">
+                    <li role="presentation" class="pad">
                         <a href="sessions">2018 SESSIONS</a>
                     </li>
-                    <!--<li role="presentation"><a href="https://www.papercall.io/pghtechfest2018">Submit a Talk</a></li>-->
-                    <li role="presentation">
+                    -->
+                    <li role="presentation" class="pad">
                         <a href="codeofconduct">CoC</a>
                     </li>
                     <!--<li role="presentation"><a href="http://blog.pghtechfest.com/">BLOG</a></li>-->
-                    <li role="presentation">
+                    <li role="presentation" class="pad">
                         <a href="https://groups.google.com/forum/#!forum/pghtechfest">MAILING LIST</a>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
-    <div class="container-fluid">
+    <div class="container-fluid" id="main">
 
 
         {% with messages = get_flashed_messages() %} {% if messages %}
@@ -82,10 +91,10 @@
             </div>
             <div class="col-md-4">
                 <h1>CONTACT</h1>
-                <p>If you have any questions regarding Pittsburgh TechFest, please contact us at</p>
                 <a href="mailto:pittsburghtechfest@gmail.com">
                     <strong>pittsburghtechfest@gmail.com</strong>
                 </a>
+                <p>&nbsp;&nbsp;&nbsp;<br/>&nbsp;&nbsp;&nbsp;</p>
                 <p>&nbsp;&nbsp;&nbsp;<br/>&nbsp;&nbsp;&nbsp;</p>
             </div>
         </div>

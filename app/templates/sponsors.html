@@ -2,9 +2,31 @@
 
 {% block content %}
 
-    <!--====== header ======-->
-    <section id="home" class="header demo3" data-stellar-background-ratio="0.5">
+<style>
 
+.bloop {
+	height: 1vh;
+	width: 100%;
+	
+	position: relative;
+}
+
+.bloop .caption {
+	text-align: center;
+	text-transform: uppercase;
+}
+
+.bloop .caption h1 {
+	font-weight: 900;
+	font-size: 70px;
+	margin: 30px auto;
+}
+
+</style>
+
+    <!--====== header ======-->
+    <section id="home" class="header demo3" data-stellar-background-ratio="0.5"></section>
+    <section id="about" class="bloop hero section-padding section-bord" style="margin-top:-200px; margin-bottom:700px;">
       <div class="v-middle">
         <div class="caption">
           <div style="margin:30px 0;">
@@ -27,7 +49,7 @@
           </div>
           <div style="margin:60px 0;">
             <h3><span class="pop">Platinum</span></h3>
-                        <br />
+            <br />
             <img src="/static/images/sponsors/aerotech.png?z1" style="width:280px;" />
             <br/>
             <br />
@@ -37,6 +59,11 @@
             <img src="/static/images/sponsors/upmcenterprises.png?z1" style="width:290px;" />
             <br />
             <img src="/static/images/sponsors/turnitin.png?z0" style="width:280px;" />
+          </div>
+          <div style="margin:60px 0;">
+            <h3><span class="pop">Supporting</span></h3>
+            <br />
+            <img src="/static/images/sponsors/tech-elevator.png?z0" style="width:180px;" />
           </div>
           <div style="margin:30px 0;">
             <h3><span class="pop">Venue</span></h3>

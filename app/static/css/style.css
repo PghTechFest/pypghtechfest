@@ -32,9 +32,12 @@ TABLE OF CONTENTS
 
 body{
 	font-family: 'Open Sans', sans-serif;
-	color: #333;
+	color:white;
 	line-height: 1.25;
+	background:black;
 }
+
+p {color:antiquewhite !important;}
 
 .section-padding{
 	padding: 100px 0;
@@ -47,7 +50,7 @@ body{
 .tit{
 	margin-bottom: 70px;
 	padding-bottom: 30px;
-	color: #444;
+	color: white;
 	text-transform: uppercase;
 	position: relative;
 }

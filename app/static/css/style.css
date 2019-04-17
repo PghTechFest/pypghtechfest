@@ -280,22 +280,22 @@ h1,h2,h3,h4,h5,h6{
                      Services 
 -------------------------------------------------------- */
 
-.services{
+.sponsors{
 	overflow: hidden;
 }
 
-.services .item{
+.sponsors .item {
 	padding: 50px 30px;
 	box-shadow: 0px 10px 30px #f4f4f4;
 	margin-bottom: 30px;
 }
 
-.services .item span{
+.sponsors .item span {
 	font-size: 40px;
 	color: #00c0ce;
 }
 
-.services .item h6{
+.sponsors .item h6 {
 	text-transform: uppercase;
 	margin: 25px auto 20px;
 	color: #555;

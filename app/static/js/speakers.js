@@ -1,4 +1,4 @@
-(function() {
+$(function() {
   var LIST_DOM_SELECTOR = "#speaker-list";
   var MENU_DOM_SELECTOR = "#presentation-select";
 

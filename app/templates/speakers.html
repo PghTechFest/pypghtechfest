@@ -1,19 +1,18 @@
 {% extends "base.html" %} {% block content %}
 
-<section>
-  <div>
-    <h1>Speakers</h1>
-  </div>
-  <div>
+<!--====== Header ======-->
+<section id="header" class="hero section-padding section-bord">
+  <div class="container">
+    <h5 class="tit tit-left">Speakers</h5>
     <select id="presentation-select">
       <option value="">Jump to a presentation</option>
     </select>
-  </div>
-  <div id="speakers-container">
-    <ul id="speaker-list">
-    </ul>
-  </div>
-
-  <div id="back-to-top">Back To Top</div>
 </section>
+<!--====== End Header ======-->
+
+<!--====== Speaker List ======-->
+<div id="speaker-list"></div>
+<!--====== End Speaker List ======-->
+
+<div id="back-to-top">Back To Top</div>
 {% endblock %}

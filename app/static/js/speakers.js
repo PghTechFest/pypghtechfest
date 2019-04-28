@@ -2,23 +2,32 @@ $(function() {
   var LIST_DOM_SELECTOR = "#speaker-list";
   var MENU_DOM_SELECTOR = "#presentation-select";
 
-  var buildPresentations = function(presentations, listDomSelector, menuDomSelector) {
+  var buildPresentations = function(
+    presentations,
+    listDomSelector,
+    menuDomSelector
+  ) {
     // dynamically build presentation list
-    presentations.forEach(function(presi) {
+    presentations.forEach(function(presi, index) {
       var specialCharRegex = /\W|_/g;
-      var urlSlug = _.compact(presi.title
-        .toLowerCase()
-        .replace(specialCharRegex, " ")
-        .split(" "))
-        .join("-");
+      var urlSlug = _.compact(
+        presi.title
+          .toLowerCase()
+          .replace(specialCharRegex, " ")
+          .split(" ")
+      ).join("-");
       var listTemplate = `
-      <li class="presentation-info-container">
-        <section id=${urlSlug}>
-          <h2 class="presentation-title">${presi.title}</h2>
-          <h3 class="presentation-speaker-name">${presi.name}</h3>
-          <p class="presentation-description">${presi.description}</p>
+        <section id="presentation-${index}" class="sponsors section-padding section-bord">
+          <div class="container">
+            <h5 class="tit tit-left">${presi.title}</h5>
+            <div class="row">
+              <div class="tit-center col-md-10 mb-100">
+                <h6>${presi.name}</h6>
+                <p>${presi.description}</p>
+              </div>
+            </div>
+          </div>
         </section>
-      </li>
       `;
       $(listDomSelector).append(listTemplate);
 
@@ -414,8 +423,8 @@ $(function() {
   // build list
   $(document).ready(function() {
     buildPresentations(presentationList, LIST_DOM_SELECTOR, MENU_DOM_SELECTOR);
-    $('#back-to-top').click(function() {
-      window.scrollTo(0,0);
+    $("#back-to-top").click(function() {
+      window.scrollTo(0, 0);
     });
   });
 });

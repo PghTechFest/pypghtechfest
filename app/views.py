@@ -46,7 +46,7 @@ def codeofconduct():
 def sponsors():
   return render_template("sponsors.html", settings = appConfiguration)
 
-@app.route('/speakers')
+@app.route('/speakerspghtestfest')
 def speakers():
   return render_template("speakers.html", settings = appConfiguration)
 

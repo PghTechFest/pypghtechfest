@@ -1,16 +1,19 @@
-<div>
-  <h1>Speakers</h1>
-</div>
-<div>
-  <select id="presentation-select">
-    <option value="">Jump to a presentation</option>
-  </select>
-</div>
-<div id="speakers-container">
-  <ul id="speaker-list">
-  </ul>
-</div>
+{% extends "base.html" %} {% block content %}
 
-<div id="back-to-top">Back To Top</div>
+<section>
+  <div>
+    <h1>Speakers</h1>
+  </div>
+  <div>
+    <select id="presentation-select">
+      <option value="">Jump to a presentation</option>
+    </select>
+  </div>
+  <div id="speakers-container">
+    <ul id="speaker-list">
+    </ul>
+  </div>
 
+  <div id="back-to-top">Back To Top</div>
+</section>
 <script src="/static/js/speakers.js"></script>

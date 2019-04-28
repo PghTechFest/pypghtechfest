@@ -1,5 +1,7 @@
 #back-to-top {
-  background-color: lightskyblue;
+  background-color: #fcb040;
+  color: #000;
+  font-weight: bold;
   padding: 15px;
   position: fixed;
   bottom: 0px;

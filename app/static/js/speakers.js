@@ -4,7 +4,7 @@
 
   var buildPresentations = function(presentations, listDomSelector, menuDomSelector) {
     // dynamically build presentation list
-    presentations.forEach(function(presi) {
+    presentations.forEach(function(presi, index) {
       var specialCharRegex = /\W|_/g;
       var urlSlug = _.compact(presi.title
         .toLowerCase()
@@ -12,14 +12,18 @@
         .split(" "))
         .join("-");
       var listTemplate = `
-      <li class="presentation-info-container">
-        <section id=${urlSlug}>
-          <h2 class="presentation-title">${presi.title}</h2>
-          <h3 class="presentation-speaker-name">${presi.name}</h3>
-          <p class="presentation-description">${presi.description}</p>
+        <section id="presentation-${index}" class="sponsors section-padding section-bord">
+          <div class="container">
+            <h5 class="tit tit-left">${presi.title}</h5>
+            <div class="row">
+              <div class="tit-center col-md-10 mb-100">
+                <h6>${presi.name}</h6>
+                <p>${presi.description}</p>
+              </div>
+            </div>
+          </div>
         </section>
-      </li>
-      `;
+      `
       $(listDomSelector).append(listTemplate);
 
       // dynamically build presentation menu

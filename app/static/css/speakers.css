@@ -1,0 +1,24 @@
+.presentation-info-container {
+  list-style: none;
+  border: solid #000 1px;
+  margin-bottom: 5px;
+  padding: 5px;
+}
+
+.presentation-title {
+}
+
+.presentation-speaker-name {
+}
+
+.presentation-description {
+}
+
+#back-to-top {
+  background-color: lightskyblue;
+  padding: 15px;
+  position: fixed;
+  bottom: 0px;
+  right: 50%;
+  cursor: pointer;
+}

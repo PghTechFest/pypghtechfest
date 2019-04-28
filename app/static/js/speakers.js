@@ -2,15 +2,20 @@ $(function() {
   var LIST_DOM_SELECTOR = "#speaker-list";
   var MENU_DOM_SELECTOR = "#presentation-select";
 
-  var buildPresentations = function(presentations, listDomSelector, menuDomSelector) {
+  var buildPresentations = function(
+    presentations,
+    listDomSelector,
+    menuDomSelector
+  ) {
     // dynamically build presentation list
     presentations.forEach(function(presi, index) {
       var specialCharRegex = /\W|_/g;
-      var urlSlug = _.compact(presi.title
-        .toLowerCase()
-        .replace(specialCharRegex, " ")
-        .split(" "))
-        .join("-");
+      var urlSlug = _.compact(
+        presi.title
+          .toLowerCase()
+          .replace(specialCharRegex, " ")
+          .split(" ")
+      ).join("-");
       var listTemplate = `
         <section id="presentation-${index}" class="sponsors section-padding section-bord">
           <div class="container">
@@ -23,7 +28,7 @@ $(function() {
             </div>
           </div>
         </section>
-      `
+      `;
       $(listDomSelector).append(listTemplate);
 
       // dynamically build presentation menu
@@ -418,8 +423,8 @@ $(function() {
   // build list
   $(document).ready(function() {
     buildPresentations(presentationList, LIST_DOM_SELECTOR, MENU_DOM_SELECTOR);
-    $('#back-to-top').click(function() {
-      window.scrollTo(0,0);
+    $("#back-to-top").click(function() {
+      window.scrollTo(0, 0);
     });
   });
 });

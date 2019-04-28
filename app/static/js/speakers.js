@@ -8,7 +8,7 @@ $(function() {
     menuDomSelector
   ) {
     // dynamically build presentation list
-    presentations.forEach(function(presi, index) {
+    presentations.forEach(function(presi) {
       var specialCharRegex = /\W|_/g;
       var urlSlug = _.compact(
         presi.title
@@ -17,7 +17,7 @@ $(function() {
           .split(" ")
       ).join("-");
       var listTemplate = `
-        <section id="presentation-${index}" class="sponsors section-padding section-bord">
+        <section id="${urlSlug}" class="sponsors section-padding section-bord">
           <div class="container">
             <h5 class="tit tit-left">${presi.title}</h5>
             <div class="row">

@@ -228,7 +228,7 @@ $(function() {
   I, for one, welcome our neo-Taylorist overlords.`
     ),
     new Presentation(
-      "Craig L",
+      "Craig Lang",
       "Wow, I learned a new programming language and did not even plan on doing so!",
       `Over a period of 15 years I wrote a tool that helped automate some of the mundane portions of my daily development routine. I needed to get some tasks automated for better use of my time.
 
@@ -417,7 +417,6 @@ $(function() {
       "Hello World: A Journey of Starting Over",
       `This will be a breadth not depth talk covering a few projects I’ve worked on. I’ll talk a bit about each projects, I’ll underscore the catalysts that resulted in a redo of the project, I’ll talk about how each rewrite/refactor was approached, and finally distill what went well and what could have gone better each time.`
     ),
-    new Presentation("?", "Hackathons are great, why not your company?", `?`)
   ];
 
   // build list

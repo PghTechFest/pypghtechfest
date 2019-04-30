@@ -184,6 +184,24 @@ h1,h2,h3,h4,h5,h6{
 	margin-bottom: 40px;
 }
 
+.buy-button-container {
+	display: flex;
+	justify-content: center;
+}
+
+.buy-button {
+	margin-top: 10px;
+	padding: 10px 5%;
+	background-color: #fcb040;
+	color: #000;
+	font-family: "Roboto", sans-serif;
+	font-size: 25px;
+	text-transform: uppercase;
+	font-weight: 500;
+	border: none;
+	border-radius: 8px;
+}
+
 /* -------------------------------------------------------
                      hero 
 -------------------------------------------------------- */

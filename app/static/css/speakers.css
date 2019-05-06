@@ -1,0 +1,14 @@
+#presentation-select {
+  width: 70%;
+}
+
+#back-to-top {
+  background-color: #fcb040;
+  color: #000;
+  font-weight: bold;
+  padding: 15px;
+  position: fixed;
+  bottom: 0px;
+  right: 50%;
+  cursor: pointer;
+}

@@ -417,6 +417,42 @@ $(function() {
       "Hello World: A Journey of Starting Over",
       `This will be a breadth not depth talk covering a few projects I’ve worked on. I’ll talk a bit about each projects, I’ll underscore the catalysts that resulted in a redo of the project, I’ll talk about how each rewrite/refactor was approached, and finally distill what went well and what could have gone better each time.`
     ),
+    new Presentation(
+      "Jeff Cohen, Sanju Sunny",
+      "Have a Vision, Make it Beautiful, Make it Real",	
+      "How user - centric design can be a valuable paradigm shift and approach to product and software engineering, as told through Avanade's year-long engagement modernizing one of the nation's largest health insurer's software collaboration system. Follow the team as they travelled around the country, meeting with patients, physicians, nurses, and healthcare providers - uncovering unexpected challenges and opportunities, and co-creating a better product with the very people who would eventually use it. Learn pragmatic techniques to infuse user-centric design into agile product development to build products that people love."
+    ),
+    new Presentation(
+      "Vishakh Viswanathan",	
+      "Time To Train Your Digital Workforce",
+      `Let’s face it. The bots have been hired! Automation  is hot and it isn’t going away.The key to optimizing our digital workforce for individual and organizational growth requires knowing how
+  to collaborate with them.This session shares a two - year journey of how SDLC Partners built and leveraged our experiences in RPA to devise a sustainable mechanism to recruit, orient, induct, train, and develop
+  bots to meet our customers’ goals. When we started this journey, I wanted to understand how these digital workers could enhance our organization and our clients’ businesses.The market quickly became flooded with buzz words 'AI', 'RPA', and 'Intelligent Automation; and there seemed to be no boundaries to expectations.While some customers wanted
+  their bot to perform complex decision making, others wanted it to read atrocious handwriting, which frankly I could not read myself!
+    < br /> <br />
+  Listen in as I tell the story of our RPA journey and how we created a service that brings customers from their lofty
+  expectations, through the trough of disillusionment, and to the point of scalable, measurable return on their RPA investment.`
+    ),
+    new Presentation(
+      "Aaron Kopel",
+      "Leadership Agility – from Expert to Catalyst",	
+      "Deep knowledge and expertise is great for getting work done, but can hold us back in a leadership capacity.Expert leadership is limited by a narrow tactical view, often unaware of the broader ecosystem and other perspectives.Effective leaders grow capabilities beyond their technical expertise to catalyze others to find better solutions and deliver them collaboratively.I’ll share my journey from developer to CEO over the past 20 years and my growth through from Expert to Achiever to Catalyst levels of Leadership Agility articulated by Bill Joiner."
+    ),
+    new Presentation(
+      "Ken Howard",	
+      "Ready for Takeoff: The Journey from On - Premises to the Cloud",	
+      "Innovating in a compartmentalized on - premises environment isn’t impossible, but in today’s need -for-speed - workspaces it’s limiting, and things quickly become overburdened.This rings especially true in large organizations as more people and more data weigh things down.This presentation explores the journey of UPMC Enterprises’ adoption of a fail - fast - develop - rapidly mindset, and the pains and gains associated with taking a 250 + person team and their projects to the cloud.From the early days of building core competencies, to standardizing technologies and services, to the evolution of DevOps in the cloud, there’s been a little turbulence – but much more success – so buckle your seatbelt, put your electronic devices in airplane mode, and enjoy the ride."
+    ),
+    new Presentation(
+      "Shantanu Bhide, Don Frederick, Brian Dunar",	
+      "Emerging technology trends in Long Term Healthcare: Convergence of Voice Assistant, Connected Devices and Quality Measures!",	
+      "Healthcare in general and Long - term care in particular has evolved tremendously over the last couple of decades.Technology advances have initiated a business transformation in the healthcare industry for the better.Many healthcare organizations are leveraging emerging technology advances to improve efficiency, increase margins, and be profitable in today's competitive environment. The SoftWriters team will present some bold and exciting technology directions and demonstrations that are likely to accelerate the digital transformation across the industry."
+    ),
+    new Presentation(
+      "John Brescia, Alex Durr, TJ Kilgore, Nathan Menge",	
+      "Lost and Found: Collecting and Analyzing Data to Create Something Useful",	
+      "A well - known fact is that the internet is our access point to the largest wealth of information ever known to the human race.What’s lesser known is how much of that data is just “laying” around waiting to be collected and analyzed.IoT devices, camera feeds, information alert streams, all free and useful data just waiting to be used.Please join Virtix IT / Arrow ECS to see a few examples of how to collect / analyze this found data and how to do something cool with it utilizing readily available public cloud services.Our presentation will culminate with an open discussion where we will brain storm with the audience and ask the question “what data can you think of that's ready to be found and what can we do with it?”."
+    )
   ];
 
   // build list

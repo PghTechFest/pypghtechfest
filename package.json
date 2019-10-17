@@ -18,6 +18,6 @@
     "webpack": "^1.10.5"
   },
   "dependencies": {
-    "jquery": "^2.2.1"
+    "jquery": "^3.4.1"
   }
 }

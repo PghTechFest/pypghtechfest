@@ -1,6 +1,6 @@
 import datetime
 from flask import render_template, flash, redirect
-from flask.ext.login import login_required, login_user, logout_user, current_user
+from flask_login import login_required, login_user, logout_user, current_user
 from app import app, db, lm, bcrypt
 from .forms import SpeakerForm, LoginForm, ChangePwdForm
 from .models import Submission, User, Vote
